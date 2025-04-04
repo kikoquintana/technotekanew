@@ -21,6 +21,7 @@
         }
         header h1 {
             font-size: 3em;
+            margin: 0;
         }
         section {
             padding: 20px;
@@ -29,10 +30,12 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap; /* Permite que las imágenes se acomoden en líneas en pantallas pequeñas */
         }
         .photos img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            max-width: 300px; /* Limita el ancho máximo para que no se agrande en pantallas más grandes */
+            height: auto; /* Ajusta la altura proporcionalmente */
             object-fit: cover;
             border-radius: 10px;
         }
@@ -66,6 +69,35 @@
         .site-image-container {
             text-align: center;
             margin: 20px 0;
+        }
+
+        /* Medios de consulta para dispositivos móviles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Reduce el tamaño del título en pantallas pequeñas */
+            }
+            .photos {
+                justify-content: center;
+            }
+            .links li {
+                font-size: 1.1em; /* Aumenta un poco el tamaño de fuente en los enlaces */
+            }
+            .map iframe {
+                height: 300px; /* Ajusta la altura del mapa para pantallas más pequeñas */
+            }
+        }
+
+        /* Para pantallas más pequeñas (móviles) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em; /* Reduce aún más el tamaño del título */
+            }
+            .photos img {
+                max-width: 90%; /* Hace que las imágenes ocupen más espacio en pantallas más pequeñas */
+            }
+            footer {
+                font-size: 0.8em; /* Ajusta el tamaño de fuente en el pie de página */
+            }
         }
     </style>
 </head>
@@ -122,10 +154,6 @@
             <li>
                 <strong>Montjuïc</strong> – Una colina con vistas increíbles, llena de jardines, museos y un castillo.
                 <a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Ver en el mapa</a>
-            </li>
-            <li>
-                <strong>Casa Fuster</strong> – Un monumento arquitectónico importante en Sant Cugat del Vallés. 
-                <a href="https://www.google.com/maps/place/Casa+Fuster/@41.0476,2.0821,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a1eddfdcb3fb:0xe4073c7d8d4a1041!8m2!3d41.0476!4d2.0843!16s%2Fg%2F11b6gk29v6" target="_blank">Ver en el mapa</a>
             </li>
         </ul>
     </section>
