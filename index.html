@@ -4,71 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & Kiko</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdfefe;
+            background-color: #fdfefe; /* Fondo blanco */
             color: #333;
         }
+
+        /* Cabecera */
         header {
-            background-color: #b6b6a2;
+            background-color: #b6b6a2; /* Azul cielo oscuro */
             padding: 20px;
             text-align: center;
             color: white;
             position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header img {
-            position: absolute; /* Esto lo coloca detrás del texto */
-            top: 10px; /* Puedes ajustar la posición */
-            left: 50%; /* Centrado */
-            transform: translateX(-50%); /* Para centrar mejor la imagen */
-            max-width: 150px; /* Ajusta el tamaño de la imagen */
-            opacity: 0.5; /* Le da un poco de transparencia para que no cubra el texto */
+
+        /* Logo izquierdo */
+        header .logo-left {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 100px;
+            opacity: 0.8;
         }
+
+        /* Logo derecho */
+        header .logo-right {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 100px;
+            opacity: 0.8;
+        }
+
         header h1 {
+            font-family: 'Dancing Script', cursive;
             font-size: 3em;
             margin: 0;
-            z-index: 1; /* Esto asegura que el texto se muestre sobre la imagen */
+            z-index: 1;
         }
+
         section {
             padding: 20px;
         }
+
         .photos {
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Permite que las imágenes se acomoden en líneas en pantallas pequeñas */
         }
+
         .photos img {
             width: 100%;
-            max-width: 300px;
-            height: auto;
+            max-width: 300px; /* Limita el ancho máximo para que no se agrande en pantallas más grandes */
+            height: auto; /* Ajusta la altura proporcionalmente */
             object-fit: cover;
             border-radius: 10px;
         }
+
+        .links, .map {
+            margin-top: 30px;
+        }
+
+        .links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .links li {
+            margin: 10px 0;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
         footer {
-            background-color: #7bbcf5;
+            background-color: #7bbcf5; /* Azul cielo oscuro */
             text-align: center;
             padding: 10px;
             margin-top: 30px;
+        }
+
+        /* Medios de consulta para dispositivos móviles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Reduce el tamaño del título en pantallas pequeñas */
+            }
+
+            .photos {
+                justify-content: center;
+            }
+
+            .links li {
+                font-size: 1.1em; /* Aumenta un poco el tamaño de fuente en los enlaces */
+            }
+
+            .map iframe {
+                height: 300px; /* Ajusta la altura del mapa para pantallas más pequeñas */
+            }
+        }
+
+        /* Para pantallas más pequeñas (móviles) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em; /* Reduce aún más el tamaño del título */
+            }
+
+            .photos img {
+                max-width: 90%; /* Hace que las imágenes ocupen más espacio en pantallas más pequeñas */
+            }
+
+            footer {
+                font-size: 0.8em; /* Ajusta el tamaño de fuente en el pie de página */
+            }
+        }
+
+        /* Estilos adicionales para el QR */
+        .qr-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .qr-container img {
+            width: 150px;
+            height: 150px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Aquí añades la imagen -->
-        <img src="images/logo boda.jpg" alt="Ilustración de boda">
+        <!-- Logo izquierdo -->
+        <img src="images/logo-boda.png" alt="Logo de boda" class="logo-left">
+        
+        <!-- Título centrado -->
         <h1>¡Bienvenidos a la Boda de Anna & Kiko!</h1>
-        <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
+        
+        <!-- Logo derecho -->
+        <img src="images/logo-boda.png" alt="Logo de boda" class="logo-right">
     </header>
 
     <section>
         <h2>Nuestra Historia</h2>
         <p>En este apartado puedes poner un texto sobre la historia de los novios, cómo se conocieron, momentos importantes, etc.</p>
+    </section>
+
+    <section>
+        <h2>Galería de Fotos</h2>
+        <div class="photos">
+            <img src="images/Foto 1.jpg" alt="Foto de los novios">
+            <img src="images/Foto 2.jpg" alt="Foto de los novios">
+            <img src="images/Bitcoin.jpg" alt="Foto de los novios">
+        </div>
+    </section>
+
+    <section class="links">
+        <h2>Información para los invitados</h2>
+        <ul>
+            <li><a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a></li>
+            <li><a href="https://www.hotel2.com" target="_blank">Hotel Qcat</a></li>
+            <li><a href="https://www.sitio2.com" target="_blank">Sitio de interés 2</a></li>
+            <li><a href="https://www.sitio3.com" target="_blank">Sitio de interés 3</a></li>
+        </ul>
+    </section>
+
+    <section class="links">
+        <h2>Sitios de Interés en Barcelona</h2>
+        <ul>
+            <li><strong>La Sagrada Familia</strong> – Una obra maestra de Antoni Gaudí, famosa por su arquitectura única. 
+                <a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">Ver en el mapa</a>
+            </li>
+            <li><strong>Tibidabo</strong> – Un parque de atracciones con vistas espectaculares de la ciudad. 
+                <a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Ver en el mapa</a>
+            </li>
+            <li><strong>Parque Güell</strong> – Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.
+                <a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Ver en el mapa</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- QR para subir fotos -->
+    <section class="qr-container">
+        <h2>¡Sube tus fotos del evento!</h2>
+        <p>Escanea el código QR para compartir tus fotos con nosotros.</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://www.ejemplo.com/upload&size=150x150" alt="QR para subir fotos">
+    </section>
+
+    <section class="map">
+        <h2>Mapa de los lugares importantes</h2>
+        <p>Haz clic en el mapa para obtener más detalles sobre cómo llegar a los sitios que mencionamos.</p>
+        <iframe src="https://masia.casafuster.net/" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <footer>
