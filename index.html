@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & Kiko</title>
+    <!-- Enlace correcto a la fuente Dancing Script -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Aplicamos la fuente Dancing Script en todo el sitio */
         body {
             font-family: 'Dancing Script', cursive;
             margin: 0;
             padding: 0;
             background-color: #fdfefe; /* Fondo blanco */
             color: #333;
+            font-size: 20px; /* Tamaño base más grande */
         }
         header {
             background-color: #b6b6a2; /* Azul cielo oscuro */
@@ -20,11 +23,14 @@
             color: white;
         }
         header h1 {
-            font-size: 3em;
+            font-size: 4em; /* Hacemos el título aún más grande */
             margin: 0;
         }
-        section {
-            padding: 20px;
+        section h2 {
+            font-size: 2.5em; /* Hacemos los subtítulos más grandes */
+        }
+        section p {
+            font-size: 1.3em; /* Aumentamos el tamaño del texto en los párrafos */
         }
         .photos {
             display: flex;
@@ -48,6 +54,7 @@
         }
         .links li {
             margin: 10px 0;
+            font-size: 1.5em; /* Aumentamos el tamaño de los enlaces */
         }
         .map iframe {
             width: 100%;
@@ -74,13 +81,16 @@
         /* Medios de consulta para dispositivos móviles */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.5em; /* Reduce el tamaño del título en pantallas pequeñas */
+                font-size: 3em; /* Reduce el tamaño del título en pantallas más pequeñas */
+            }
+            section h2 {
+                font-size: 2em; /* Reduce el tamaño de los subtítulos */
             }
             .photos {
                 justify-content: center;
             }
             .links li {
-                font-size: 1.1em; /* Aumenta un poco el tamaño de fuente en los enlaces */
+                font-size: 1.3em; /* Aumenta un poco el tamaño de fuente en los enlaces */
             }
             .map iframe {
                 height: 300px; /* Ajusta la altura del mapa para pantallas más pequeñas */
@@ -90,13 +100,13 @@
         /* Para pantallas más pequeñas (móviles) */
         @media (max-width: 480px) {
             header h1 {
-                font-size: 2em; /* Reduce aún más el tamaño del título */
+                font-size: 2.5em; /* Reduce aún más el tamaño del título */
             }
             .photos img {
                 max-width: 90%; /* Hace que las imágenes ocupen más espacio en pantallas más pequeñas */
             }
             footer {
-                font-size: 0.8em; /* Ajusta el tamaño de fuente en el pie de página */
+                font-size: 1em; /* Ajusta el tamaño de fuente en el pie de página */
             }
         }
     </style>
