@@ -9,121 +9,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Iridia+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Iridia Sans', sans-serif;
+            font-family: 'Iridia Sans', sans-serif; /* Cambiar la fuente a Iridia Sans para los párrafos */
             margin: 0;
             padding: 0;
-            background-color: #fdfefe;
+            background-color: #fdfefe; /* Fondo blanco */
             color: #333;
         }
-
+        /* Aplicar Dancing Script solo a los encabezados */
         h1, h2, h3 {
-            font-family: 'Dancing Script', sans-serif;
+            font-family: 'Dancing Script', sans-serif; /* Cambiar la fuente a Dancing Script */
         }
-
         header {
-            background-color: #7bbcf5;
+            background-color: #7bbcf5; /* Azul cielo oscuro */
             padding: 20px;
             text-align: center;
             color: white;
-            background-image: url('images/header-background.jpg'); /* Ruta de la imagen */
-            background-size: cover; /* La imagen cubrirá toda la cabecera */
-            background-position: center; /* Centrar la imagen */
-            background-repeat: no-repeat; /* Evitar que se repita la imagen */
         }
-
         header h1 {
             font-size: 4em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agregar sombra para mayor legibilidad */
         }
-
-        header p {
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
-
         section {
             padding: 20px;
         }
-
         .photos {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             gap: 20px;
-            flex-wrap: wrap; /* Permite que las imágenes se ajusten en pantallas más pequeñas */
         }
-
-        .photo-item {
-            text-align: center; /* Centrar el texto debajo de la imagen */
-            width: calc(33.33% - 20px); /* Cada imagen ocupará un 33% del ancho, dejando espacio entre ellas */
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: auto;
+        .photos img {
+            width: 300px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
-
         .links, .map {
             margin-top: 30px;
         }
-
         .links ul {
-            display: flex; /* Esto hace que los elementos se alineen en fila */
-            flex-wrap: wrap; /* Permite que los elementos se ajusten si la pantalla es pequeña */
-            padding: 0;
             list-style: none;
-            justify-content: space-between; /* Espacio entre cada item */
+            padding: 0;
         }
-
         .links li {
-            width: 30%; /* Cada sitio de interés ocupará un 30% del ancho */
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 10px 0;
         }
-
-        .links li a {
-            display: block;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .links li a:hover {
-            color: #7bbcf5;
-        }
-
         .map iframe {
             width: 100%;
             height: 400px;
             border: none;
         }
-
         footer {
-            background-color: #7bbcf5;
+            background-color: #7bbcf5; /* Azul cielo oscuro */
             text-align: center;
             padding: 10px;
             margin-top: 30px;
         }
-
         .site-item {
             display: flex;
             gap: 20px;
             align-items: center;
             margin-bottom: 20px;
         }
-
         .site-item img {
             width: 100px;
             height: 75px;
             object-fit: cover;
             border-radius: 8px;
         }
-
         .qr-code {
             text-align: center;
             margin: 20px 0;
         }
-
         .qr-code img {
             width: 200px;
             height: 200px;
@@ -145,59 +100,66 @@
     <section>
         <h2>Galería de Fotos</h2>
         <div class="photos">
-            <div class="photo-item">
-                <img src="images/Foto 1.jpg" alt="Foto de los novios">
-                <p>Foto 1 de nuestra boda</p>
-            </div>
-            <div class="photo-item">
-                <img src="images/Foto 2.jpg" alt="Foto de los novios">
-                <p>Foto 2 de nuestra boda</p>
-            </div>
-            <div class="photo-item">
-                <img src="images/Bitcoin.jpg" alt="Foto de los novios">
-                <p>Foto 3 de nuestra boda</p>
-            </div>
+            <img src="images/Foto 1.jpg" alt="Foto de los novios">
+            <img src="images/Foto 2.jpg" alt="Foto de los novios">
+            <img src="images/Bitcoin.jpg" alt="Foto de los novios">
         </div>
+    </section>
+
+    <section class="links">
+        <h2>Información para los invitados</h2>
+        <ul>
+            <li><a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a></li>
+            <li><a href="https://www.hotel2.com" target="_blank">Hotel Qcat</a></li>
+            <li><a href="https://www.sitio2.com" target="_blank">Sitio de interés 2</a></li>
+            <li><a href="https://www.sitio3.com" target="_blank">Sitio de interés 3</a></li>
+        </ul>
     </section>
 
     <section class="links">
         <h2>Sitios de Interés en Barcelona</h2>
         <ul>
-            <li>
-                <a href="https://www.google.com/maps/place/Sagrada+Familia" target="_blank">
-                    <img src="images/sagrada-familia.jpg" alt="La Sagrada Familia">
-                    <p>La Sagrada Familia</p>
-                </a>
+            <li class="site-item">
+                <img src="images/sagrada.jpg" alt="La Sagrada Familia">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">La Sagrada Familia</a></strong>
+                    <p>Una obra maestra de Antoni Gaudí, famosa por su arquitectura única.</p>
+                </div>
             </li>
-            <li>
-                <a href="https://www.google.com/maps/place/Tibidabo" target="_blank">
-                    <img src="images/tibidabo.jpg" alt="Tibidabo">
-                    <p>Tibidabo</p>
-                </a>
+            <li class="site-item">
+                <img src="images/tibidabo.jpg" alt="Tibidabo">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Tibidabo</a></strong>
+                    <p>Un parque de atracciones con vistas espectaculares de la ciudad.</p>
+                </div>
             </li>
-            <li>
-                <a href="https://www.google.com/maps/place/Parque+Guell" target="_blank">
-                    <img src="images/parque-guell.jpg" alt="Parque Güell">
-                    <p>Parque Güell</p>
-                </a>
+            <li class="site-item">
+                <img src="images/guell.jpg" alt="Parque Güell">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Parque Güell</a></strong>
+                    <p>Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.</p>
+                </div>
             </li>
-            <li>
-                <a href="https://www.google.com/maps/place/Museo+Picasso" target="_blank">
-                    <img src="images/museo-picasso.jpg" alt="Museo Picasso">
-                    <p>Museo Picasso</p>
-                </a>
+            <li class="site-item">
+                <img src="images/techno.jpg" alt="Museo Picasso">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Museu+Picasso/@41.3834,2.1800,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a38fdadab079:0x54d574d7fd07ed47!8m2!3d41.3834!4d2.1822!16s%2Fg%2F11b63p55gn" target="_blank">Museo Picasso</a></strong>
+                    <p>Un museo dedicado a las obras de Pablo Picasso, en el corazón del Barrio Gótico.</p>
+                </div>
             </li>
-            <li>
-                <a href="https://www.google.com/maps/place/Montjuic" target="_blank">
-                    <img src="images/montjuic.jpg" alt="Montjuïc">
-                    <p>Montjuïc</p>
-                </a>
+            <li class="site-item">
+                <img src="images/montjuic.jpg" alt="Montjuïc">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Montjuïc</a></strong>
+                    <p>Una colina con vistas increíbles, llena de jardines, museos y un castillo.</p>
+                </div>
             </li>
-            <li>
-                <a href="https://www.google.com/maps/place/Casa+Fuster" target="_blank">
-                    <img src="images/casa-fuster.jpg" alt="Casa Fuster">
-                    <p>Casa Fuster</p>
-                </a>
+            <li class="site-item">
+                <img src="images/casa-fuster.jpg" alt="Casa Fuster">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Casa+Fuster/@41.0476,2.0821,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a1eddfdcb3fb:0xe4073c7d8d4a1041!8m2!3d41.0476!4d2.0843!16s%2Fg%2F11b6gk29v6" target="_blank">Casa Fuster</a></strong>
+                    <p>Un monumento arquitectónico importante en Sant Cugat del Vallés.</p>
+                </div>
             </li>
         </ul>
     </section>
@@ -206,6 +168,7 @@
         <h2>Sube tus fotos</h2>
         <p>Escanea el siguiente código QR para subir tus fotos al Google Drive de la boda:</p>
         <div style="text-align: center;">
+            <!-- Ruta corregida para la imagen del QR -->
             <img src="images/frame.png" alt="Código QR para subir fotos" style="width: 200px; height: 200px;">
         </div>
     </section>
