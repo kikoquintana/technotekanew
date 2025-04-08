@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & Kiko</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -13,148 +13,75 @@
             background-color: #fdfefe; /* Fondo blanco */
             color: #333;
         }
-
-        /* Cabecera */
         header {
-            background-color: #b6b6a2; /* Azul cielo oscuro */
+            background-color: #7bbcf5; /* Azul cielo oscuro */
             padding: 20px;
             text-align: center;
             color: white;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-
-        /* Logo izquierdo */
-        header .logo-left {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 100px;
-            opacity: 0.8;
-        }
-
-        /* Logo derecho */
-        header .logo-right {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 100px;
-            opacity: 0.8;
-        }
-
         header h1 {
-            font-family: 'Dancing Script', cursive;
             font-size: 3em;
-            margin: 0;
-            z-index: 1;
         }
-
         section {
             padding: 20px;
         }
-
         .photos {
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap; /* Permite que las imágenes se acomoden en líneas en pantallas pequeñas */
         }
-
         .photos img {
-            width: 100%;
-            max-width: 300px; /* Limita el ancho máximo para que no se agrande en pantallas más grandes */
-            height: auto; /* Ajusta la altura proporcionalmente */
+            width: 300px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
-
         .links, .map {
             margin-top: 30px;
         }
-
         .links ul {
             list-style: none;
             padding: 0;
         }
-
         .links li {
             margin: 10px 0;
         }
-
         .map iframe {
             width: 100%;
             height: 400px;
             border: none;
         }
-
         footer {
             background-color: #7bbcf5; /* Azul cielo oscuro */
             text-align: center;
             padding: 10px;
             margin-top: 30px;
         }
-
-        /* Medios de consulta para dispositivos móviles */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em; /* Reduce el tamaño del título en pantallas pequeñas */
-            }
-
-            .photos {
-                justify-content: center;
-            }
-
-            .links li {
-                font-size: 1.1em; /* Aumenta un poco el tamaño de fuente en los enlaces */
-            }
-
-            .map iframe {
-                height: 300px; /* Ajusta la altura del mapa para pantallas más pequeñas */
-            }
+        .site-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
         }
-
-        /* Para pantallas más pequeñas (móviles) */
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2em; /* Reduce aún más el tamaño del título */
-            }
-
-            .photos img {
-                max-width: 90%; /* Hace que las imágenes ocupen más espacio en pantallas más pequeñas */
-            }
-
-            footer {
-                font-size: 0.8em; /* Ajusta el tamaño de fuente en el pie de página */
-            }
-        }
-
-        /* Estilos adicionales para el QR */
-        .qr-container {
+        .site-image-container {
             text-align: center;
-            margin-top: 20px;
+            margin: 20px 0;
         }
-
-        .qr-container img {
-            width: 150px;
-            height: 150px;
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .qr-code img {
+            width: 200px;
+            height: 200px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Logo izquierdo -->
-        <img src="images/logo-boda.png" alt="Logo de boda" class="logo-left">
-        
-        <!-- Título centrado -->
         <h1>¡Bienvenidos a la Boda de Anna & Kiko!</h1>
-        
-        <!-- Logo derecho -->
-        <img src="images/logo-boda.png" alt="Logo de boda" class="logo-right">
+        <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
     </header>
 
     <section>
@@ -184,29 +111,45 @@
     <section class="links">
         <h2>Sitios de Interés en Barcelona</h2>
         <ul>
-            <li><strong>La Sagrada Familia</strong> – Una obra maestra de Antoni Gaudí, famosa por su arquitectura única. 
+            <li>
+                <strong>La Sagrada Familia</strong> – Una obra maestra de Antoni Gaudí, famosa por su arquitectura única. 
                 <a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">Ver en el mapa</a>
             </li>
-            <li><strong>Tibidabo</strong> – Un parque de atracciones con vistas espectaculares de la ciudad. 
+            <li>
+                <strong>Tibidabo</strong> – Un parque de atracciones con vistas espectaculares de la ciudad. 
                 <a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Ver en el mapa</a>
             </li>
-            <li><strong>Parque Güell</strong> – Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.
+            <li>
+                <strong>Parque Güell</strong> – Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.
                 <a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Ver en el mapa</a>
             </li>
+            <li>
+                <strong>Museo Picasso</strong> – Un museo dedicado a las obras de Pablo Picasso, en el corazón del Barrio Gótico.
+                <a href="https://www.google.com/maps/place/Museu+Picasso/@41.3834,2.1800,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a38fdadab079:0x54d574d7fd07ed47!8m2!3d41.3834!4d2.1822!16s%2Fg%2F11b63p55gn" target="_blank">Ver en el mapa</a>
+            </li>
+            <li>
+                <strong>Montjuïc</strong> – Una colina con vistas increíbles, llena de jardines, museos y un castillo.
+                <a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Ver en el mapa</a>
+            </li>
+            <li>
+                <strong>Casa Fuster</strong> – Un monumento arquitectónico importante en Sant Cugat del Vallés. 
+                <a href="https://www.google.com/maps/place/Casa+Fuster/@41.0476,2.0821,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a1eddfdcb3fb:0xe4073c7d8d4a1041!8m2!3d41.0476!4d2.0843!16s%2Fg%2F11b6gk29v6" target="_blank">Ver en el mapa</a>
+            </li>
         </ul>
-    </section>
-
-    <!-- QR para subir fotos -->
-    <section class="qr-container">
-        <h2>¡Sube tus fotos del evento!</h2>
-        <p>Escanea el código QR para compartir tus fotos con nosotros.</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://www.ejemplo.com/upload&size=150x150" alt="QR para subir fotos">
     </section>
 
     <section class="map">
         <h2>Mapa de los lugares importantes</h2>
         <p>Haz clic en el mapa para obtener más detalles sobre cómo llegar a los sitios que mencionamos.</p>
         <iframe src="https://masia.casafuster.net/" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section class="qr-code">
+        <h2>Sube tus fotos</h2>
+        <p>Escanea el siguiente código QR para subir tus fotos al Google Drive de la boda:</p>
+        <div style="text-align: center;">
+            <img src="images/" alt="Código QR para subir fotos" style="width: 200px; height: 200px;">
+        </div>
     </section>
 
     <footer>
