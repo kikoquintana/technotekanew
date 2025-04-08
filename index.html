@@ -63,15 +63,17 @@
             padding: 10px;
             margin-top: 30px;
         }
-        .site-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            cursor: pointer;
+        .site-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
         }
-        .site-image-container {
-            text-align: center;
-            margin: 20px 0;
+        .site-item img {
+            width: 100px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 8px;
         }
         .qr-code {
             text-align: center;
@@ -117,29 +119,47 @@
     <section class="links">
         <h2>Sitios de Interés en Barcelona</h2>
         <ul>
-            <li>
-                <strong>La Sagrada Familia</strong> – Una obra maestra de Antoni Gaudí, famosa por su arquitectura única. 
-                <a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/sagrada.jpg" alt="La Sagrada Familia">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">La Sagrada Familia</a></strong>
+                    <p>Una obra maestra de Antoni Gaudí, famosa por su arquitectura única.</p>
+                </div>
             </li>
-            <li>
-                <strong>Tibidabo</strong> – Un parque de atracciones con vistas espectaculares de la ciudad. 
-                <a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/tibidabo.jpg" alt="Tibidabo">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Tibidabo</a></strong>
+                    <p>Un parque de atracciones con vistas espectaculares de la ciudad.</p>
+                </div>
             </li>
-            <li>
-                <strong>Parque Güell</strong> – Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.
-                <a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/guell.jpg" alt="Parque Güell">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Parque Güell</a></strong>
+                    <p>Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.</p>
+                </div>
             </li>
-            <li>
-                <strong>Museo Picasso</strong> – Un museo dedicado a las obras de Pablo Picasso, en el corazón del Barrio Gótico.
-                <a href="https://www.google.com/maps/place/Museu+Picasso/@41.3834,2.1800,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a38fdadab079:0x54d574d7fd07ed47!8m2!3d41.3834!4d2.1822!16s%2Fg%2F11b63p55gn" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/museo-picasso.jpg" alt="Museo Picasso">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Museu+Picasso/@41.3834,2.1800,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a38fdadab079:0x54d574d7fd07ed47!8m2!3d41.3834!4d2.1822!16s%2Fg%2F11b63p55gn" target="_blank">Museo Picasso</a></strong>
+                    <p>Un museo dedicado a las obras de Pablo Picasso, en el corazón del Barrio Gótico.</p>
+                </div>
             </li>
-            <li>
-                <strong>Montjuïc</strong> – Una colina con vistas increíbles, llena de jardines, museos y un castillo.
-                <a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/montjuic.jpg" alt="Montjuïc">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Montjuïc</a></strong>
+                    <p>Una colina con vistas increíbles, llena de jardines, museos y un castillo.</p>
+                </div>
             </li>
-            <li>
-                <strong>Casa Fuster</strong> – Un monumento arquitectónico importante en Sant Cugat del Vallés. 
-                <a href="https://www.google.com/maps/place/Casa+Fuster/@41.0476,2.0821,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a1eddfdcb3fb:0xe4073c7d8d4a1041!8m2!3d41.0476!4d2.0843!16s%2Fg%2F11b6gk29v6" target="_blank">Ver en el mapa</a>
+            <li class="site-item">
+                <img src="images/casa-fuster.jpg" alt="Casa Fuster">
+                <div>
+                    <strong><a href="https://www.google.com/maps/place/Casa+Fuster/@41.0476,2.0821,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a1eddfdcb3fb:0xe4073c7d8d4a1041!8m2!3d41.0476!4d2.0843!16s%2Fg%2F11b6gk29v6" target="_blank">Casa Fuster</a></strong>
+                    <p>Un monumento arquitectónico importante en Sant Cugat del Vallés.</p>
+                </div>
             </li>
         </ul>
     </section>
