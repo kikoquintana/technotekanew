@@ -12,6 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
 
     <style>
+        /* Ocultar todo el contenido en pantallas mayores a 1024px */
+@media screen and (min-width: 1025px) {
+    body {
+        display: none;
+    }
+    body::before {
+        content: "Este sitio está disponible solo en dispositivos móviles o tablets.";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2em;
+        color: #7bbcf5;
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+    }
+}
         body {
             font-family: 'Indie Flower', cursive;
             font-size: 20px;
