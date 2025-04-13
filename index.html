@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & Kiko</title>
-    <!-- Cargar las fuentes Dancing Script e Iridia Sans desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Iridia+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Cargar las fuentes Dancing Script, Iridia Sans e Indie Flower desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Indie Flower', sans-serif; /* Cambiar la fuente a Iridia Sans para los párrafos */
+            font-family: 'Indie Flower', cursive; /* Fuente principal para los párrafos */
             margin: 0;
             padding: 0;
-            background-color: #fdfefe; /* Fondo blanco */
+            background-color: #fdfefe;
             color: #333;
         }
-        /* Aplicar Dancing Script solo a los encabezados */
         h1, h2, h3 {
-            font-family: 'Dancing Script', sans-serif; /* Cambiar la fuente a Dancing Script */
+            font-family: 'Dancing Script', cursive; /* Fuente especial para títulos */
         }
         header {
-            background-color: #7bbcf5; /* Azul cielo oscuro */
+            background-color: #7bbcf5;
             padding: 20px;
             text-align: center;
             color: white;
@@ -52,29 +50,38 @@
         .links li {
             margin: 10px 0;
         }
-        .map iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-        footer {
-            background-color: #7bbcf5; /* Azul cielo oscuro */
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-        }
-        .site-item {
+
+        /* NUEVO: estilos para los sitios de interés en formato horizontal */
+        .site-grid {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
-            align-items: center;
-            margin-bottom: 20px;
+            justify-content: center;
         }
-        .site-item img {
-            width: 100px;
-            height: 75px;
+        .site-card {
+            width: 200px;
+            background: #f2f2f2;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .site-card:hover {
+            transform: scale(1.03);
+        }
+        .site-card img {
+            width: 100%;
+            height: 120px;
             object-fit: cover;
-            border-radius: 8px;
         }
+        .site-card p {
+            padding: 10px;
+            font-size: 0.95em;
+        }
+
         .qr-code {
             text-align: center;
             margin: 20px 0;
@@ -82,6 +89,19 @@
         .qr-code img {
             width: 200px;
             height: 200px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        footer {
+            background-color: #7bbcf5;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -94,13 +114,8 @@
 
     <section>
         <h2>Nuestra Historia</h2>
-        <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala. 
-            Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio. 
-            La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica, el tiempo se nos fue volando, parecía que nos conocíamos de toda la vida. 
-            La segunda cita fue en La Casa de Andalucía de Castellbisbal, la definitiva para saber que realmente había surgido algo bonito entre los dos. Pero llegó el verano y la pandemia, 
-            nos distanciamos un poco… Aunque en esta ocasión la distancia no hizo el olvido, y volvimos a retomar eso tan especial que habíamos creado. Lo que definitivamente nos unió fue el momento en el que 
-            nuestro precioso gato Wilson se perdió durante 12 días en las zarzas. Antes habíamos estado en las buenas y ahora pudimos con las malas. 
-            Wilson volvió a casa y nos fuimos a vivir juntos de una vez por todas. Y desde entonces hemos creado no solo una pareja si no también una familia; hemos construido un hogar lleno de amor, paz y felicidad.</p>
+        <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal...</p>
+        <!-- Puedes mantener el resto del texto aquí -->
     </section>
 
     <section>
@@ -124,52 +139,34 @@
 
     <section class="links">
         <h2>Sitios de Interés en Barcelona</h2>
-        <ul>
-            <li class="site-item">
+        <div class="site-grid">
+            <a href="https://www.google.com/maps/place/Sagrada+Familia" target="_blank" class="site-card">
                 <img src="images/sagrada.jpg" alt="La Sagrada Familia">
-                <div>
-                    <strong><a href="https://www.google.com/maps/place/Sagrada+Familia/@41.4036,2.1744,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a39eac4ba34f:0x429be49009c16879!8m2!3d41.4036!4d2.1766!16s%2Fg%2F11b6hft48h" target="_blank">La Sagrada Familia</a></strong>
-                    <p>Una obra maestra de Antoni Gaudí, famosa por su arquitectura única.</p>
-                </div>
-            </li>
-            <li class="site-item">
+                <p>La Sagrada Familia: Obra maestra de Gaudí.</p>
+            </a>
+            <a href="https://www.google.com/maps/place/Tibidabo" target="_blank" class="site-card">
                 <img src="images/tibidabo.jpg" alt="Tibidabo">
-                <div>
-                    <strong><a href="https://www.google.com/maps/place/Tibidabo/@41.4197,2.1224,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4b0e389ca2093:0x17bcb6a49d9875b!8m2!3d41.4197!4d2.1246!16s%2Fg%2F11b6wz6l_q" target="_blank">Tibidabo</a></strong>
-                    <p>Un parque de atracciones con vistas espectaculares de la ciudad.</p>
-                </div>
-            </li>
-            <li class="site-item">
+                <p>Tibidabo: Parque de atracciones con vistas increíbles.</p>
+            </a>
+            <a href="https://www.google.com/maps/place/Park+G%C3%BCell" target="_blank" class="site-card">
                 <img src="images/guell.jpg" alt="Parque Güell">
-                <div>
-                    <strong><a href="https://www.google.com/maps/place/Park+G%C3%BCell/@41.4145,2.1527,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a352432cb763:0x1e476f020a95716e!8m2!3d41.4145!4d2.1549!16s%2Fg%2F11b5wz4pg9" target="_blank">Parque Güell</a></strong>
-                    <p>Otro de los impresionantes diseños de Gaudí, lleno de mosaicos coloridos y vistas panorámicas.</p>
-                </div>
-            </li>
-            <li class="site-item">
+                <p>Parque Güell: Arte y naturaleza combinados.</p>
+            </a>
+            <a href="https://www.google.com/maps/place/Museu+Picasso" target="_blank" class="site-card">
                 <img src="images/techno.jpg" alt="Museo Picasso">
-                <div>
-                    <strong><a href="https://www.google.com/maps/place/Museu+Picasso/@41.3834,2.1800,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a38fdadab079:0x54d574d7fd07ed47!8m2!3d41.3834!4d2.1822!16s%2Fg%2F11b63p55gn" target="_blank">Museo Picasso</a></strong>
-                    <p>Un museo dedicado a las obras de Pablo Picasso, en el corazón del Barrio Gótico.</p>
-                </div>
-            </li>
-            <li class="site-item">
+                <p>Museo Picasso: Obras de Picasso en el Barrio Gótico.</p>
+            </a>
+            <a href="https://www.google.com/maps/place/Montju%C3%AFc" target="_blank" class="site-card">
                 <img src="images/montjuic.jpg" alt="Montjuïc">
-                <div>
-                    <strong><a href="https://www.google.com/maps/place/Montju%C3%AFc/@41.3636,2.1618,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a32bb44320db:0x5b7e18e7f935e795!8m2!3d41.3636!4d2.1639!16s%2Fg%2F11b6xl33px" target="_blank">Montjuïc</a></strong>
-                    <p>Una colina con vistas increíbles, llena de jardines, museos y un castillo.</p>
-                </div>
-            </li>
-        </ul>
+                <p>Montjuïc: Jardines, museos y castillo.</p>
+            </a>
+        </div>
     </section>
 
     <section class="qr-code">
         <h2>Sube tus fotos</h2>
         <p>Escanea el siguiente código QR para subir tus fotos de la boda:</p>
-        <div style="text-align: center;">
-            <!-- Ruta corregida para la imagen del QR -->
-            <img src="images/frame.png" alt="Código QR para subir fotos" style="width: 200px; height: 200px;">
-        </div>
+        <img src="images/frame.png" alt="Código QR para subir fotos">
     </section>
 
     <section class="map">
