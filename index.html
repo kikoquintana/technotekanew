@@ -35,39 +35,40 @@
         header h1 {
             font-size: 4em;
         }
+
         /* Estilo del reloj */
-#countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.time-block {
-    background-color: #ff8a00; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 2em; /* Tamaño de la fuente */
-    font-weight: bold;
-    width: 100px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el efecto 3D */
-    transition: all 0.3s ease-in-out; /* Animación de transición */
-}
-
-.time-block span {
-    display: block;
-    font-size: 3em; /* Tamaño de los números */
-    margin-bottom: 5px;
-}
-
-.time-block p {
-    font-size: 1em;
-    margin: 0;
-}
-        section {padding: 20px;
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
+
+        .time-block {
+            background-color: #ff8a00;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            width: 100px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .time-block span {
+            display: block;
+            font-size: 3em;
+            margin-bottom: 5px;
+        }
+
+        .time-block p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        section { padding: 20px; }
 
         .photos {
             display: flex;
@@ -183,6 +184,15 @@
             padding: 10px;
             margin-top: 30px;
         }
+
+        .big-day {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #ffffff;
+            background: #ff4f81;
+            padding: 15px;
+            border-radius: 12px;
+        }
     </style>
 </head>
 <body>
@@ -191,8 +201,14 @@
         <h1>¡Bienvenidos a la Boda de Anna & Kiko!</h1>
         <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
 
-        <!-- Cuenta atrás -->
-        <div id="countdown">
+        <!-- Cuenta atrás -->    <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.  
+        Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio.  
+        La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica, el tiempo se nos fue volando, parecía que nos conocíamos de toda la vida.  
+        La segunda cita fue en La Casa de Andalucía de Castellbisbal, la definitiva para saber que realmente había surgido algo bonito entre los dos. Pero llegó el verano y la pandemia,  
+        nos distanciamos un poco… Aunque en esta ocasión la distancia no hizo el olvido, y volvimos a retomar eso tan especial que habíamos creado.  
+        Lo que definitivamente nos unió fue el momento en el que nuestro precioso gato Wilson se perdió durante 12 días en las zarzas. Antes habíamos estado en las buenas y ahora pudimos con las malas.  
+        Wilson volvió a casa y nos fuimos a vivir juntos de una vez por todas. Y desde entonces hemos creado no solo una pareja si no también una familia; hemos construido un hogar lleno de amor, paz y felicidad.</p>
+        <div id="countdown" role="timer" aria-label="Cuenta atrás para el día de la boda">
             <div class="time-block"><span id="days">00</span>Días</div>
             <div class="time-block"><span id="hours">00</span>Horas</div>
             <div class="time-block"><span id="minutes">00</span>Min</div>
@@ -202,13 +218,9 @@
 
     <section>
         <h2>Nuestra Historia</h2>
-        <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.  
-        Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio.  
-        La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica, el tiempo se nos fue volando, parecía que nos conocíamos de toda la vida.  
-        La segunda cita fue en La Casa de Andalucía de Castellbisbal, la definitiva para saber que realmente había surgido algo bonito entre los dos. Pero llegó el verano y la pandemia,  
-        nos distanciamos un poco… Aunque en esta ocasión la distancia no hizo el olvido, y volvimos a retomar eso tan especial que habíamos creado.  
-        Lo que definitivamente nos unió fue el momento en el que nuestro precioso gato Wilson se perdió durante 12 días en las zarzas. Antes habíamos estado en las buenas y ahora pudimos con las malas.  
-        Wilson volvió a casa y nos fuimos a vivir juntos de una vez por todas. Y desde entonces hemos creado no solo una pareja si no también una familia; hemos construido un hogar lleno de amor, paz y felicidad.</p>
+        <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal...
+        <!-- El resto de tu historia aquí -->
+        </p>
     </section>
 
     <section>
@@ -271,22 +283,31 @@
         <p>&copy; 2025 Boda de Anna & Kiko. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script de cuenta atrás -->
+    <!-- Script de cuenta atrás mejorado -->
     <script>
         const targetDate = new Date("2026-05-01T17:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+
         const updateCountdown = () => {
             const now = new Date().getTime();
             const distance = targetDate - now;
+
+            if (distance <= 0) {
+                countdownElement.innerHTML = `
+                    <div class="big-day">¡Hoy es el gran día! 💍🎉</div>
+                `;
+                return;
+            }
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
         };
 
         setInterval(updateCountdown, 1000);
