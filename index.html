@@ -35,31 +35,38 @@
         header h1 {
             font-size: 4em;
         }
+        /* Estilo del reloj */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-       .time-block {
-    background-color: #4CAF50; /* Fondo verde */
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
+.time-block {
+    background-color: #ff8a00; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 15px 20px;
+    border-radius: 10px;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2em; /* Tamaño de la fuente */
     font-weight: bold;
-    width: 120px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-    transition: background-color 0.3s ease; /* Transición para el hover */
+    width: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el efecto 3D */
+    transition: all 0.3s ease-in-out; /* Animación de transición */
 }
 
 .time-block span {
-    font-size: 3em; /* Tamaño grande para los números */
+    display: block;
+    font-size: 3em; /* Tamaño de los números */
+    margin-bottom: 5px;
 }
 
-.time-block:hover {
-    background-color: #45a049; /* Cambio de color al pasar el ratón */
+.time-block p {
+    font-size: 1em;
+    margin: 0;
 }
-
-
-        section {
-            padding: 20px;
+        section {padding: 20px;
         }
 
         .photos {
