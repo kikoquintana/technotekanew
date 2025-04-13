@@ -1,16 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & Kiko</title>
-    <!-- Google Fonts: Dancing Script, Iridia Sans e Indie Flower -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Indie Flower', cursive;
-            font-size: 18px; /* ← Añade esta línea */
+            font-size: 18px;
             margin: 0;
             padding: 0;
             background-color: #fdfefe;
@@ -30,6 +34,28 @@
 
         header h1 {
             font-size: 4em;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .time-block {
+            background-color: #ff8a00;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 90px;
+            font-weight: bold;
+        }
+
+        .time-block span {
+            font-size: 2.5em;
+            display: block;
         }
 
         section {
@@ -62,7 +88,6 @@
             margin: 10px 0;
         }
 
-        /* Sitios de interés en tarjetas */
         .site-grid {
             display: flex;
             flex-wrap: wrap;
@@ -97,7 +122,6 @@
             font-size: 0.95em;
         }
 
-        /* Timeline de la boda */
         .timeline {
             margin-top: 40px;
             background-color: #eef6fd;
@@ -159,6 +183,14 @@
     <header>
         <h1>¡Bienvenidos a la Boda de Anna & Kiko!</h1>
         <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
+
+        <!-- Cuenta atrás -->
+        <div id="countdown">
+            <div class="time-block"><span id="days">00</span>Días</div>
+            <div class="time-block"><span id="hours">00</span>Horas</div>
+            <div class="time-block"><span id="minutes">00</span>Min</div>
+            <div class="time-block"><span id="seconds">00</span>Seg</div>
+        </div>
     </header>
 
     <section>
@@ -195,34 +227,11 @@
     <section class="links">
         <h2>Sitios de Interés en Barcelona</h2>
         <div class="site-grid">
-            <a href="https://www.google.com/maps/place/Sagrada+Familia" target="_blank" class="site-card">
-                <img src="images/sagrada.jpg" alt="La Sagrada Familia">
-                <p>La Sagrada Familia: Obra maestra de Gaudí.</p>
-            </a>
-            <a href="https://www.google.com/maps/place/Tibidabo" target="_blank" class="site-card">
-                <img src="images/Tibidabo.jpg" alt="Tibidabo">
-                <p>Tibidabo: Parque de atracciones con vistas increíbles.</p>
-            </a>
-            <a href="https://www.google.com/maps/place/Park+G%C3%BCell" target="_blank" class="site-card">
-                <img src="images/guell.jpg" alt="Parque Güell">
-                <p>Parque Güell: Arte y naturaleza combinados.</p>
-            </a>
-            <a href="https://www.google.com/maps/place/Museu+Picasso" target="_blank" class="site-card">
-                <img src="images/techno.jpg" alt="Museo Picasso">
-                <p>Museo Picasso: Obras de Picasso en el Barrio Gótico.</p>
-            </a>
-            <a href="https://www.google.com/maps/place/Montju%C3%AFc" target="_blank" class="site-card">
-                <img src="images/montjuic.jpg" alt="Montjuïc">
-                <p>Montjuïc: Jardines, museos y castillo.</p>
-            </a>
-              <a href="https://www.google.com/maps/place/Park+G%C3%BCell" target="_blank" class="site-card">
-                <img src="images/guell.jpg" alt="Parque Güell">
-                <p>Parque Güell: Arte y naturaleza combinados.</p>
-            </a>
-              <a href="https://www.google.com/maps/place/Park+G%C3%BCell" target="_blank" class="site-card">
-                <img src="images/guell.jpg" alt="Parque Güell">
-                <p>Parque Güell: Arte y naturaleza combinados.</p>
-            </a>        
+            <a href="#" class="site-card"><img src="images/sagrada.jpg" alt=""><p>La Sagrada Familia: Obra maestra de Gaudí.</p></a>
+            <a href="#" class="site-card"><img src="images/Tibidabo.jpg" alt=""><p>Tibidabo: Parque de atracciones con vistas increíbles.</p></a>
+            <a href="#" class="site-card"><img src="images/guell.jpg" alt=""><p>Parque Güell: Arte y naturaleza combinados.</p></a>
+            <a href="#" class="site-card"><img src="images/techno.jpg" alt=""><p>Museo Picasso: Obras de Picasso en el Barrio Gótico.</p></a>
+            <a href="#" class="site-card"><img src="images/montjuic.jpg" alt=""><p>Montjuïc: Jardines, museos y castillo.</p></a>
         </div>
     </section>
 
@@ -254,6 +263,28 @@
     <footer>
         <p>&copy; 2025 Boda de Anna & Kiko. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script de cuenta atrás -->
+    <script>
+        const targetDate = new Date("2026-05-01T17:00:00").getTime();
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Inicial
+    </script>
 
 </body>
 </html>
