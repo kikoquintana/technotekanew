@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: 'Indie Flower', cursive;
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -22,10 +22,10 @@
             color: #333;
         }
 
-        /* Aplicar Dancing Script solo a los encabezados */
         h1, h2, h3 {
             font-family: 'Dancing Script', sans-serif;
-            text-decoration: underline;  /* Esto subraya los títulos */
+            text-decoration: underline;
+            font-weight: bold; /* Títulos en negrita */
         }
 
         header {
@@ -141,8 +141,24 @@
         }
 
         /* Estilos adicionales para los horarios */
+        .time-schedule {
+            background-color: #7bbcf5; /* Fonde azul para la franja */
+            padding: 20px;
+            text-align: center; /* Centrar el contenido */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .time-schedule h2 {
+            color: white;
+            font-weight: bold;
+        }
+
         .time-list {
+            list-style: none;
+            padding: 0;
             font-size: 1.2em;
+            color: #fff;
         }
 
         .time-list li {
@@ -210,16 +226,14 @@
             <li><a href="https://www.sitio3.com" target="_blank">Sitio de interés 3</a></li>
         </ul>
     </section>
- <section class="timeline">
+
+    <section class="time-schedule">
         <h2>Horario de la Boda</h2>
-        <ul>
-            <li><span class="time">16:30</span> — Llegada de invitados</li>
-            <li><span class="time">17:00</span> — Ceremonia</li>
-            <li><span class="time">18:00</span> — Cóctel y aperitivos</li>
+        <ul class="time-list">
+            <li><span class="time">17:00</span> — Bienvenida y aperitivos</li>
             <li><span class="time">19:30</span> — Cena</li>
             <li><span class="time">21:30</span> — Primer baile y postres</li>
             <li><span class="time">22:00</span> — Fiesta y barra libre 🎉</li>
-            <li><span class="time">03:00</span> — After Party</li>
         </ul>
     </section>
 
@@ -241,30 +255,31 @@
 
     <script>
         // Cambia esta fecha a la fecha de la boda
-        const weddingDate = new Date("2026-05-01T17:00:00").getTime(); // 30 de agosto 2025, 17:00h
+        const weddingDate = new Date("2025-08-30T17:00:00").getTime(); // 30 de agosto 2025, 17:00h
 
         const countdownDays = document.getElementById("days").getElementsByTagName('span')[0];
         const countdownHours = document.getElementById("hours").getElementsByTagName('span')[0];
         const countdownMinutes = document.getElementById("minutes").getElementsByTagName('span')[0];
         const countdownSeconds = document.getElementById("seconds").getElementsByTagName('span')[0];
 
-        const timer = setInterval(function () {
+        setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
+            // Cálculos de días, horas, minutos y segundos
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            countdownDays.innerHTML = days < 10 ? '0' + days : days;
-            countdownHours.innerHTML = hours < 10 ? '0' + hours : hours;
-            countdownMinutes.innerHTML = minutes < 10 ? '0' + minutes : minutes;
-            countdownSeconds.innerHTML = seconds < 10 ? '0' + seconds : seconds;
+            countdownDays.textContent = days;
+            countdownHours.textContent = hours;
+            countdownMinutes.textContent = minutes;
+            countdownSeconds.textContent = seconds;
 
             if (distance < 0) {
-                clearInterval(timer);
-                countdownDays.innerHTML = countdownHours.innerHTML = countdownMinutes.innerHTML = countdownSeconds.innerHTML = '00';
+                clearInterval(interval);
+                countdownDays.textContent = countdownHours.textContent = countdownMinutes.textContent = countdownSeconds.textContent = "00";
             }
         }, 1000);
     </script>
