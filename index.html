@@ -42,16 +42,34 @@
             font-size: 1.2em;
         }
 
-        /* Estilo para la cuenta atrás */
+        /* Estilo para la cuenta atrás con formato calendario */
         #countdown {
-            font-size: 1.5em;
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .time-block {
+            background-color: #ff8a00;
             color: #fff;
-            font-weight: bold;
-            background-color: #ff8a00; /* Fondo cálido */
-            padding: 10px;
+            padding: 15px 20px;
             border-radius: 5px;
-            display: inline-block;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            width: 100px;
+        }
+
+        .time-block span {
+            display: block;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .time-block p {
+            font-size: 0.8em;
+            margin: 0;
         }
 
         section {
@@ -142,7 +160,24 @@
         <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
 
         <!-- Contenedor para la cuenta atrás -->
-        <div id="countdown"></div>
+        <div id="countdown">
+            <div class="time-block" id="days">
+                <span>00</span>
+                <p>Días</p>
+            </div>
+            <div class="time-block" id="hours">
+                <span>00</span>
+                <p>Horas</p>
+            </div>
+            <div class="time-block" id="minutes">
+                <span>00</span>
+                <p>Minutos</p>
+            </div>
+            <div class="time-block" id="seconds">
+                <span>00</span>
+                <p>Segundos</p>
+            </div>
+        </div>
     </header>
 
     <section>
@@ -203,9 +238,12 @@
 
     <script>
         // Cambia esta fecha a la fecha de la boda
-        const weddingDate = new Date("2026-06-01T17:00:00").getTime(); // 30 de agosto 2025, 17:00h
+        const weddingDate = new Date("2026-05-01T17:00:00").getTime(); // 30 de agosto 2025, 17:00h
 
-        const countdown = document.getElementById("countdown");
+        const countdownDays = document.getElementById("days").getElementsByTagName('span')[0];
+        const countdownHours = document.getElementById("hours").getElementsByTagName('span')[0];
+        const countdownMinutes = document.getElementById("minutes").getElementsByTagName('span')[0];
+        const countdownSeconds = document.getElementById("seconds").getElementsByTagName('span')[0];
 
         const timer = setInterval(function () {
             const now = new Date().getTime();
@@ -216,11 +254,14 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            countdown.innerHTML = `Faltan <strong>${days}</strong> días, <strong>${hours}</strong>h <strong>${minutes}</strong>m <strong>${seconds}</strong>s`;
+            countdownDays.innerHTML = days < 10 ? '0' + days : days;
+            countdownHours.innerHTML = hours < 10 ? '0' + hours : hours;
+            countdownMinutes.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            countdownSeconds.innerHTML = seconds < 10 ? '0' + seconds : seconds;
 
             if (distance < 0) {
                 clearInterval(timer);
-                countdown.innerHTML = "¡Ya ha comenzado la boda!";
+                countdownDays.innerHTML = countdownHours.innerHTML = countdownMinutes.innerHTML = countdownSeconds.innerHTML = '00';
             }
         }, 1000);
     </script>
