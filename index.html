@@ -199,11 +199,29 @@
             padding: 15px;
             border-radius: 12px;
         }
+        #welcome-image-container {
+    background-color: #7bbcf5; /* El mismo color azul que la cabecera */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centra la imagen horizontalmente */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#welcome-image {
+    display: inline-block;
+    max-width: 90%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados a la imagen */
+}
     </style>
 </head>
 <body>
 
     <header>
+        <!-- Contenedor para la imagen con fondo azul -->
+    <div id="welcome-image-container">
+        <img src="images/logo boda.png" alt="Imagen de bienvenida" id="welcome-image">
+    </div>
         <h1>¡Bienvenidos a la Boda de Anna & Kiko!</h1>
         <p>Nos encantaría que nos acompañaras en este día tan especial.</p>
 
