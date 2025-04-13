@@ -199,12 +199,13 @@
             padding: 15px;
             border-radius: 12px;
         }
-        /* Ocultar todo el contenido en pantallas mayores a 1024px */
+/* Ocultar todo el contenido en pantallas mayores a 1024px */
 @media screen and (min-width: 1025px) {
-     {
+    body {
         display: none;
     }
-        :before {
+
+    body::before {
         content: "Este sitio está disponible solo en dispositivos móviles o tablets.";
         display: flex;
         justify-content: center;
@@ -218,6 +219,7 @@
         background-color: #fff;
     }
 }
+
 
     </style>
 </head>
