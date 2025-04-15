@@ -313,9 +313,17 @@
             <a href="https://www.waze.com/es/live-map/directions/es/ct/sant-cugat-del-valles/casa-fuster-masia-sant-cugat?to=place.ChIJCek7sPGWpBIRkloJAJk9ZSQ" target="_blank">📍 Ver en Waze</a>
         </li>
 
-       <li><strong>🌤 Tiempo en tiempo real:</strong><br>
-            <a class="weatherwidget-io" href="https://forecast7.com/es/41d39n2d08/sant-cugat-del-valles/" data-label_1="SANT CUGAT" data-label_2="EL TIEMPO" data-theme="pure">SANT CUGAT EL TIEMPO</a>
+        <li><strong>🌤 Tiempo en tiempo real:</strong><br>
+            <iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/sant-cugat-del-vallès_españa_3109718?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" 
+            frameborder="0" 
+            scrolling="NO" 
+            allowtransparency="true" 
+            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+            style="width: 100%; max-width: 360px; height: 400px;">
+        </iframe>
+        <div><small><a href="https://www.meteoblue.com/es/tiempo/semana/sant-cugat-del-vallès_españa_3109718" target="_blank">Ver pronóstico completo</a></small></div>
         </li>
+
 
         <li><strong>🏨 Hoteles recomendados:</strong>  
             <ul>
@@ -386,19 +394,6 @@
             document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
             document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
         };
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Inicial
-        </script>
-        <script>
-        !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0];
-            if(!d.getElementById(id)){
-            js=d.createElement(s);js.id=id;
-            js.src='https://weatherwidget.io/js/widget.min.js';
-            fjs.parentNode.insertBefore(js,fjs);
-          }
-}(document,'script','weatherwidget-io-js');
 </script>
 
 
