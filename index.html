@@ -303,8 +303,8 @@
             <a href="https://www.waze.com/es/live-map/directions/es/ct/sant-cugat-del-valles/casa-fuster-masia-sant-cugat?to=place.ChIJCek7sPGWpBIRkloJAJk9ZSQ" target="_blank">📍 Ver en Waze</a>
         </li>
 
-        <li><strong>🌤 Tiempo en tiempo real:</strong><br>
-            <iframe src="https://forecast7.com/es/41d39n2d08/sant-cugat-del-valles/" frameborder="0" width="100%" height="250" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+       <li><strong>🌤 Tiempo en tiempo real:</strong><br>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/41d39n2d08/sant-cugat-del-valles/" data-label_1="SANT CUGAT" data-label_2="EL TIEMPO" data-theme="pure">SANT CUGAT EL TIEMPO</a>
         </li>
 
         <li><strong>🏨 Hoteles recomendados:</strong>  
@@ -379,7 +379,18 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Inicial
-    </script>
+        </script>
+        <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+            js=d.createElement(s);js.id=id;
+            js.src='https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js,fjs);
+          }
+}(document,'script','weatherwidget-io-js');
+</script>
+
 
 </body>
 </html>
