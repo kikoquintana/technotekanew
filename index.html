@@ -13,29 +13,48 @@
 
     <style>
         body {
-            font-family: 'Indie Flower', cursive;
-            font-size: 20px;
-            margin: 0;
-            padding: 0;
-            background-color: #fdfefe;
-            color: #333;
-            font-weight: bold; /* 👈 Esto pone todo en negrita */
-        }
-
-        h1, h2, h3 {
-            font-family: 'Dancing Script', cursive;
-        }
-
-        header {
-            background-color: #7bbcf5;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-
-        header h1 {
-            font-size: 4em;
-        }
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfefe;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    /* Aplica Dancing Script solo a títulos */
+    h1, h2, h3 {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave en todos */
+    }
+    
+    /* h1 personalizado */
+    h1 {
+        color: white;
+        font-size: 4em;
+    }
+    
+    /* h2 y h3 en azul */
+    h2, h3 {
+        color: #2980b9; /* Azul más profundo */
+    }
+    
+    h2 {
+        font-size: 2.5em;
+    }
+    
+    h3 {
+        font-size: 2em;
+    }
+    
+    /* Header */
+    header {
+        background-color: #7bbcf5;
+        padding: 20px;
+        text-align: center;
+    }
+    
 
        /* Estilo del reloj */
         #countdown {
