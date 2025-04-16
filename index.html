@@ -12,296 +12,258 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
 
     <style>
-        body {
-        font-family: 'Indie Flower', cursive;
-        font-size: 20px;
-        margin: 0;
-        padding: 0;
-        background-color: #fdfefe;
-        color: #333;
-        font-weight: bold;
+       /* ESTILOS GENERALES (igual que antes, con algunos ajustes móviles más adelante) */
+body {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfefe;
+    color: #333;
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: white;
+    font-size: 4em;
+}
+
+h2, h3 {
+    color: #7bbcf5;
+}
+
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+
+header {
+    background-color: #7bbcf5;
+    padding: 20px;
+    text-align: center;
+}
+
+#welcome-image-container {
+    background-color: #7bbcf5;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#welcome-image {
+    display: inline-block;
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.time-block {
+    background-color: #050500;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 80px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.time-block span {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+section {
+    padding: 20px;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.photos img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.site-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.site-card {
+    width: 200px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-card:hover {
+    transform: scale(1.03);
+}
+
+.site-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.timeline {
+    margin-top: 40px;
+    background-color: #eef6fd;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.timeline ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1em;
+}
+
+.frase-especial {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+    color: #fffaf0;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #00000055;
+}
+
+.qr-code {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.qr-code img {
+    width: 200px;
+    height: 200px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+footer {
+    font-family: 'Dancing Script', cursive;
+    background-color: #7bbcf5;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: white;
+}
+
+.big-day {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #ffffff;
+    background: #ff4f81;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* 🌐 MEDIA QUERIES RESPONSIVAS */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.6em; }
+
+    .time-block {
+        font-size: 1em;
+        width: 70px;
     }
-    
-    /* Aplica Dancing Script solo a títulos */
-    h1, h2, h3 {
-        font-family: 'Dancing Script', cursive;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave en todos */
+
+    .time-block span {
+        font-size: 1.5em;
     }
-    
-    /* h1 personalizado */
-    h1 {
-        color: white;
-        font-size: 4em;
+
+    .photos img, .site-card {
+        width: 90%;
+        max-width: none;
     }
-    
-    /* h2 y h3 en azul */
-    h2, h3 {
-        color: #7bbcf5; /* Azul más profundo */
+
+    .site-grid {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    h2 {
-        font-size: 2.5em;
+
+    .qr-code img {
+        width: 150px;
+        height: 150px;
     }
-    
-    h3 {
-        font-size: 2em;
+
+    .map iframe {
+        height: 300px;
     }
-    
-    /* Header */
-    header {
-        background-color: #7bbcf5;
-        padding: 20px;
-        text-align: center;
+
+    section {
+        padding: 15px;
     }
-    
 
-       /* Estilo del reloj */
-        #countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
+    .timeline ul {
+        padding: 0 10px;
+    }
+}
 
-        .time-block {
-            background-color: #050500;
-            color: #fff;
-             padding: 10px 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            width: 80px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    .time-block {
+        font-size: 0.9em;
+        width: 60px;
+    }
 
-        .time-block span {
-            display: block;
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
+    .time-block span {
+        font-size: 1.2em;
+    }
 
-        .time-block p {
-            font-size: 0.8em;
-            margin: 0;
-        }
-
-
-        .time-block p {
-            font-size: 1em;
-            margin: 0;
-        }
-
-        section { padding: 20px; }
-
-        .photos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .photos img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .links, .map {
-            margin-top: 30px;
-        }
-
-        .links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .links li {
-            margin: 10px 0;
-        }
-
-        .site-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .site-card {
-            width: 200px;
-            background: #f2f2f2;
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-
-        .site-card:hover {
-            transform: scale(1.03);
-        }
-
-        .site-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .site-card p {
-            padding: 10px;
-            font-size: 0.95em;
-        }
-
-        .timeline {
-            margin-top: 40px;
-            background-color: #eef6fd;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .timeline h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .timeline ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            max-width: 500px;
-        }
-
-        .timeline li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-            font-size: 1.1em;
-        }
-
-        .timeline .time {
-            font-weight: bold;
-            color: #7bbcf5;
-            margin-right: 10px;
-        }
-
-        .frase-especial {
-            font-size: 2em;
-            text-align: center;
-            margin-top: 20px;
-            color: #fffaf0; /* Blanco cálido */
-            font-weight: bold;
-            text-shadow: 1px 1px 2px #00000055; /* Sombrita suave para que se vea bien */
-        }
-
-
-        .qr-code {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .qr-code img {
-            width: 200px;
-            height: 200px;
-        }
-
-        .map iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        footer {
-            font-family: 'Dancing Script', cursive;
-            background-color: #7bbcf5;
-            text-align: center;
-            padding: 14x;
-            margin-top: 30px;
-        }
-
-        .big-day {
-            font-size: 2em;
-            margin-top: 20px;
-            color: #ffffff;
-            background: #ff4f81;
-            padding: 15px;
-            border-radius: 12px;
-        }
-         #welcome-image-container {
-            background-color: #7bbcf5; /* El mismo color azul que la cabecera */
-            padding: 20px 0; /* Espaciado superior e inferior */
-            text-align: center; /* Centra la imagen horizontalmente */
-            border-radius: 12px; /* Bordes redondeados */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-        }
-        
-        #welcome-image {
-            display: inline-block;
-            max-width: 90%; /* Ajusta el tamaño de la imagen */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 10px; /* Bordes redondeados a la imagen */
-        }
-
-         /* 🌐 MEDIA QUERIES PARA RESPONSIVE */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5em; }
-            h2 { font-size: 2em; }
-            h3 { font-size: 1.6em; }
-
-            .photos img {
-                width: 90%;
-                height: auto;
-            }
-
-            .site-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .site-card {
-                width: 90%;
-            }
-
-            .time-block {
-                font-size: 1em;
-                width: 60px;
-                padding: 8px 10px;
-            }
-
-            .time-block span {
-                font-size: 1.5em;
-            }
-
-            .timeline ul {
-                max-width: 100%;
-                padding: 0 10px;
-            }
-
-            .qr-code img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .map iframe {
-                height: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2em; }
-
-            .time-block {
-                font-size: 0.9em;
-                width: 55px;
-            }
-
-            .time-block span {
-                font-size: 1.3em;
-            }
-        }
+    footer {
+        font-size: 1em;
+    }
+}
             </style>
         </head>
         <body>
