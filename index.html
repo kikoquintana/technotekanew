@@ -245,8 +245,34 @@
             border-radius: 10px; /* Bordes redondeados a la imagen */
         }
             </style>
-        </head>
-        <body>
+            <style>
+        .galeria-scroll {
+          overflow: hidden;
+          width: 100%;
+          padding: 20px;
+        }
+        
+        .contenedor-fotos {
+          display: flex;
+          gap: 15px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+        }
+        
+        .contenedor-fotos img {
+          max-height: 300px;
+          border-radius: 20px;
+          flex-shrink: 0;
+          transition: transform 0.3s;
+        }
+        
+        .contenedor-fotos img:hover {
+          transform: scale(1.05);
+        }
+        </style>
+        
+                </head>
+                <body>
 
     <header>
         <!-- Contenedor para la imagen con fondo azul -->
