@@ -450,8 +450,15 @@
         };
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Inicial
-</script>
-
+        </script>
+        
+                            <script>
+          const contenedor = document.querySelector('.contenedor-fotos');
+          contenedor.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            contenedor.scrollLeft += e.deltaY;
+          });
+        </script>
 
 </body>
 </html>
