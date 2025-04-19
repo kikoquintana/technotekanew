@@ -334,16 +334,20 @@
             <a href="https://www.waze.com/es/live-map/directions/es/ct/sant-cugat-del-valles/casa-fuster-masia-sant-cugat?to=place.ChIJCek7sPGWpBIRkloJAJk9ZSQ" target="_blank">📍 Ver en Waze</a>
         </li>
 
-         <li><strong>🌤 El tiempo:</strong><br>
-            <iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/barcelona_espana_3109899?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" 
-            frameborder="0" 
-            scrolling="NO" 
-            allowtransparency="true" 
-            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
-            style="width: 100%; max-width: 360px; height: 400px;">
-            </iframe>
-            <div><small><a href="https://www.meteoblue.com/es/tiempo/semana/barcelona_espana_3109899" target="_blank">Ver pronóstico completo</a></small></div>
+        <li><strong>🌤 El tiempo:</strong><br>
+            <!-- Aquí va el widget de WeatherWidget.io -->
+            <a class="weatherwidget-io" href="https://forecast7.com/es/n35d678/n139d765/" data-label_1="TIEMPO" data-label_2="EN BARCELONA" data-theme="original" >El tiempo en Barcelona</a>
+            <script>
+                !function(d,s,id){
+                    var js,fjs=d.getElementsByTagName(s)[0];
+                    if(!d.getElementById(id)){
+                        js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";
+                        fjs.parentNode.insertBefore(js,fjs);
+                    }
+                }(document,"script","weatherwidget-io-js");
+            </script>
         </li>
+
 
 
         <li><strong>🏨 Hoteles recomendados:</strong>  
