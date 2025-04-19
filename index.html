@@ -458,8 +458,25 @@
             Concepto: Boda [Nombre del invitado]<br> 
             Agradecemos mucho tu colaboración y apoyo en este día tan especial para nosotros. ¡Gracias de corazón!💖<br>
         </li>
-    </ul>
-</section>
+            </ul>
+        </section>
+                <!-- Otras secciones -->
+        
+        <section class="weather">
+          <h2>El tiempo en Málaga</h2>
+          <div style="text-align: center;">
+            <a class="weatherwidget-io" 
+               href="https://forecast7.com/es/36d72n4d42/malaga/" 
+               data-label_1="MÁLAGA" 
+               data-label_2="PREVISIÓN SEMANAL" 
+               data-theme="pure">
+               MÁLAGA PREVISIÓN SEMANAL
+            </a>
+          </div>
+        </section>
+
+<!-- Más secciones (por ejemplo, ubicación, código QR, etc.) -->
+
 
     <section class="qr-code">
         <h2>Sube tus fotos</h2>
@@ -524,6 +541,18 @@
             e.preventDefault();
             contenedor.scrollLeft += e.deltaY;
           });
+        </script>
+                
+        <script>
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src='https://weatherwidget.io/js/widget.min.js';
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,'script','weatherwidget-io-js');
         </script>
 
 </body>
