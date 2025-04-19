@@ -246,17 +246,18 @@
         }
             </style>
             <style>
-        .galeria-scroll {
-          overflow: hidden;
+              .galeria-scroll {
           width: 100%;
           padding: 20px;
+          background-color: #fff;
         }
         
         .contenedor-fotos {
           display: flex;
           gap: 15px;
-          overflow-x: auto;
+          overflow-x: scroll; /* Muestra la barra */
           scroll-behavior: smooth;
+          padding-bottom: 10px;
         }
         
         .contenedor-fotos img {
@@ -269,6 +270,7 @@
         .contenedor-fotos img:hover {
           transform: scale(1.05);
         }
+
         </style>
         
                 </head>
