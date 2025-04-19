@@ -4,52 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Anna & KiKo</title>
+
+    <!-- Favicon -->
     <link rel="icon" href="images/novios.png" type="image/png">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Indie Flower', cursive;
-            font-size: 20px;
-            margin: 0;
-            padding: 0;
-            background-color: #fdfefe;
-            color: #333;
-            font-weight: bold;
-        }
-        h1, h2, h3 {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        h1 {
-            color: white;
-            font-size: 4em;
-        }
-        h2, h3 {
-            color: #7bbcf5;
-        }
-        h2 {
-            font-size: 2.5em;
-        }
-        h3 {
-            font-size: 2em;
-        }
-        header {
-            background-color: #7bbcf5;
-            padding: 20px;
-            text-align: center;
-        }
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfefe;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    /* Aplica Dancing Script solo a títulos */
+    h1, h2, h3 {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave en todos */
+    }
+    
+    /* h1 personalizado */
+    h1 {
+        color: white;
+        font-size: 4em;
+    }
+    
+    /* h2 y h3 en azul */
+    h2, h3 {
+        color: #7bbcf5; /* Azul más profundo */
+    }
+    
+    h2 {
+        font-size: 2.5em;
+    }
+    
+    h3 {
+        font-size: 2em;
+    }
+    
+    /* Header */
+    header {
+        background-color: #7bbcf5;
+        padding: 20px;
+        text-align: center;
+    }
+    
+
+       /* Estilo del reloj */
         #countdown {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 10px;
             margin-top: 20px;
         }
+
         .time-block {
             background-color: #050500;
             color: #fff;
-            padding: 10px 15px;
+             padding: 10px 15px;
             border-radius: 10px;
             text-align: center;
             font-size: 1.2em;
@@ -58,47 +76,59 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
         }
+
         .time-block span {
             display: block;
             font-size: 2em;
             margin-bottom: 5px;
         }
+
+        .time-block p {
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+
         .time-block p {
             font-size: 1em;
             margin: 0;
         }
-        section { 
-            padding: 20px; 
-        }
+
+        section { padding: 20px; }
+
         .photos {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
+
         .photos img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
+            width: 300px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
+
         .links, .map {
             margin-top: 30px;
         }
+
         .links ul {
             list-style: none;
             padding: 0;
         }
+
         .links li {
             margin: 10px 0;
         }
+
         .site-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
+
         .site-card {
             width: 200px;
             background: #f2f2f2;
@@ -110,70 +140,88 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s;
         }
+
         .site-card:hover {
             transform: scale(1.03);
         }
+
         .site-card img {
             width: 100%;
             height: 120px;
             object-fit: cover;
         }
+
         .site-card p {
             padding: 10px;
             font-size: 0.95em;
         }
+
         .timeline {
             margin-top: 40px;
             background-color: #eef6fd;
             padding: 20px;
             border-radius: 12px;
-            text-align: center;
         }
+
+        .timeline h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
         .timeline ul {
             list-style: none;
             padding: 0;
             margin: 0 auto;
             max-width: 500px;
-            text-align: left;
         }
+
         .timeline li {
             padding: 10px 0;
             border-bottom: 1px solid #ccc;
             font-size: 1.1em;
         }
+
         .timeline .time {
             font-weight: bold;
             color: #7bbcf5;
             margin-right: 10px;
         }
+
         .frase-especial {
             font-size: 2em;
             text-align: center;
             margin-top: 20px;
-            color: #fffaf0;
+            color: #fffaf0; /* Blanco cálido */
             font-weight: bold;
-            text-shadow: 1px 1px 2px #00000055;
+            text-shadow: 1px 1px 2px #00000055; /* Sombrita suave para que se vea bien */
         }
+
+
         .qr-code {
             text-align: center;
             margin: 20px 0;
         }
+
         .qr-code img {
             width: 200px;
             height: 200px;
         }
+
         .map iframe {
             width: 100%;
             height: 400px;
             border: none;
         }
+
         footer {
             font-family: 'Dancing Script', cursive;
             background-color: yellow;
             text-align: center;
-            padding: 14px;
+            padding: 14x;
             margin-top: 30px;
         }
+
         .big-day {
             font-size: 2em;
             margin-top: 20px;
@@ -182,32 +230,23 @@
             padding: 15px;
             border-radius: 12px;
         }
-        #welcome-image-container {
-            background-color: #7bbcf5;
-            padding: 20px 0;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         #welcome-image-container {
+            background-color: #7bbcf5; /* El mismo color azul que la cabecera */
+            padding: 20px 0; /* Espaciado superior e inferior */
+            text-align: center; /* Centra la imagen horizontalmente */
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
         }
+        
         #welcome-image {
             display: inline-block;
-            max-width: 90%;
-            height: auto;
-            border-radius: 10px;
+            max-width: 90%; /* Ajusta el tamaño de la imagen */
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 10px; /* Bordes redondeados a la imagen */
         }
-        @media (max-width: 768px) {
-            .photos img {
-                width: 100%;
-                max-width: 90%;
-            }
-            .time-block {
-                width: 70px;
-                font-size: 1em;
-            }
-        }
-    </style>
-</head>
-<body>
+            </style>
+        </head>
+        <body>
 
     <header>
         <!-- Contenedor para la imagen con fondo azul -->
@@ -215,7 +254,7 @@
         <img src="images/logo boda.jpg" alt="Imagen de bienvenida" id="welcome-image">
     </div>
         <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
-        <p class="frase-especial">🎉Nos encantaría que nos acompañaras en este día tan especial💖</p>
+        <p class="frase-especial">Nos encantaría que nos acompañaras en este día tan especial 💖</p>
 
         <!-- Cuenta atrás -->   
         <div id="countdown" role="timer" aria-label="Cuenta atrás para el día de la boda">
@@ -296,14 +335,13 @@
         </li>
 
          <li><strong>🌤 El tiempo:</strong><br>
-          <iframe 
-            src="https://www.meteoblue.com/es/tiempo/widget/daily/sant-cugat-del-valles_espa%C3%B1a_3120172?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" 
+            <iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/berlanga_espana_3109899?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" 
             frameborder="0" 
             scrolling="NO" 
-            style="width: 100%; max-width: 360px; height: 400px;" 
-            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
-        </iframe>
-
+            allowtransparency="true" 
+            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+            style="width: 100%; max-width: 360px; height: 400px;">
+            </iframe>
             <div><small><a href="https://www.meteoblue.com/es/tiempo/semana/berlanga_espana_3109899" target="_blank">Ver pronóstico completo</a></small></div>
         </li>
 
