@@ -24,7 +24,7 @@
         color: #333;
         font-weight: bold;
     }
-        #photo-gallery {
+       #photo-gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -538,7 +538,9 @@
         <section class="upload-section">
             <h2>📸 Sube tus fotos</h2>
 
-  <!-- Botón de subir fotos -->
+          <h2>Sube tus fotos</h2>
+        
+          <!-- Botón de subir fotos -->
           <input 
             type="hidden" 
             role="uploadcare-uploader" 
@@ -547,55 +549,56 @@
             data-multiple="true"
             data-images-only="true"
             data-clearable="true"
-              />
-        <h2>Galería de Fotos</h2>
+          />
 
-        <!-- Uploadcare input -->
-        <input 
-          type="hidden" 
-          role="uploadcare-uploader" 
-          name="file" 
-          data-public-key="4a4daf88b2d780a1557b"
-          data-multiple="true"
-          data-images-only="true"
-          data-clearable="true"
-        />
-
-                <!-- Galería de fotos -->
-          <div id="photo-gallery"></div>
-        
-          <script>
-            const widget = uploadcare.Widget('#upload-widget');
-        
-            widget.onUploadComplete(fileInfo => {
-              // Si subes varias imágenes a la vez
-              if (Array.isArray(fileInfo)) {
-                fileInfo.forEach(file => addImage(file.cdnUrl));
-              } else {
-                addImage(fileInfo.cdnUrl);
-              }
-            });
-        
-            function addImage(url) {
-              const gallery = document.getElementById('photo-gallery');
-        
-              const card = document.createElement('div');
-              card.className = 'photo-card';
-        
-              const img = document.createElement('img');
-              img.src = url;
-              img.alt = 'Imagen subida';
-        
-              const downloadBtn = document.createElement('a');
-              downloadBtn.href = url;
-              downloadBtn.download = '';
-              downloadBtn.className = 'download-button';
-              downloadBtn.textContent = 'Descargar';
-        
-              card.appendChild(img);
-              card.appendChild(downloadBtn);
-              gallery.appendChild(card);
-            }
+        <!-- Galería de fotos -->
+              <div id="photo-gallery"></div>
+            
+              <script>
+                const gallery = document.getElementById('photo-gallery');
+                const widget = uploadcare.Widget('#upload-widget');
+            
+                // Cargar imágenes guardadas al iniciar
+                document.addEventListener('DOMContentLoaded', () => {
+                  const storedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+                  storedImages.forEach(url => addImage(url));
+                });
+            
+                // Al subir una nueva imagen
+                widget.onUploadComplete(fileInfo => {
+                  const imageUrl = fileInfo.cdnUrl;
+                  addImage(imageUrl);
+                  saveImage(imageUrl);
+                });
+            
+                // Agregar imagen al DOM
+                function addImage(url) {
+                  const card = document.createElement('div');
+                  card.className = 'photo-card';
+            
+                  const img = document.createElement('img');
+                  img.src = url;
+                  img.alt = 'Imagen subida';
+            
+                  const downloadBtn = document.createElement('a');
+                  downloadBtn.href = url;
+                  downloadBtn.download = '';
+                  downloadBtn.className = 'download-button';
+                  downloadBtn.textContent = 'Descargar';
+            
+                  card.appendChild(img);
+                  card.appendChild(downloadBtn);
+                  gallery.appendChild(card);
+                }
+            
+                // Guardar imagen en localStorage
+                function saveImage(url) {
+                  const storedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+                  if (!storedImages.includes(url)) {
+                    storedImages.push(url);
+                    localStorage.setItem('savedImages', JSON.stringify(storedImages));
+                  }
+                }
                 </script>
 
 
