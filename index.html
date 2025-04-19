@@ -513,8 +513,38 @@
 
         <section class="upload-section">
             <h2>¡Sube tus fotos para nuestra boda!</h2>
-            <input type="hidden" role="uploadcare-uploader" name="file" data-public-key="YOUR_PUBLIC_KEY">
+            <input type="hidden" role="uploadcare-uploader" name="file" data-public-key="4a4daf88b2d780a1557b">
         </section>
+        <section class="upload-section">
+        <h2>¡Sube tus fotos para nuestra boda!</h2>
+        <input type="hidden" role="uploadcare-uploader" name="file" 
+           data-public-key="4a4daf88b2d780a1557b" 
+           data-multiple="true" 
+           data-images-only="true" 
+           data-crop="free">
+        </section>
+
+        <section class="photos">
+    <h2>Galería de Fotos</h2>
+    <div id="photo-gallery">
+        <!-- Aquí se añadirán las imágenes cargadas -->
+    </div>
+    </section>
+
+    <script>
+    // Usando el API de Uploadcare para manejar la carga de imágenes
+        uploadcare.Widget('[role=uploadcare-uploader]').on('change', function(file) {
+        if (file) {
+            // Cargar la imagen en el contenedor de la galería
+            var img = document.createElement('img');
+            img.src = file.cdnUrl;
+            img.alt = 'Foto cargada';
+            document.getElementById('photo-gallery').appendChild(img);
+        }
+            });
+        </script>
+
+
 
          <section id="galeria" style="text-align: center; margin: 50px 0;">
           <h2>📸 Sube tus fotos</h2>
