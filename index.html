@@ -509,24 +509,18 @@
           </div>
         </section>
 
-<!-- Más secciones (por ejemplo, ubicación, código QR, etc.) -->
-
-        <section class="upload-section"text-align: center; margin: 50px 0;">
-        <h2>📸 Sube tus fotos</h2>
-        <input type="hidden" role="uploadcare-uploader" name="file" 
-           data-public-key="4a4daf88b2d780a1557b" 
-           data-multiple="true" 
-           data-images-only="true" 
-           data-crop="free">
-        </section>
-
-        <section class="photos">
-            <h2>Galería de Fotos</h2>
-            <div id="photo-gallery">
-                <!-- Aquí se añadirán las imágenes cargadas -->
-            </div>
-            </section>
+        <!-- Más secciones (por ejemplo, ubicación, código QR, etc.) -->
+        <section class="upload-section">
+            <h2>📸 ¡Sube tus fotos para nuestra boda!</h2>
         
+            <!-- Aquí está el widget con los atributos de personalización -->
+            <input type="hidden" role="uploadcare-uploader" name="file" 
+                   data-public-key="4a4daf88b2d780a1557b" 
+                   data-multiple="true"           <!-- Permite múltiples archivos -->
+                   data-images-only="true"        <!-- Permite solo imágenes -->
+                   data-crop="free">              <!-- Permite recortar imágenes antes de cargar -->
+        </section>
+ 
         <script>
     // Usando el API de Uploadcare para manejar la carga de imágenes
             uploadcare.Widget('[role=uploadcare-uploader]').on('change', function(file) {
