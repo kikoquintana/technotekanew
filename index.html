@@ -521,24 +521,31 @@
                    data-crop="free">              <!-- Permite recortar imágenes antes de cargar -->
         </section>
  
-        <script>
-    // Usando el API de Uploadcare para manejar la carga de imágenes
-            uploadcare.Widget('[role=uploadcare-uploader]').on('change', function(file) {
-            if (file) {
-            // Cargar la imagen en el contenedor de la galería
-            var img = document.createElement('img');
-            img.src = file.cdnUrl;
-            img.alt = 'Foto cargada';
-            document.getElementById('photo-gallery').appendChild(img);
-            }
+              <script>
+            const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+        
+            widget.onUploadComplete(function(fileInfo) {
+                // Si se cargaron múltiples imágenes
+                if (Array.isArray(fileInfo)) {
+                    fileInfo.forEach(file => addImageToGallery(file.cdnUrl));
+                } else {
+                    // Si solo es una imagen
+                    addImageToGallery(fileInfo.cdnUrl);
+                }
             });
+        
+            function addImageToGallery(url) {
+                const gallery = document.getElementById('photo-gallery');
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = "Foto subida";
+                img.style.width = "200px";
+                img.style.borderRadius = "10px";
+                img.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
+                gallery.appendChild(img);
+            }
         </script>
-        <section class="photos">
-            <h2>Galería de Fotos</h2>
-            <div id="photo-gallery">
-                <!-- Aquí se añadirán las imágenes cargadas -->
-            </div>
-        </section>
+
 
 
     <section class="map">
