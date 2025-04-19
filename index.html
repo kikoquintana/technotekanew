@@ -246,32 +246,48 @@
         }
             </style>
             <style>
-              .galeria-scroll {
-          width: 100%;
+          .galeria-auto {
+          margin: 40px 0;
           padding: 20px;
-          background-color: #fff;
-        }
-        
-        .contenedor-fotos {
-          display: flex;
-          gap: 15px;
-          overflow-x: scroll; /* Muestra la barra */
-          scroll-behavior: smooth;
-          padding-bottom: 10px;
-        }
-        
-        .contenedor-fotos img {
-          max-height: 300px;
+          background-color: #f9f9f9;
           border-radius: 20px;
-          flex-shrink: 0;
-          transition: transform 0.3s;
         }
         
-        .contenedor-fotos img:hover {
-          transform: scale(1.05);
+        .galeria-auto h2 {
+          font-size: 24px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+        
+        .slider {
+          overflow: hidden;
+          width: 100%;
+        }
+        
+        .slider-track {
+          display: flex;
+          width: max-content;
+          animation: scrollSlider 20s linear infinite;
+        }
+        
+        .slider img {
+          height: 300px;
+          border-radius: 15px;
+          margin-right: 20px;
+          flex-shrink: 0;
+        }
+        
+        /* Animación */
+        @keyframes scrollSlider {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
 
-        </style>
+         </style>
         
                 </head>
                 <body>
@@ -282,7 +298,7 @@
         <img src="images/logo boda.jpg" alt="Imagen de bienvenida" id="welcome-image">
     </div>
         <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
-        <p class="frase-especial">Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+        <p class="frase-especial">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
 
         <!-- Cuenta atrás -->   
         <div id="countdown" role="timer" aria-label="Cuenta atrás para el día de la boda">
@@ -304,10 +320,11 @@
         Wilson volvió a casa y nos fuimos a vivir juntos de una vez por todas. Y desde entonces hemos creado no solo una pareja si no también una familia; hemos construido un hogar lleno de amor, paz y felicidad.</p>
         </p>
     </section>
-
-    <section class="galeria-scroll">
-        <h2>Galería de Fotos</h2>
-        <div class="photos">
+    
+      <section class="galeria-auto">
+      <h2>Fotos de los Novios</h2>
+      <div class="slider">
+           <div class="slider-track">
             <img src="images/boda 03.jpg" alt="Foto de los novios">
             <img src="images/boda 04.jpg" alt="Foto de los novios">
             <img src="images/boda 05.jpg" alt="Foto de los novios">
@@ -317,7 +334,8 @@
             <img src="images/foto 09.jpg" alt="Foto de los novios">
             <img src="images/foto 10.jpg" alt="Foto de los novios">
             <img src="images/foto 11.jpg" alt="Foto de los novios">            
-        </div>
+            </div>
+        </div> 
     </section>
     
    <section class="timeline">
@@ -364,22 +382,6 @@
             <a href="https://www.google.com/maps/place/Masia+Casa+Fuster/@41.4723,2.0845,17z" target="_blank">🗺 Ver ubicación en Google Maps</a><br>
             <a href="https://www.waze.com/es/live-map/directions/es/ct/sant-cugat-del-valles/casa-fuster-masia-sant-cugat?to=place.ChIJCek7sPGWpBIRkloJAJk9ZSQ" target="_blank">📍 Ver en Waze</a>
         </li>
-
-        <li><strong>🌤 El tiempo:</strong><br>
-            <!-- Aquí va el widget de WeatherWidget.io -->
-            <a class="weatherwidget-io" href="https://forecast7.com/es/n35d678/n139d765/" data-label_1="TIEMPO" data-label_2="EN BARCELONA" data-theme="original" >El tiempo en Barcelona</a>
-            <script>
-                !function(d,s,id){
-                    var js,fjs=d.getElementsByTagName(s)[0];
-                    if(!d.getElementById(id)){
-                        js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";
-                        fjs.parentNode.insertBefore(js,fjs);
-                    }
-                }(document,"script","weatherwidget-io-js");
-            </script>
-        </li>
-
-
 
         <li><strong>🏨 Hoteles recomendados:</strong>  
             <ul>
