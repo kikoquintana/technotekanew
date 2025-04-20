@@ -548,59 +548,66 @@
             data-clearable="true"
           />
 
-        <!-- Galería de fotos -->
-              <div id="photo-gallery"></div>
+            <!-- Botón para subir imágenes -->
+              <input type="hidden" role="uploadcare-uploader" data-multiple />
+            
+              <!-- Galería donde se mostrarán las imágenes -->
+              <div id="gallery"></div>
             
               <script>
-                const gallery = document.getElementById('photo-gallery');
-                const widget = uploadcare.Widget('#upload-widget');
+                const widget = uploadcare.Widget('[role=uploadcare-uploader]');
             
-                // Cargar imágenes guardadas al iniciar
-                document.addEventListener('DOMContentLoaded', () => {
-                  const storedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
-                  storedImages.forEach(url => addImage(url));
-                });
-            
-                // Al subir una nueva imagen
-                widget.onUploadComplete(fileInfo => {
-                  const imageUrl = fileInfo.cdnUrl;
-                  addImage(imageUrl);
-                  saveImage(imageUrl);
-                });
-            
-                // Agregar imagen al DOM
+                // Mostrar imagen en galería
                 function addImage(url) {
-                  const card = document.createElement('div');
-                  card.className = 'photo-card';
+                  const gallery = document.getElementById('gallery');
+                  const container = document.createElement('div');
+                  container.className = 'image-container';
             
                   const img = document.createElement('img');
                   img.src = url;
-                  img.alt = 'Imagen subida';
             
-                  const downloadBtn = document.createElement('a');
-                  downloadBtn.href = url;
-                  downloadBtn.download = '';
-                  downloadBtn.className = 'download-button';
-                  downloadBtn.textContent = 'Descargar';
+                  const button = document.createElement('a');
+                  button.href = url;
+                  button.download = '';
+                  button.className = 'download-btn';
+                  button.textContent = 'Descargar';
             
-                  card.appendChild(img);
-                  card.appendChild(downloadBtn);
-                  gallery.appendChild(card);
+                  container.appendChild(img);
+                  container.appendChild(button);
+                  gallery.appendChild(container);
                 }
             
-                // Guardar imagen en localStorage
+                // Guardar en localStorage
                 function saveImage(url) {
-                  const storedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
-                  if (!storedImages.includes(url)) {
-                    storedImages.push(url);
-                    localStorage.setItem('savedImages', JSON.stringify(storedImages));
-                  }
+                  const saved = JSON.parse(localStorage.getItem('images') || '[]');
+                  saved.push(url);
+                  localStorage.setItem('images', JSON.stringify(saved));
                 }
-                </script>
-
-
-
-
+            
+                // Cargar imágenes guardadas al iniciar
+                window.onload = () => {
+                  const saved = JSON.parse(localStorage.getItem('images') || '[]');
+                  saved.forEach(addImage);
+                };
+            
+                // ✅ Aquí va el bloque que maneja subida de imagen o grupo
+                widget.onUploadComplete(async (fileInfo) => {
+                  if (fileInfo.cdnUrl) {
+                    // Imagen individual
+                    addImage(fileInfo.cdnUrl);
+                    saveImage(fileInfo.cdnUrl);
+                  } else if (fileInfo.isImage === false && fileInfo.isStored) {
+                    // Grupo de imágenes
+                    const files = await fileInfo.files();
+                    for (const filePromise of files) {
+                      const file = await filePromise;
+                      const imageUrl = file.cdnUrl;
+                      addImage(imageUrl);
+                      saveImage(imageUrl);
+                    }
+                  }
+                });
+              </script>
 
     <section class="map">
         <h2>Casa Fuster Masia Sant Cugat</h2>
