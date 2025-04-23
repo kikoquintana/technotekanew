@@ -538,7 +538,7 @@
           </div>
         </section>
 
-   <section class="upload-section">
+       <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
         
           <!-- Script de Uploadcare -->
@@ -601,8 +601,8 @@
               color: white;
               padding: 6px 12px;
               border-radius: 6px;
-              text-decoration: none;
               font-size: 0.9rem;
+              cursor: pointer;
             }
         
             .download-btn:hover {
@@ -649,7 +649,7 @@
                 button.onclick = () => {
                   const a = document.createElement('a');
                   a.href = url;
-                  a.download = '';
+                  a.download = ''; // Forzar la descarga sin redirigir
                   a.click(); // Simula el clic para iniciar la descarga
                 };
         
@@ -671,15 +671,15 @@
               // Cuando se sube una imagen
               widget.onUploadComplete(async (fileInfo) => {
                 if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
-                  addImage(fileInfo.cdnUrl);
-                  saveImage(fileInfo.cdnUrl);
+                  addImage(fileInfo.cdnUrl); // Mostrar la imagen en la galería
+                  saveImage(fileInfo.cdnUrl); // Guardar en el localStorage
                 } else if (fileInfo.files && typeof fileInfo.files === 'function') {
                   const files = await fileInfo.files();
                   for (const filePromise of files) {
                     const file = await filePromise;
                     if (file.mimeType?.startsWith('image')) {
-                      addImage(file.cdnUrl);
-                      saveImage(file.cdnUrl);
+                      addImage(file.cdnUrl); // Mostrar la imagen en la galería
+                      saveImage(file.cdnUrl); // Guardar en el localStorage
                     }
                   }
                 }
@@ -687,6 +687,7 @@
             };
           </script>
         </section>
+
 
 
 
