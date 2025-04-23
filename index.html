@@ -538,23 +538,22 @@
           </div>
         </section>
 
-       <!-- 📸 Sección de subir fotos -->
         <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
         
           <!-- Script de Uploadcare -->
           <script>
-            UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // ← Reemplaza con tu clave real
+            UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // Tu clave pública
           </script>
           <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
         
-          <!-- Botón para subir imágenes -->
-          <input type="hidden" role="uploadcare-uploader" data-multiple />
+          <!-- Input para subir imágenes (ya no oculto de forma incorrecta) -->
+          <input type="hidden" role="uploadcare-uploader" data-multiple data-tabs="file url camera" />
         
-          <!-- Galería de imágenes -->
+          <!-- Galería -->
           <div id="gallery"></div>
         
-          <!-- Estilos básicos -->
+          <!-- Estilos -->
           <style>
             .image-container {
               display: inline-block;
@@ -581,12 +580,11 @@
             }
           </style>
         
-          <!-- Script funcional -->
+          <!-- Script -->
           <script>
             window.onload = () => {
               const widget = uploadcare.Widget('[role=uploadcare-uploader]');
         
-              // Mostrar imagen en galería
               function addImage(url) {
                 const gallery = document.getElementById('gallery');
                 const container = document.createElement('div');
@@ -594,6 +592,9 @@
         
                 const img = document.createElement('img');
                 img.src = url;
+                img.onerror = () => {
+                  img.src = 'https://via.placeholder.com/150?text=Error+al+cargar';
+                };
         
                 const button = document.createElement('a');
                 button.href = url;
@@ -606,30 +607,25 @@
                 gallery.appendChild(container);
               }
         
-              // Guardar en localStorage
               function saveImage(url) {
                 const saved = JSON.parse(localStorage.getItem('images') || '[]');
                 saved.push(url);
                 localStorage.setItem('images', JSON.stringify(saved));
               }
         
-              // Cargar imágenes al iniciar
+              // Cargar al inicio
               const saved = JSON.parse(localStorage.getItem('images') || '[]');
               saved.forEach(addImage);
         
-              // Cuando se sube una imagen o grupo de imágenes
               widget.onUploadComplete(async (fileInfo) => {
-                // Imagen individual
-                if (fileInfo.cdnUrl && fileInfo.isImage) {
+                if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
                   addImage(fileInfo.cdnUrl);
                   saveImage(fileInfo.cdnUrl);
-                }
-                // Grupo de imágenes
-                else if (fileInfo.uuid && fileInfo.isStored && typeof fileInfo.files === 'function') {
+                } else if (fileInfo.uuid && fileInfo.isStored && typeof fileInfo.files === 'function') {
                   const files = await fileInfo.files();
                   for (const filePromise of files) {
                     const file = await filePromise;
-                    if (file.isImage) {
+                    if (file.mimeType?.startsWith('image')) {
                       addImage(file.cdnUrl);
                       saveImage(file.cdnUrl);
                     }
