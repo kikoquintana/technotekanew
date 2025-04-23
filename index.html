@@ -538,71 +538,107 @@
           </div>
         </section>
 
-        <!-- Más secciones (por ejemplo, ubicación, código QR, etc.) -->
+       <!-- 📸 Sección de subir fotos -->
         <section class="upload-section">
-            <h2>📸 Sube tus fotos</h2> 
-                   <!-- Botón para subir imágenes -->
+          <h2>📸 Sube tus fotos</h2>
+        
+          <!-- Script de Uploadcare -->
+          <script>
+            UPLOADCARE_PUBLIC_KEY = 'tu_clave_publica_aquí'; // ← Reemplaza con tu clave real
+          </script>
+          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+        
+          <!-- Botón para subir imágenes -->
           <input type="hidden" role="uploadcare-uploader" data-multiple />
         
-          <!-- Galería donde se mostrarán las imágenes -->
+          <!-- Galería de imágenes -->
           <div id="gallery"></div>
         
+          <!-- Estilos básicos -->
+          <style>
+            .image-container {
+              display: inline-block;
+              margin: 10px;
+              text-align: center;
+            }
+        
+            .image-container img {
+              max-width: 200px;
+              border-radius: 10px;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              display: block;
+              margin-bottom: 5px;
+            }
+        
+            .download-btn {
+              display: inline-block;
+              padding: 5px 10px;
+              background-color: #007bff;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-size: 0.9em;
+            }
+          </style>
+        
+          <!-- Script funcional -->
           <script>
-            const widget = uploadcare.Widget('[role=uploadcare-uploader]');
-        
-            // Mostrar imagen en galería
-            function addImage(url) {
-              const gallery = document.getElementById('gallery');
-              const container = document.createElement('div');
-              container.className = 'image-container';
-        
-              const img = document.createElement('img');
-              img.src = url;
-        
-              const button = document.createElement('a');
-              button.href = url;
-              button.download = '';
-              button.className = 'download-btn';
-              button.textContent = 'Descargar';
-        
-              container.appendChild(img);
-              container.appendChild(button);
-              gallery.appendChild(container);
-            }
-        
-            // Guardar en localStorage
-            function saveImage(url) {
-              const saved = JSON.parse(localStorage.getItem('images') || '[]');
-              saved.push(url);
-              localStorage.setItem('images', JSON.stringify(saved));
-            }
-        
-            // Cargar imágenes guardadas al iniciar
             window.onload = () => {
+              const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+        
+              // Mostrar imagen en galería
+              function addImage(url) {
+                const gallery = document.getElementById('gallery');
+                const container = document.createElement('div');
+                container.className = 'image-container';
+        
+                const img = document.createElement('img');
+                img.src = url;
+        
+                const button = document.createElement('a');
+                button.href = url;
+                button.download = '';
+                button.className = 'download-btn';
+                button.textContent = 'Descargar';
+        
+                container.appendChild(img);
+                container.appendChild(button);
+                gallery.appendChild(container);
+              }
+        
+              // Guardar en localStorage
+              function saveImage(url) {
+                const saved = JSON.parse(localStorage.getItem('images') || '[]');
+                saved.push(url);
+                localStorage.setItem('images', JSON.stringify(saved));
+              }
+        
+              // Cargar imágenes al iniciar
               const saved = JSON.parse(localStorage.getItem('images') || '[]');
               saved.forEach(addImage);
-            };
         
-            // Cuando se sube una imagen o grupo de imágenes
-            widget.onUploadComplete(async (fileInfo) => {
-              // Si es imagen individual
-              if (fileInfo.cdnUrl && fileInfo.isImage) {
-                addImage(fileInfo.cdnUrl);
-                saveImage(fileInfo.cdnUrl);
-              }
-              // Si es un grupo de archivos
-              else if (fileInfo.uuid && fileInfo.isStored && typeof fileInfo.files === 'function') {
-                const files = await fileInfo.files(); // ← obtener el array de imágenes
-                for (const filePromise of files) {
-                  const file = await filePromise;
-                  if (file.isImage) {
-                    addImage(file.cdnUrl);
-                    saveImage(file.cdnUrl);
+              // Cuando se sube una imagen o grupo de imágenes
+              widget.onUploadComplete(async (fileInfo) => {
+                // Imagen individual
+                if (fileInfo.cdnUrl && fileInfo.isImage) {
+                  addImage(fileInfo.cdnUrl);
+                  saveImage(fileInfo.cdnUrl);
+                }
+                // Grupo de imágenes
+                else if (fileInfo.uuid && fileInfo.isStored && typeof fileInfo.files === 'function') {
+                  const files = await fileInfo.files();
+                  for (const filePromise of files) {
+                    const file = await filePromise;
+                    if (file.isImage) {
+                      addImage(file.cdnUrl);
+                      saveImage(file.cdnUrl);
+                    }
                   }
                 }
-              }
-            });
+              });
+            };
           </script>
+        </section>
 
     <section class="map">
         <h2>Casa Fuster Masia Sant Cugat</h2>
