@@ -542,7 +542,7 @@
         
           <!-- Uploadcare Widget -->
           <script>
-            UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // Tu clave pública
+          UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // Tu clave pública
           </script>
           <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
         
@@ -619,11 +619,28 @@
               const gallery = document.getElementById('gallery');
               const input = document.getElementById('uploadcare-input');
               const widget = uploadcare.Widget(input);
+                // Cargar imágenes guardadas
+            db.collection("galeria").orderBy("timestamp", "desc").get().then(snapshot => {
+              snapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.url) addImage(data.url);
+              });
+            });
+
         
-              // Abrir el widget cuando se hace clic en el botón
-              document.getElementById('custom-upload-btn').onclick = () => {
-                widget.openDialog(null, { multiple: true });
-              };
+             widget.onUploadComplete((fileInfo) => {
+              if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
+                // Mostrar la imagen
+                addImage(fileInfo.cdnUrl);
+            
+                // Guardar en Firebase
+                db.collection("galeria").add({
+                  url: fileInfo.cdnUrl,
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+              }
+            });
+
         
               // Función para añadir imagen a la galería
               function addImage(url) {
@@ -734,6 +751,27 @@
         }
       }(document,'script','weatherwidget-io-js');
     </script> 
+
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+        
+        <script>
+          // 🔧 Reemplaza esto con tus propios datos de Firebase
+          const firebaseConfig = {
+            apiKey: "AIzaSyDQd0VncZULopBKC-CMD85Q9EQaAT9SdaE",
+            authDomain: "galeriadefotos-2d1be.firebaseapp.com",
+            projectId: "galeriadefotos-2d1be",
+            storageBucket: "galeriadefotos-2d1be.firebasestorage.app",
+            messagingSenderId: "668287915077",
+            appId: "1:668287915077:web:61e0bc5a2f622730213f2c"
+          };
+        
+          // Inicializar Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.firestore();
+        </script>
+
 
 </body>
 </html>
