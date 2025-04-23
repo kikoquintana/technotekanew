@@ -547,53 +547,97 @@
           </script>
           <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
         
-          <!-- Input para subir imágenes (ya no oculto de forma incorrecta) -->
-          <input type="hidden" role="uploadcare-uploader" data-multiple data-tabs="file url camera" />
+          <!-- Botón personalizado -->
+          <button id="custom-upload-btn">Elegir fotos</button>
         
           <!-- Galería -->
           <div id="gallery"></div>
         
           <!-- Estilos -->
           <style>
+            .upload-section {
+              text-align: center;
+              padding: 2rem;
+              font-family: 'Segoe UI', sans-serif;
+            }
+        
+            #custom-upload-btn {
+              background: linear-gradient(135deg, #6a11cb, #2575fc);
+              border: none;
+              color: white;
+              padding: 12px 24px;
+              font-size: 1.1rem;
+              border-radius: 12px;
+              cursor: pointer;
+              transition: background 0.3s ease;
+            }
+        
+            #custom-upload-btn:hover {
+              background: linear-gradient(135deg, #5b0eca, #1f6dfc);
+            }
+        
             .image-container {
               display: inline-block;
               margin: 10px;
               text-align: center;
+              transition: transform 0.2s;
+            }
+        
+            .image-container:hover {
+              transform: scale(1.05);
             }
         
             .image-container img {
               max-width: 200px;
+              height: auto;
               border-radius: 10px;
-              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
               display: block;
               margin-bottom: 5px;
             }
         
             .download-btn {
-              display: inline-block;
-              padding: 5px 10px;
-              background-color: #007bff;
+              background-color: #28a745;
               color: white;
+              padding: 6px 12px;
+              border-radius: 6px;
               text-decoration: none;
-              border-radius: 5px;
-              font-size: 0.9em;
+              font-size: 0.9rem;
+            }
+        
+            .download-btn:hover {
+              background-color: #218838;
             }
           </style>
         
           <!-- Script -->
           <script>
             window.onload = () => {
-              const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+              const gallery = document.getElementById('gallery');
+        
+              // Crear widget invisible
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.setAttribute('role', 'uploadcare-uploader');
+              input.setAttribute('data-multiple', '');
+              document.body.appendChild(input);
+              const widget = uploadcare.Widget(input);
+        
+              // Botón personalizado dispara el widget
+              document.getElementById('custom-upload-btn').onclick = () => {
+                widget.openDialog(null, {
+                  multiple: true
+                });
+              };
         
               function addImage(url) {
-                const gallery = document.getElementById('gallery');
                 const container = document.createElement('div');
                 container.className = 'image-container';
         
                 const img = document.createElement('img');
                 img.src = url;
                 img.onerror = () => {
-                  img.src = 'https://via.placeholder.com/150?text=Error+al+cargar';
+                  img.src = 'https://via.placeholder.com/150?text=Error';
                 };
         
                 const button = document.createElement('a');
@@ -613,15 +657,16 @@
                 localStorage.setItem('images', JSON.stringify(saved));
               }
         
-              // Cargar al inicio
+              // Cargar imágenes guardadas
               const saved = JSON.parse(localStorage.getItem('images') || '[]');
               saved.forEach(addImage);
         
+              // Cuando se sube una imagen
               widget.onUploadComplete(async (fileInfo) => {
                 if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
                   addImage(fileInfo.cdnUrl);
                   saveImage(fileInfo.cdnUrl);
-                } else if (fileInfo.uuid && fileInfo.isStored && typeof fileInfo.files === 'function') {
+                } else if (fileInfo.files && typeof fileInfo.files === 'function') {
                   const files = await fileInfo.files();
                   for (const filePromise of files) {
                     const file = await filePromise;
@@ -635,6 +680,7 @@
             };
           </script>
         </section>
+
 
     <section class="map">
         <h2>Casa Fuster Masia Sant Cugat</h2>
