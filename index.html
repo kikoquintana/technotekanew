@@ -538,7 +538,7 @@
           </div>
         </section>
         
-        <section class="upload-section">
+      <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
         
           <!-- Script de Uploadcare -->
@@ -603,6 +603,7 @@
               border-radius: 6px;
               font-size: 0.9rem;
               cursor: pointer;
+              margin-top: 10px;
             }
         
             .download-btn:hover {
@@ -630,10 +631,13 @@
                 });
               };
         
+              // Función para agregar imagen a la galería
               function addImage(url) {
+                // Crear un contenedor para la imagen y el botón de descarga
                 const container = document.createElement('div');
                 container.className = 'image-container';
         
+                // Crear la imagen
                 const img = document.createElement('img');
                 img.src = url;
                 img.onerror = () => {
@@ -653,23 +657,19 @@
                   a.click(); // Simula el clic para iniciar la descarga
                 };
         
+                // Agregar la imagen y el botón al contenedor
                 container.appendChild(img);
                 container.appendChild(button);
+        
+                // Añadir el contenedor a la galería
                 gallery.appendChild(container);
               }
         
               // Cuando se sube una imagen
-              widget.onUploadComplete(async (fileInfo) => {
+              widget.onUploadComplete((fileInfo) => {
+                // Verificamos si la URL de la imagen es válida
                 if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
                   addImage(fileInfo.cdnUrl); // Mostrar la imagen en la galería
-                } else if (fileInfo.files && typeof fileInfo.files === 'function') {
-                  const files = await fileInfo.files();
-                  for (const filePromise of files) {
-                    const file = await filePromise;
-                    if (file.mimeType?.startsWith('image')) {
-                      addImage(file.cdnUrl); // Mostrar la imagen en la galería
-                    }
-                  }
                 }
               });
             };
@@ -680,6 +680,7 @@
 
 
 
+<!--
     <section class="map">
         <h2>Casa Fuster Masia Sant Cugat</h2>
         <p>Haz clic en el mapa para obtener más detalles sobre cómo llegar a los sitios que mencionamos.</p>
@@ -695,7 +696,7 @@
             <a href="https://www.museupicasso.bcn.cat" class="site-card"><img src="images/picasso.jpg" alt=""><p>Museo Picasso: Obras de Picasso en el Barrio Gótico.</p></a>
             <a href="https://www.barcelona.cat/montjuic" class="site-card"><img src="images/montjuic.jpg" alt=""><p>Montjuïc: Jardines, museos y castillo.</p></a>
         </div>
-    </section>
+    </section> -->
 
     <footer>
         <p>&copy; 2025 Boda de Anna & Kiko. Todos los derechos reservados.</p>
