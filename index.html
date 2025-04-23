@@ -537,9 +537,17 @@
                 data-label_2="Barcelona" data-font="Consolas" data-icons="Climacons Animated" data-theme="tile_wood" >SANT CUGAT DEL VALLÈS Barcelona</a>
           </div>
           </section>
-        
         <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
+        
+          <!-- Uploadcare Widget -->
+          <script>
+            UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // Tu clave pública
+          </script>
+          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+        
+          <!-- Input oculto para Uploadcare -->
+          <input type="hidden" role="uploadcare-uploader" id="uploadcare-input" style="display: none;" data-multiple>
         
           <!-- Botón personalizado -->
           <button id="custom-upload-btn">Elegir fotos</button>
@@ -605,100 +613,54 @@
             }
           </style>
         
-          <!-- Uploadcare Widget -->
+          <!-- Script -->
           <script>
-            UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b';
-          </script>
-          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-        
-          <!-- Firebase y Lógica -->
-          <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-            import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-        
-            // 🔧 Reemplaza con tus datos reales de Firebase
-            const firebaseConfig = {
-              apiKey: "AIzaSyDQd0VncZULopBKC-CMD85Q9EQaAT9SdaE",
-              authDomain: "galeriadefotos-2d1be.firebaseapp.com",
-              projectId: "galeriadefotos-2d1be",
-              storageBucket: "galeriadefotos-2d1be.firebasestorage.app",
-              messagingSenderId: "668287915077",
-              appId: "1:668287915077:web:61e0bc5a2f622730213f2c"
-            };
-        
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-        
-            const gallery = document.getElementById('gallery');
-        
-            // Agrega una imagen a la galería
-            function addImage(url) {
-              const container = document.createElement('div');
-              container.className = 'image-container';
-        
-              const img = document.createElement('img');
-              img.src = url;
-              img.onerror = () => {
-                img.src = 'https://via.placeholder.com/150?text=Error';
-              };
-        
-              const button = document.createElement('button');
-              button.className = 'download-btn';
-              button.textContent = 'Descargar';
-              button.onclick = () => {
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = '';
-                a.click();
-              };
-        
-              container.appendChild(img);
-              container.appendChild(button);
-              gallery.appendChild(container);
-            }
-        
-            // Carga todas las imágenes desde Firestore
-            async function loadImages() {
-              const snapshot = await getDocs(collection(db, "imagenes"));
-              snapshot.forEach(doc => {
-                const data = doc.data();
-                if (data.url) addImage(data.url);
-              });
-            }
-        
-            // Guarda la URL de una imagen en Firestore
-            async function saveImageToFirebase(url) {
-              await addDoc(collection(db, "imagenes"), { url });
-            }
-        
             window.onload = () => {
-              // Crear input invisible para el widget
-              const input = document.createElement('input');
-              input.type = 'hidden';
-              input.setAttribute('role', 'uploadcare-uploader');
-              input.setAttribute('data-multiple', '');
-              document.body.appendChild(input);
+              const gallery = document.getElementById('gallery');
+              const input = document.getElementById('uploadcare-input');
               const widget = uploadcare.Widget(input);
         
-              // Botón para abrir el widget
+              // Abrir el widget cuando se hace clic en el botón
               document.getElementById('custom-upload-btn').onclick = () => {
                 widget.openDialog(null, { multiple: true });
               };
         
-              // Cuando se sube una imagen
+              // Función para añadir imagen a la galería
+              function addImage(url) {
+                const container = document.createElement('div');
+                container.className = 'image-container';
+        
+                const img = document.createElement('img');
+                img.src = url;
+                img.onerror = () => {
+                  img.src = 'https://via.placeholder.com/150?text=Error';
+                };
+        
+                const button = document.createElement('button');
+                button.className = 'download-btn';
+                button.textContent = 'Descargar';
+        
+                button.onclick = () => {
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = '';
+                  a.click();
+                };
+        
+                container.appendChild(img);
+                container.appendChild(button);
+                gallery.appendChild(container);
+              }
+        
+              // Cuando una imagen se sube con éxito
               widget.onUploadComplete((fileInfo) => {
                 if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
                   addImage(fileInfo.cdnUrl);
-                  saveImageToFirebase(fileInfo.cdnUrl);
                 }
               });
-        
-              // Mostrar imágenes ya subidas
-              loadImages();
             };
           </script>
         </section>
-
 
    <!--
     <section class="map">
