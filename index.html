@@ -537,8 +537,8 @@
                 data-label_2="Barcelona" data-font="Consolas" data-icons="Climacons Animated" data-theme="tile_wood" >SANT CUGAT DEL VALLÈS Barcelona</a>
           </div>
         </section>
-
-       <section class="upload-section">
+        
+        <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
         
           <!-- Script de Uploadcare -->
@@ -658,28 +658,16 @@
                 gallery.appendChild(container);
               }
         
-              function saveImage(url) {
-                const saved = JSON.parse(localStorage.getItem('images') || '[]');
-                saved.push(url);
-                localStorage.setItem('images', JSON.stringify(saved));
-              }
-        
-              // Cargar imágenes guardadas
-              const saved = JSON.parse(localStorage.getItem('images') || '[]');
-              saved.forEach(addImage);
-        
               // Cuando se sube una imagen
               widget.onUploadComplete(async (fileInfo) => {
                 if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
                   addImage(fileInfo.cdnUrl); // Mostrar la imagen en la galería
-                  saveImage(fileInfo.cdnUrl); // Guardar en el localStorage
                 } else if (fileInfo.files && typeof fileInfo.files === 'function') {
                   const files = await fileInfo.files();
                   for (const filePromise of files) {
                     const file = await filePromise;
                     if (file.mimeType?.startsWith('image')) {
                       addImage(file.cdnUrl); // Mostrar la imagen en la galería
-                      saveImage(file.cdnUrl); // Guardar en el localStorage
                     }
                   }
                 }
@@ -687,6 +675,7 @@
             };
           </script>
         </section>
+
 
 
 
