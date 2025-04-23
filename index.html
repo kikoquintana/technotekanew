@@ -538,7 +538,7 @@
           </div>
         </section>
 
-        <section class="upload-section">
+   <section class="upload-section">
           <h2>📸 Sube tus fotos</h2>
         
           <!-- Script de Uploadcare -->
@@ -640,11 +640,18 @@
                   img.src = 'https://via.placeholder.com/150?text=Error';
                 };
         
-                const button = document.createElement('a');
-                button.href = url;
-                button.download = '';
+                // Crear el botón de descarga
+                const button = document.createElement('button');
                 button.className = 'download-btn';
                 button.textContent = 'Descargar';
+        
+                // Añadir un evento al botón para descargar la imagen sin mostrar la URL
+                button.onclick = () => {
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = '';
+                  a.click(); // Simula el clic para iniciar la descarga
+                };
         
                 container.appendChild(img);
                 container.appendChild(button);
@@ -680,6 +687,7 @@
             };
           </script>
         </section>
+
 
 
     <section class="map">
