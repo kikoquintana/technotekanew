@@ -538,147 +538,161 @@
                 data-label_2="Barcelona" data-font="Consolas" data-icons="Climacons Animated" data-theme="tile_wood" >SANT CUGAT DEL VALLÈS Barcelona</a>
           </div>
           </section>
-        <section class="upload-section">
-          <h2>📸 Sube tus fotos</h2>
-        
-          <!-- Uploadcare Widget -->
-          <script>
-          UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // Tu clave pública
-          </script>
-          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-        
-          <!-- Input oculto para Uploadcare -->
-          <input type="hidden" role="uploadcare-uploader" id="uploadcare-input" style="display: none;" data-multiple>
-        
-          <!-- Botón personalizado -->
-          <button id="custom-upload-btn">Elegir fotos</button>
-        
-          <!-- Galería -->
-          <div id="gallery"></div>
-        
-          <!-- Estilos -->
-          <style>
-            .upload-section {
-              text-align: center;
-              padding: 2rem;
-              font-family: 'Segoe UI', sans-serif;
-            }
-        
-            #custom-upload-btn {
-              background: linear-gradient(135deg, #6a11cb, #2575fc);
-              border: none;
-              color: white;
-              padding: 12px 24px;
-              font-size: 1.1rem;
-              border-radius: 12px;
-              cursor: pointer;
-              transition: background 0.3s ease;
-            }
-        
-            #custom-upload-btn:hover {
-              background: linear-gradient(135deg, #5b0eca, #1f6dfc);
-            }
-        
-            .image-container {
-              display: inline-block;
-              margin: 10px;
-              text-align: center;
-              transition: transform 0.2s;
-            }
-        
-            .image-container:hover {
-              transform: scale(1.05);
-            }
-        
-            .image-container img {
-              max-width: 200px;
-              height: auto;
-              border-radius: 10px;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-              display: block;
-              margin-bottom: 5px;
-            }
-        
-            .download-btn {
-              background-color: #28a745;
-              color: white;
-              padding: 6px 12px;
-              border-radius: 6px;
-              font-size: 0.9rem;
-              cursor: pointer;
-              margin-top: 10px;
-            }
-        
-            .download-btn:hover {
-              background-color: #218838;
-            }
-          </style>
-        
-          <!-- Script -->
-          <script>
-            window.onload = () => {
-              const gallery = document.getElementById('gallery');
-              const input = document.getElementById('uploadcare-input');
-              const widget = uploadcare.Widget(input);
-                // Cargar imágenes guardadas
-            db.collection("galeria").orderBy("timestamp", "desc").get().then(snapshot => {
-              snapshot.forEach(doc => {
-                const data = doc.data();
-                if (data.url) addImage(data.url);
-              });
-            });
+       <section class="upload-section">
+  <h2>📸 Sube tus fotos</h2>
 
-        
-             widget.onUploadComplete((fileInfo) => {
-              if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
-                // Mostrar la imagen
-                addImage(fileInfo.cdnUrl);
-            
-                // Guardar en Firebase
-                db.collection("galeria").add({
-                  url: fileInfo.cdnUrl,
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                });
-              }
-            });
+  <!-- Uploadcare -->
+  <script>
+    UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b';
+  </script>
+  <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 
-        
-              // Función para añadir imagen a la galería
-              function addImage(url) {
-                const container = document.createElement('div');
-                container.className = 'image-container';
-        
-                const img = document.createElement('img');
-                img.src = url;
-                img.onerror = () => {
-                  img.src = 'https://via.placeholder.com/150?text=Error';
-                };
-        
-                const button = document.createElement('button');
-                button.className = 'download-btn';
-                button.textContent = 'Descargar';
-        
-                button.onclick = () => {
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = '';
-                  a.click();
-                };
-        
-                container.appendChild(img);
-                container.appendChild(button);
-                gallery.appendChild(container);
-              }
-        
-              // Cuando una imagen se sube con éxito
-              widget.onUploadComplete((fileInfo) => {
-                if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
-                  addImage(fileInfo.cdnUrl);
-                }
+  <!-- Input oculto -->
+  <input type="hidden" role="uploadcare-uploader" id="uploadcare-input" style="display: none;" data-multiple>
+
+  <!-- Botón personalizado -->
+  <button id="custom-upload-btn">Elegir fotos</button>
+
+  <!-- Galería -->
+  <div id="gallery"></div>
+
+  <!-- Estilos -->
+  <style>
+    .upload-section {
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #custom-upload-btn {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #custom-upload-btn:hover {
+      background: linear-gradient(135deg, #5b0eca, #1f6dfc);
+    }
+
+    .image-container {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .image-container:hover {
+      transform: scale(1.05);
+    }
+
+    .image-container img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .download-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .download-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+
+  <!-- Script -->
+  <script>
+    window.onload = () => {
+      const gallery = document.getElementById('gallery');
+      const input = document.getElementById('uploadcare-input');
+      const widget = uploadcare.Widget(input);
+
+      // Botón personalizado
+      document.getElementById('custom-upload-btn').addEventListener('click', () => {
+        widget.openDialog(null, {
+          multiple: true
+        });
+      });
+
+      // Función para mostrar imagen
+      function addImage(url) {
+        const container = document.createElement('div');
+        container.className = 'image-container';
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.onerror = () => {
+          img.src = 'https://via.placeholder.com/150?text=Error';
+        };
+
+        const button = document.createElement('button');
+        button.className = 'download-btn';
+        button.textContent = 'Descargar';
+
+        button.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = '';
+          a.click();
+        };
+
+        container.appendChild(img);
+        container.appendChild(button);
+        gallery.appendChild(container);
+      }
+
+      // Subidas nuevas
+      widget.onUploadComplete((fileInfo) => {
+        if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
+          addImage(fileInfo.cdnUrl);
+
+          // Guardar en Firestore
+          try {
+            if (typeof db !== 'undefined') {
+              db.collection("galeria").add({
+                url: fileInfo.cdnUrl,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
               });
-            };
-          </script>
-        </section>
+            } else {
+              console.warn("Firebase no está inicializado.");
+            }
+          } catch (e) {
+            console.error("Error guardando en Firestore:", e);
+          }
+        }
+      });
+
+      // Cargar imágenes existentes
+      try {
+        if (typeof db !== 'undefined') {
+          db.collection("galeria").orderBy("timestamp", "desc").get().then(snapshot => {
+            snapshot.forEach(doc => {
+              const data = doc.data();
+              if (data.url) addImage(data.url);
+            });
+          });
+        }
+      } catch (e) {
+        console.warn("Firestore no disponible al cargar imágenes.");
+      }
+    };
+  </script>
+</section>
+
 
    <!--
     <section class="map">
