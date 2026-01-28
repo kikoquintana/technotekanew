@@ -16,36 +16,34 @@
             padding: 0;
             color: #333;
             font-weight: bold;
-            /* IMAGEN DE FONDO LAVANDA */
             background-image: url('images/lavanda.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
         }
 
-    /* 1. Bajamos la opacidad del overlay para que el fondo se transparente más */
         .page-overlay {
-            background-color: rgba(255, 255, 255, 0.4); /* Antes 0.85, ahora 0.4 */
+            background-color: rgba(255, 255, 255, 0.4); 
             min-height: 100vh;
             padding: 20px 0;
         }
 
-        /* 2. Le damos un fondo blanco sólido al contenedor del contenido para que el texto sea legible */
         .main-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            background-color: white; /* Fondo blanco para el texto */
-            border-radius: 20px;     /* Bordes redondeados elegantes */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+            background-color: rgba(255, 255, 255, 0.9); /* Un pelín de transparencia para quitar el "corte" duro */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* LOGO: Tamaño controlado */
+        /* AJUSTE LOGO PARA QUITAR EL CORTE BLANCO */
         #welcome-image {
             display: block;
             margin: 0 auto;
             max-width: 250px; 
             height: auto;
+            mix-blend-mode: multiply; /* Esto elimina el fondo blanco de la imagen del logo */
         }
 
         h1, h2, h3 {
@@ -57,7 +55,6 @@
         h1 { font-size: 3.5em; margin: 20px 0; }
         h2 { font-size: 2.5em; margin-top: 40px; }
 
-        /* COLOR LAVANDA SOLICITADO #D3D3FF */
         .timeline, footer, .time-block {
             background-color: #D3D3FF !important;
         }
@@ -80,7 +77,6 @@
 
         .time-block span { display: block; font-size: 2em; margin-bottom: 5px; }
 
-        /* GALERÍA: Tamaño controlado */
         .galeria-auto {
             margin: 40px 0;
             background-color: rgba(255,255,255,0.5);
@@ -139,7 +135,16 @@
 
         footer { text-align: center; padding: 25px; margin-top: 50px; border-radius: 15px; }
 
-        iframe { border-radius: 12px; border: none; width: 100%; margin-top: 15px; height: 350px; }
+        /* AJUSTE MAPA */
+        .map-wrapper {
+            width: 100%;
+            height: 350px;
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        iframe { border: none; width: 100%; height: 100%; }
 
         @keyframes scrollSlider {
             0% { transform: translateX(0); }
@@ -212,7 +217,9 @@
                 <li><strong>🌾 Arroz/Confeti:</strong> No está permitido en la finca.</li>
                 <li><strong>🅿️ Parking:</strong> Gratuito dentro del recinto.</li>
                 <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.435775432356!2d2.0833!3d41.4722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f8c7b8d8d9%3A0x6c6e7e7e7e7e7e7e!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d2989.28188167664!2d2.0833333!3d41.4722222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496b666666667%3A0x6b66666666666666!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </li>
                 <li><strong>🏨 Hoteles:</strong> 
                     <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, 
@@ -244,7 +251,6 @@
 </div>
 
 <script>
-    // Contador
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -256,7 +262,6 @@
         document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2,'0');
     }, 1000);
 
-    // Clima
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
 
