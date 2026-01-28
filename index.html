@@ -6,7 +6,6 @@
     <title>Boda de Anna & KiKo</title>
 
     <link rel="icon" href="images/novios.png" type="image/png">
-
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
 
     <style>
@@ -20,86 +19,60 @@
             font-weight: bold;
         }
 
-        #photo-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .photo-card {
-            width: 200px;
-            text-align: center;
-        }
-
-        .photo-card img {
-            width: 100%;
+        /* Ajuste de tamaño del logo */
+        #welcome-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 250px; /* Tamaño controlado para que no sea gigante */
+            height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5em; }
-            h2 { font-size: 1.8em; }
-            h3 { font-size: 1.5em; }
-            .photos { flex-direction: column; align-items: center; }
-            .photos img { width: 90%; height: auto; }
-            .site-grid { flex-direction: column; align-items: center; }
-            .time-block { width: 60px; font-size: 0.9em; }
-            .time-block span { font-size: 1.5em; }
-            iframe { width: 100% !important; height: auto !important; }
+        /* Contenedor del logo sin la franja de color */
+        #welcome-image-container {
+            padding: 20px 0;
+            text-align: center;
+            background-color: transparent; /* Eliminada la franja lila */
         }
 
-        /* Aplica Dancing Script solo a títulos */
-        h1, h2, h3 {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
+        /* Títulos con el nuevo color lavanda */
         h1 {
-            color: white;
+            color: #967bb6; /* Un tono más oscuro para lectura sobre blanco */
             font-size: 4em;
+            margin-top: 10px;
         }
 
-        /* Color Lavanda para títulos y elementos destacados */
         h2, h3 {
-            color: #967bb6; /* Lavanda */
+            color: #967bb6; 
+            font-size: 2.5em;
         }
 
-        h2 { font-size: 2.5em; }
-        h3 { font-size: 2em; }
-
-        .weather { margin: 2em 0; }
-
-        /* Botones de mapas */
-        .location-links a {
-            display: inline-block;
-            background-color: #967bb6; /* Lavanda */
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin-right: 10px;
-            margin-top: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .location-links a:hover {
-            background-color: #7e63a3; 
-        }
-
-        iframe {
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header con color Lavanda */
+        /* Color Lavanda solicitado para bloques y botones */
         header {
-            background-color: #e6e6fa; /* Lavanda claro */
+            background-color: #fdfefe; /* Fondo limpio para que resalte el logo */
             padding: 20px;
             text-align: center;
+        }
+
+        .timeline {
+            margin-top: 40px;
+            background-color: #D3D3FF; /* Nuevo color lavanda */
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .timeline .time {
+            font-weight: bold;
+            color: #6a6ab0; /* Contraste para el tiempo */
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #D3D3FF; /* Nuevo color lavanda */
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            color: #333;
         }
 
         /* Estilo del reloj */
@@ -111,15 +84,15 @@
         }
 
         .time-block {
-            background-color: #333;
-            color: #fff;
+            background-color: #D3D3FF; /* Nuevo color lavanda */
+            color: #333;
             padding: 10px 15px;
             border-radius: 10px;
             text-align: center;
             font-size: 1.2em;
             font-weight: bold;
             width: 80px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .time-block span {
@@ -128,16 +101,13 @@
             margin-bottom: 5px;
         }
 
-        .time-block p { font-size: 1em; margin: 0; }
+        /* Estilos generales */
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
 
         section { padding: 20px; }
-
-        .photos img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
 
         .site-grid {
             display: flex;
@@ -155,68 +125,11 @@
             text-decoration: none;
             color: inherit;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-
-        .site-card:hover { transform: scale(1.03); }
-        .site-card img { width: 100%; height: 120px; object-fit: cover; }
-        .site-card p { padding: 10px; font-size: 0.95em; }
-
-        .timeline {
-            margin-top: 40px;
-            background-color: #f3effa; /* Fondo lavanda muy suave */
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .timeline h2 { text-align: center; font-size: 2em; margin-bottom: 20px; }
-        .timeline ul { list-style: none; padding: 0; margin: 0 auto; max-width: 500px; }
-        .timeline li { padding: 10px 0; border-bottom: 1px solid #ccc; font-size: 1.1em; }
-        .timeline .time { font-weight: bold; color: #967bb6; margin-right: 10px; }
-
-        .frase-especial {
-            font-size: 2em;
-            text-align: center;
-            margin-top: 20px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        footer {
-            background-color: #967bb6; /* Lavanda */
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-            color: white;
-        }
-
-        .big-day {
-            font-size: 2em;
-            margin-top: 20px;
-            color: #ffffff;
-            background: #ff4f81;
-            padding: 15px;
-            border-radius: 12px;
-        }
-
-        #welcome-image-container {
-            background-color: #967bb6; /* Lavanda */
-            padding: 20px 0;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #welcome-image {
-            display: inline-block;
-            max-width: 90%;
-            height: auto;
-            border-radius: 10px;
         }
 
         .galeria-auto {
             margin: 40px 0;
-            padding: 40px 10%;
+            padding: 40px 5%;
             background-color: #f9f9f9;
             border-radius: 10px;
             text-align: center;
@@ -236,11 +149,15 @@
             flex-shrink: 0;
         }
 
-        .slider:hover .slider-track { animation-play-state: paused; }
-
         @keyframes scrollSlider {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            #welcome-image { max-width: 180px; }
         }
     </style>
 </head>
@@ -248,7 +165,7 @@
 
 <header>
     <div id="welcome-image-container">
-        <img src="images/new_logo.jpg" alt="Imagen de bienvenida" id="welcome-image">
+        <img src="images/new_logo.jpg" alt="Logo Boda" id="welcome-image">
     </div>
     <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
     <p class="frase-especial">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
@@ -263,7 +180,7 @@
 
 <section>
     <h2>Nuestra Historia</h2>
-    <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal... [Tu texto de historia...]</p>
+    <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos... [Tu historia completa aquí]</p>
 </section>
 
 <section class="galeria-auto">
@@ -278,16 +195,12 @@
             <img src="images/foto 08.jpg" alt="Foto">
             <img src="images/foto 09.jpg" alt="Foto">
             <img src="images/foto 10.jpg" alt="Foto">
-            <img src="images/foto 11.jpg" alt="Foto">   
+            <img src="images/foto 11.jpg" alt="Foto">
             <img src="images/boda 03.jpg" alt="Foto">
             <img src="images/boda 04.jpg" alt="Foto">
             <img src="images/boda 05.jpg" alt="Foto">
             <img src="images/boda 06.jpg" alt="Foto">
             <img src="images/boda 07.jpg" alt="Foto">
-            <img src="images/foto 08.jpg" alt="Foto">
-            <img src="images/foto 09.jpg" alt="Foto">
-            <img src="images/foto 10.jpg" alt="Foto">
-            <img src="images/foto 11.jpg" alt="Foto"> 
         </div>
     </div> 
 </section>
@@ -300,44 +213,20 @@
         <li><span class="time">🍸 17:45</span> — Cóctel y aperitivos</li>
         <li><span class="time">🍽️ 19:30</span> — Cena</li>
         <li><span class="time">🪩 22:00</span> — Fiesta y barra libre</li>
-        <li><span class="time">🌅 03:00</span> — After Party </li>
     </ul>
 </section>
 
 <section class="links">
     <h2>Información para los invitados</h2>
     <ul>
-        <li><strong>🚌 Horarios de autobús:</strong> Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</li>
-        <li><strong>🎩 Código de vestimenta:</strong> Formal elegante.</li>
-        <li><strong>🚸 Niños:</strong> Celebración solo para adultos (excepto familia directa).</li>
-        <li><strong>🌾 Arroz/Confeti:</strong> No está permitido en la finca.</li>
-        <li><strong>🅿️ Parking:</strong> Gratuito dentro del recinto.</li>
-        <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br><br>
+        <li><strong>🚌 Autobús:</strong> Ida 15:30 (Sant Cugat), Vuelta 03:30.</li>
+        <li><strong>🎩 Dress Code:</strong> Formal elegante. Calzado cómodo para el baile.</li>
+        <li><strong>📍 Ubicación:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br><br>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.123456789!2d2.09!3d41.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49479383636f3%3A0xc6360c6729066601!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v123456789" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </li>
-        <li><strong>🏨 Hoteles:</strong> 
-            <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, 
-            <a href="#" target="_blank">Hotel Qgat</a>, etc.
-        </li>
-        <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344. Concepto: Boda [Nombre]</li>
+        <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344.</li>
     </ul>
 </section>
-
-<section class="weather">
-    <h2>El tiempo en Sant Cugat</h2>
-    <div style="text-align: center;">
-        <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" data-label_1="SANT CUGAT DEL VALLÈS" data-label_2="Barcelona" data-font="Consolas" data-icons="Climacons Animated" data-theme="tile_wood">SANT CUGAT</a>
-    </div>
-</section>
-
-<section class="links">
-    <h2>Sitios de Interés en Barcelona</h2>
-    <div class="site-grid">
-        <a href="https://www.sagradafamilia.org" class="site-card"><img src="images/sagrada.jpg" alt=""><p>La Sagrada Familia</p></a>
-        <a href="https://www.tibidabo.cat" class="site-card"><img src="images/Tibidabo.jpg" alt=""><p>Tibidabo</p></a>
-        <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt=""><p>Parque Güell</p></a>
-    </div>
-</section> 
 
 <footer>
     <p>© 2025 Boda de Anna & Kiko. Todos los derechos reservados.</p>
@@ -352,7 +241,7 @@
         const distance = targetDate - now;
 
         if (distance <= 0) {
-            countdownElement.innerHTML = `<div class="big-day">¡Hoy es el gran día! 💍🎉</div>`;
+            countdownElement.innerHTML = `<div style="font-size: 2em; color: #967bb6;">¡Hoy es el gran día! 💍🎉</div>`;
             return;
         }
 
@@ -370,10 +259,5 @@
     updateCountdown();
 </script>
 
-<script>
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
-
 </body>
 </html>
-
