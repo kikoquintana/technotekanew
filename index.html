@@ -11,13 +11,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Iridia+Sans:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
 
-    <!-- Uploadcare CDN -->
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-    <script>
-    UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b'; // 🔁 Reemplaza por tu clave pública
-    </script>
-   <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-
     <style>
         body {
         font-family: 'Indie Flower', cursive;
@@ -105,18 +98,16 @@
     h1, h2, h3 {
         font-family: 'Dancing Script', cursive;
         font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave en todos */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
     
-    /* h1 personalizado */
     h1 {
         color: white;
         font-size: 4em;
     }
     
-    /* h2 y h3 en azul */
     h2, h3 {
-        color: #7bbcf5; /* Azul más profundo */
+        color: #7bbcf5;
     }
     
     h2 {
@@ -129,665 +120,153 @@
     .weather {
       margin: 2em 0;
     }
-    .location-links {
-        margin-top: 10px;
-    }
-    /*mapas*/
-    .location-links a {
-        display: inline-block;
-        background-color: #4CAF50; /* Color verde */
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1.1em;
-        margin-right: 10px;
-        margin-top: 5px;
-        transition: background-color 0.3s;
-    }
-    
-    .location-links a:hover {
-        background-color: #45a049; /* Un verde más oscuro cuando se pasa el cursor */
-    }
-        iframe {
-        border-radius: 8px; /* Bordes redondeados para el mapa */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    }
 
-
-    
-    /* Header */
     header {
         background-color: #7bbcf5;
         padding: 20px;
         text-align: center;
     }
     
+    #countdown {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
 
-       /* Estilo del reloj */
-        #countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
+    .time-block {
+        background-color: #050500;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        width: 80px;
+    }
 
-        .time-block {
-            background-color: #050500;
-            color: #fff;
-             padding: 10px 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            width: 80px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
+    .time-block span {
+        display: block;
+        font-size: 2em;
+        margin-bottom: 5px;
+    }
 
-        .time-block span {
-            display: block;
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
+    section { padding: 20px; }
 
-        .time-block p {
-            font-size: 0.8em;
-            margin: 0;
-        }
+    .galeria-auto {
+        margin: 40px 0;
+        padding: 300px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
 
+    .slider {
+        overflow: hidden;
+        width: 100%;
+    }
 
-        .time-block p {
-            font-size: 1em;
-            margin: 0;
-        }
+    .slider-track {
+        display: flex;
+        width: max-content;
+        animation: scrollSlider 40s linear infinite;
+    }
 
-        section { padding: 20px; }
+    .slider img {
+        height: 200px;
+        border-radius: 15px;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
 
-        .photos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+    .slider:hover .slider-track {
+        animation-play-state: paused;
+    }
 
-        .photos img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+    @keyframes scrollSlider {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
 
-        .links, .map {
-            margin-top: 30px;
-        }
+    footer {
+        background-color: #7bbcf5;
+        text-align: center;
+        padding: 10px;
+        margin-top: 30px;
+        color: white;
+    }
 
-        .links ul {
-            list-style: none;
-            padding: 0;
-        }
+    .big-day {
+        font-size: 2em;
+        margin-top: 20px;
+        color: #ffffff;
+        background: #ff4f81;
+        padding: 15px;
+        border-radius: 12px;
+    }
+    </style>
+</head>
 
-        .links li {
-            margin: 10px 0;
-        }
+<body>
 
-        .site-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+<header>
+    <img src="images/logo boda.jpg" alt="Imagen de bienvenida" style="max-width:90%;border-radius:10px">
+    <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
+    <p class="frase-especial">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
 
-        .site-card {
-            width: 200px;
-            background: #f2f2f2;
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-
-        .site-card:hover {
-            transform: scale(1.03);
-        }
-
-        .site-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .site-card p {
-            padding: 10px;
-            font-size: 0.95em;
-        }
-
-        .timeline {
-            margin-top: 40px;
-            background-color: #eef6fd;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .timeline h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .timeline ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            max-width: 500px;
-        }
-
-        .timeline li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-            font-size: 1.1em;
-        }
-
-        .timeline .time {
-            font-weight: bold;
-            color: #7bbcf5;
-            margin-right: 10px;
-        }
-
-        .frase-especial {
-            font-size: 2em;
-            text-align: center;
-            margin-top: 20px;
-            color: #fffaf0; /* Blanco cálido */
-            font-weight: bold;
-            text-shadow: 1px 1px 2px #00000055; /* Sombrita suave para que se vea bien */
-        }
-
-
-        .qr-code {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .qr-code img {
-            width: 200px;
-            height: 200px;
-        }
-
-        .map iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-       footer {
-            background-color: #7bbcf5;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-            color: white;  /* ← ESTO cambia las letras a blanco */
-        }
-
-        .big-day {
-            font-size: 2em;
-            margin-top: 20px;
-            color: #ffffff;
-            background: #ff4f81;
-            padding: 15px;
-            border-radius: 12px;
-        }
-         #welcome-image-container {
-            background-color: #7bbcf5; /* El mismo color azul que la cabecera */
-            padding: 20px 0; /* Espaciado superior e inferior */
-            text-align: center; /* Centra la imagen horizontalmente */
-            border-radius: 12px; /* Bordes redondeados */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-        }
-        
-        #welcome-image {
-            display: inline-block;
-            max-width: 90%; /* Ajusta el tamaño de la imagen */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 10px; /* Bordes redondeados a la imagen */
-        }
-           
-     <!-- Scrolle fotos -->
-           
-         .galeria-auto {
-          margin: 40px 0;
-          padding: 300px;
-          background-color: #f9f9f9;
-          border-radius: 10px;
-        }
-        
-        .galeria-auto h2 {
-          font-size: 32px;
-          margin-bottom: 15px;
-          text-align: left;
-        }
-        
-        .slider {
-          overflow: hidden;
-          width: 100%;
-        }
-        
-        .slider-track {
-          display: flex;
-          width: max-content;
-          animation: scrollSlider 40s linear infinite; /* Más lento (antes 20s) */
-        }
-        
-        .slider img {
-          height: 200px; /* Más pequeñas (antes 300px) */
-          border-radius: 15px;
-          margin-right: 15px;
-          flex-shrink: 0;
-          transition: transform 0.4s ease;
-        }
-        
-        .slider:hover .slider-track {
-          animation-play-state: paused; /* Se pausa al pasar el ratón */
-        }
-        
-        /* Animación */
-        @keyframes scrollSlider {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-                
-         </style>
-        
-    </head>
-    <body>
-
-    <header>
-        <!-- Contenedor para la imagen con fondo azul -->
-    <div id="welcome-image-container">
-        <img src="images/logo boda.jpg" alt="Imagen de bienvenida" id="welcome-image">
+    <div id="countdown">
+        <div class="time-block"><span id="days">00</span>Días</div>
+        <div class="time-block"><span id="hours">00</span>Horas</div>
+        <div class="time-block"><span id="minutes">00</span>Min</div>
+        <div class="time-block"><span id="seconds">00</span>Seg</div>
     </div>
-        <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
-        <p class="frase-especial">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+</header>
 
-        <!-- Cuenta atrás -->   
-        <div id="countdown" role="timer" aria-label="Cuenta atrás para el día de la boda">
-            <div class="time-block"><span id="days">00</span>Días</div>
-            <div class="time-block"><span id="hours">00</span>Horas</div>
-            <div class="time-block"><span id="minutes">00</span>Min</div>
-            <div class="time-block"><span id="seconds">00</span>Seg</div>
-        </div>
-    </header>
-
-    <section>
-        <h2>Nuestra Historia</h2>
-        <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.  
-        Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio.  
-        La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica, el tiempo se nos fue volando, parecía que nos conocíamos de toda la vida.  
-        La segunda cita fue en La Casa de Andalucía de Castellbisbal, la definitiva para saber que realmente había surgido algo bonito entre los dos. Pero llegó el verano y la pandemia,  
-        nos distanciamos un poco… Aunque en esta ocasión la distancia no hizo el olvido, y volvimos a retomar eso tan especial que habíamos creado.  
-        Lo que definitivamente nos unió fue el momento en el que nuestro precioso gato Wilson se perdió durante 12 días en las zarzas. Antes habíamos estado en las buenas y ahora pudimos con las malas.  
-        Wilson volvió a casa y nos fuimos a vivir juntos de una vez por todas. Y desde entonces hemos creado no solo una pareja si no también una familia; hemos construido un hogar lleno de amor, paz y felicidad.</p>
-        </p>
-    </section>
-    
-      <section class="galeria-auto">
-      <h2>Fotos de los Novios</h2>
-      <div class="slider">
-           <div class="slider-track">
-            <img src="images/boda 03.jpg" alt="Foto de los novios">
-            <img src="images/boda 04.jpg" alt="Foto de los novios">
-            <img src="images/boda 05.jpg" alt="Foto de los novios">
-            <img src="images/boda 06.jpg" alt="Foto de los novios">
-            <img src="images/boda 07.jpg" alt="Foto de los novios">
-            <img src="images/foto 08.jpg" alt="Foto de los novios">
-            <img src="images/foto 09.jpg" alt="Foto de los novios">
-            <img src="images/foto 10.jpg" alt="Foto de los novios">
-            <img src="images/foto 11.jpg" alt="Foto de los novios">   
-            <img src="images/boda 03.jpg" alt="Foto de los novios">
-            <img src="images/boda 04.jpg" alt="Foto de los novios">
-            <img src="images/boda 05.jpg" alt="Foto de los novios">
-            <img src="images/boda 06.jpg" alt="Foto de los novios">
-            <img src="images/boda 07.jpg" alt="Foto de los novios">
-            <img src="images/foto 08.jpg" alt="Foto de los novios">
-            <img src="images/foto 09.jpg" alt="Foto de los novios">
-            <img src="images/foto 10.jpg" alt="Foto de los novios">
-            <img src="images/foto 11.jpg" alt="Foto de los novios"> 
-            </div>
-        </div> 
-    </section>
-    
-   <section class="timeline">
-    <h2>Horario de la Boda</h2>
-    <ul>
-        <li><span class="time">🕠 16:30</span> — Llegada de invitados</li>
-        <li><span class="time">💍 17:00</span> — Ceremonia</li>
-        <li><span class="time">🍸 17:45</span> — Cóctel y aperitivos</li>
-        <li><span class="time">🍽️ 19:30</span> — Cena</li>
-        <li><span class="time">🪩 22:00</span> — Fiesta y barra libre</li>
-        <li><span class="time">🌅 03:00</span> — After Party </li>
-    </ul>
-</section>
-    
-    <section class="links">
-    <h2>Información para los invitados</h2>
-    
-    <ul>
-        <li><strong>🚌 Horarios de autobús:</strong>  
-            Ida: 15:30 desde la estación de Sant Cugat.  
-            Vuelta: 03:30 desde el restaurante.  
-            ¡Puntualidad por favor! 😊
-        </li>
-
-        <li><strong>🎩 Código de vestimenta: </strong>  
-            Formal elegante. 
-            Recomendanción: Si lo queréis dar todo en la pista de baile traed calzado cómodo de recambio. 
-        </li>
-
-        <li><strong>🚸 Niños: </strong>  
-            La celebración será solo para adultos, a excepción de los niños de la familia. Gracias por vuestra comprensión.
-        </li>
-        
-        <li><strong>🌾 No se puede tirar arroz ni confeti: </strong> 
-            La finca no lo permite. 💐✨
-        </li>
-
-        <li><strong>🅿️ Parking: </strong> 
-            Hay parking gratuito dentro del recinto del restaurante.
-        </li>
-  
-        <!-- Mapa de Google con iframe -->
-          <li>
-        <strong>📍 Cómo llegar: </strong>
-        Masia Casa Fuster, Av. Corts Catalanes, s/n, 08173 Sant Cugat del Vallès, Barcelona<br><br>
-    
-    <!-- Mapa de Google con iframe -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.303532555326!2d2.096586876887962!3d41.47601877128873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f1b03be909%3A0x24653d9900095a92!2sCasa%20Fuster%3A%20Masia%20Sant%20Cugat!5e0!3m2!1ses!2ses!4v1745099573214!5m2!1ses!2ses" 
-                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </li>
-
-
-
-
-        <li><strong>🏨 Hoteles recomendados:</strong>  
-            <ul>
-                <li><a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a></li>
-                <li><a href="https://www.hotel2.com" target="_blank">Hotel Qgat (30% descuento)</a></li>
-                <li><a href="https://acortar.link/gXhZs9" target="_blank">Hotel Ibis Molins de Rei</a></li>
-                <li><a href="https://acortar.link/qMkc00" target="_blank">Holiday Inn Express Sant Cugat</a></li>
-            </ul>
-        </li>
-
-          <li><strong>🎁 Si deseas hacer un regalo, por favor utiliza los siguientes datos para realizar la transferencia:</strong><br>
-            IBAN: ESXX 1234 5678 9101 1122 3344<br>
-            Concepto: Boda [Nombre del invitado]<br> 
-            Agradecemos mucho tu colaboración y apoyo en este día tan especial para nosotros. ¡Gracias de corazón!💖<br>
-        </li>
-            </ul>
-        </section>
-                <!-- Otras secciones -->
-        
-        <section class="weather">
-          <h2>El tiempo en Sant Cugat del Vallès</h2>
-          <div style="text-align: center;">
-            <a <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" 
-                data-label_1="SANT CUGAT DEL VALLÈS" 
-                data-label_2="Barcelona" data-font="Consolas" data-icons="Climacons Animated" data-theme="tile_wood" >SANT CUGAT DEL VALLÈS Barcelona</a>
-          </div>
-          </section>
-       <section class="upload-section">
-  <h2>📸 Sube tus fotos</h2>
-
-  <!-- Uploadcare -->
-  <script>
-    UPLOADCARE_PUBLIC_KEY = '4a4daf88b2d780a1557b';
-  </script>
-  <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-
-  <!-- Input oculto -->
-  <input type="hidden" role="uploadcare-uploader" id="uploadcare-input" style="display: none;" data-multiple>
-
-  <!-- Botón personalizado -->
-  <button id="custom-upload-btn">Elegir fotos</button>
-
-  <!-- Galería -->
-  <div id="gallery"></div>
-
-  <!-- Estilos -->
-  <style>
-    .upload-section {
-      text-align: center;
-      padding: 2rem;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    #custom-upload-btn {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      font-size: 1.1rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    #custom-upload-btn:hover {
-      background: linear-gradient(135deg, #5b0eca, #1f6dfc);
-    }
-
-    .image-container {
-      display: inline-block;
-      margin: 10px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .image-container:hover {
-      transform: scale(1.05);
-    }
-
-    .image-container img {
-      max-width: 200px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .download-btn {
-      background-color: #28a745;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .download-btn:hover {
-      background-color: #218838;
-    }
-  </style>
-
-  <!-- Script -->
-  <script>
-    window.onload = () => {
-      const gallery = document.getElementById('gallery');
-      const input = document.getElementById('uploadcare-input');
-      const widget = uploadcare.Widget(input);
-
-      // Botón personalizado
-      document.getElementById('custom-upload-btn').addEventListener('click', () => {
-        widget.openDialog(null, {
-          multiple: true
-        });
-      });
-
-      // Función para mostrar imagen
-      function addImage(url) {
-        const container = document.createElement('div');
-        container.className = 'image-container';
-
-        const img = document.createElement('img');
-        img.src = url;
-        img.onerror = () => {
-          img.src = 'https://via.placeholder.com/150?text=Error';
-        };
-
-        const button = document.createElement('button');
-        button.className = 'download-btn';
-        button.textContent = 'Descargar';
-
-        button.onclick = () => {
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '';
-          a.click();
-        };
-
-        container.appendChild(img);
-        container.appendChild(button);
-        gallery.appendChild(container);
-      }
-
-      // Subidas nuevas
-      widget.onUploadComplete((fileInfo) => {
-        if (fileInfo.cdnUrl && fileInfo.mimeType?.startsWith('image')) {
-          addImage(fileInfo.cdnUrl);
-
-          // Guardar en Firestore
-          try {
-            if (typeof db !== 'undefined') {
-              db.collection("galeria").add({
-                url: fileInfo.cdnUrl,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-              });
-            } else {
-              console.warn("Firebase no está inicializado.");
-            }
-          } catch (e) {
-            console.error("Error guardando en Firestore:", e);
-          }
-        }
-      });
-
-      // Cargar imágenes existentes
-      try {
-        if (typeof db !== 'undefined') {
-          db.collection("galeria").orderBy("timestamp", "desc").get().then(snapshot => {
-            snapshot.forEach(doc => {
-              const data = doc.data();
-              if (data.url) addImage(data.url);
-            });
-          });
-        }
-      } catch (e) {
-        console.warn("Firestore no disponible al cargar imágenes.");
-      }
-    };
-  </script>
+<section class="galeria-auto">
+<h2>Fotos de los Novios</h2>
+<div class="slider">
+<div class="slider-track">
+<img src="images/boda 03.jpg">
+<img src="images/boda 04.jpg">
+<img src="images/boda 05.jpg">
+<img src="images/boda 06.jpg">
+<img src="images/boda 07.jpg">
+<img src="images/foto 08.jpg">
+<img src="images/foto 09.jpg">
+<img src="images/foto 10.jpg">
+<img src="images/foto 11.jpg">
+<img src="images/boda 03.jpg">
+<img src="images/boda 04.jpg">
+<img src="images/boda 05.jpg">
+<img src="images/boda 06.jpg">
+<img src="images/boda 07.jpg">
+<img src="images/foto 08.jpg">
+<img src="images/foto 09.jpg">
+<img src="images/foto 10.jpg">
+<img src="images/foto 11.jpg">
+</div>
+</div>
 </section>
 
+<footer>
+<p>&copy; 2025 Boda de Anna & KiKo</p>
+</footer>
 
-   <!--
-    <section class="map">
-        <h2>Casa Fuster Masia Sant Cugat</h2>
-        <p>Haz clic en el mapa para obtener más detalles sobre cómo llegar a los sitios que mencionamos.</p>
-        <iframe src="https://masia.casafuster.net/" allowfullscreen="" loading="lazy"></iframe>
-    </section> -->
-
-      <section class="links">
-        <h2>Sitios de Interés en Barcelona</h2>
-        <div class="site-grid">
-            <a href="https://www.sagradafamilia.org" class="site-card"><img src="images/sagrada.jpg" alt=""><p>La Sagrada Familia: Obra maestra de Gaudí.</p></a>
-            <a href="https://www.tibidabo.cat" class="site-card"><img src="images/Tibidabo.jpg" alt=""><p>Tibidabo: Parque de atracciones con vistas increíbles.</p></a>
-            <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt=""><p>Parque Güell: Arte y naturaleza combinados.</p></a>
-            <a href="https://www.museupicasso.bcn.cat" class="site-card"><img src="images/picasso.jpg" alt=""><p>Museo Picasso: Obras de Picasso en el Barrio Gótico.</p></a>
-            <a href="https://www.barcelona.cat/montjuic" class="site-card"><img src="images/montjuic.jpg" alt=""><p>Montjuïc: Jardines, museos y castillo.</p></a>
-        </div>
-    </section> 
-
-    <footer>
-        <p>&copy; 2025 Boda de Anna & Kiko. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Script de cuenta atrás mejorado -->
-    <script>
-        const targetDate = new Date("2026-05-01T17:00:00").getTime();
-        const countdownElement = document.getElementById("countdown");
-
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                countdownElement.innerHTML = `
-                    <div class="big-day">¡Hoy es el gran día! 💍🎉</div>
-                `;
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = String(days).padStart(2, '0');
-            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-        };
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Inicial
-        </script>
-        
-    <!-- <script>
-          const contenedor = document.querySelector('.contenedor-fotos');
-          contenedor.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            contenedor.scrollLeft += e.deltaY;
-          });
-        </script> -->
-        
-      <!-- Scrip clima -->         
-       <script>
-      !function(d,s,id){
-        var js,fjs=d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id)){
-          js=d.createElement(s);
-          js.id=id;
-          js.src='https://weatherwidget.io/js/widget.min.js';
-          fjs.parentNode.insertBefore(js,fjs);
-        }
-      }(document,'script','weatherwidget-io-js');
-    </script> 
-
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
-        
-        <script>
-          // 🔧 Reemplaza esto con tus propios datos de Firebase
-          const firebaseConfig = {
-            apiKey: "AIzaSyDQd0VncZULopBKC-CMD85Q9EQaAT9SdaE",
-            authDomain: "galeriadefotos-2d1be.firebaseapp.com",
-            projectId: "galeriadefotos-2d1be",
-            storageBucket: "galeriadefotos-2d1be.firebasestorage.app",
-            messagingSenderId: "668287915077",
-            appId: "1:668287915077:web:61e0bc5a2f622730213f2c"
-          };
-        
-          // Inicializar Firebase
-          firebase.initializeApp(firebaseConfig);
-          const db = firebase.firestore();
-        </script>
-
+<script>
+const targetDate = new Date("2026-05-01T17:00:00").getTime();
+setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance <= 0) {
+        document.getElementById("countdown").innerHTML =
+        '<div class="big-day">¡Hoy es el gran día! 💍🎉</div>';
+        return;
+    }
+    days.innerText = Math.floor(distance / (1000*60*60*24));
+    hours.innerText = Math.floor((distance / (1000*60*60)) % 24);
+    minutes.innerText = Math.floor((distance / (1000*60)) % 60);
+    seconds.innerText = Math.floor((distance / 1000) % 60);
+}, 1000);
+</script>
 
 </body>
 </html>
