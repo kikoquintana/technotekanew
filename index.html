@@ -23,59 +23,38 @@
         #welcome-image {
             display: block;
             margin: 0 auto;
-            max-width: 250px; /* Tamaño controlado para que no sea gigante */
+            max-width: 250px; 
             height: auto;
             border-radius: 10px;
         }
 
-        /* Contenedor del logo sin la franja de color */
         #welcome-image-container {
             padding: 20px 0;
             text-align: center;
-            background-color: transparent; /* Eliminada la franja lila */
+            background-color: transparent; 
         }
 
-        /* Títulos con el nuevo color lavanda */
-        h1 {
-            color: #967bb6; /* Un tono más oscuro para lectura sobre blanco */
-            font-size: 4em;
-            margin-top: 10px;
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: #8a8abf; /* Lavanda más oscuro para lectura */
         }
 
-        h2, h3 {
-            color: #967bb6; 
-            font-size: 2.5em;
-        }
+        h1 { font-size: 4em; text-align: center; margin: 10px 0; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 2em; }
 
-        /* Color Lavanda solicitado para bloques y botones */
         header {
-            background-color: #fdfefe; /* Fondo limpio para que resalte el logo */
+            background-color: #fdfefe;
             padding: 20px;
             text-align: center;
         }
 
-        .timeline {
-            margin-top: 40px;
-            background-color: #D3D3FF; /* Nuevo color lavanda */
-            padding: 20px;
-            border-radius: 12px;
+        /* Color Lavanda solicitado #D3D3FF */
+        .timeline, footer, .time-block {
+            background-color: #D3D3FF !important;
         }
 
-        .timeline .time {
-            font-weight: bold;
-            color: #6a6ab0; /* Contraste para el tiempo */
-            margin-right: 10px;
-        }
-
-        footer {
-            background-color: #D3D3FF; /* Nuevo color lavanda */
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-            color: #333;
-        }
-
-        /* Estilo del reloj */
         #countdown {
             display: flex;
             justify-content: center;
@@ -84,7 +63,6 @@
         }
 
         .time-block {
-            background-color: #D3D3FF; /* Nuevo color lavanda */
             color: #333;
             padding: 10px 15px;
             border-radius: 10px;
@@ -101,13 +79,17 @@
             margin-bottom: 5px;
         }
 
-        /* Estilos generales */
-        h1, h2, h3 {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
+        section { padding: 20px; max-width: 1000px; margin: 0 auto; }
+
+        .timeline {
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 12px;
         }
 
-        section { padding: 20px; }
+        .timeline ul { list-style: none; padding: 0; }
+        .timeline li { padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .timeline .time { font-weight: bold; color: #6a6ab0; margin-right: 10px; }
 
         .site-grid {
             display: flex;
@@ -125,17 +107,19 @@
             text-decoration: none;
             color: inherit;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
+        .site-card:hover { transform: scale(1.03); }
+        .site-card img { width: 100%; height: 120px; object-fit: cover; }
 
         .galeria-auto {
             margin: 40px 0;
-            padding: 40px 5%;
             background-color: #f9f9f9;
             border-radius: 10px;
             text-align: center;
+            overflow: hidden;
         }
 
-        .slider { overflow: hidden; width: 100%; }
         .slider-track {
             display: flex;
             width: max-content;
@@ -145,9 +129,16 @@
         .slider img {
             height: 200px;
             border-radius: 15px;
-            margin-right: 15px;
-            flex-shrink: 0;
+            margin: 15px;
         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        iframe { border-radius: 12px; border: none; width: 100%; }
 
         @keyframes scrollSlider {
             0% { transform: translateX(0); }
@@ -155,9 +146,8 @@
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            #welcome-image { max-width: 180px; }
+            h1 { font-size: 2.5em; }
+            .time-block { width: 65px; font-size: 0.9em; }
         }
     </style>
 </head>
@@ -165,12 +155,12 @@
 
 <header>
     <div id="welcome-image-container">
-        <img src="images/new_logo.jpg" alt="Logo Boda" id="welcome-image">
+        <img src="images/new_logo.jpg" alt="Logo Anna & Kiko" id="welcome-image">
     </div>
     <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
-    <p class="frase-especial">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+    <p style="text-align: center; font-size: 1.5em;">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
 
-    <div id="countdown" role="timer">
+    <div id="countdown">
         <div class="time-block"><span id="days">00</span>Días</div>
         <div class="time-block"><span id="hours">00</span>Horas</div>
         <div class="time-block"><span id="minutes">00</span>Min</div>
@@ -180,52 +170,74 @@
 
 <section>
     <h2>Nuestra Historia</h2>
-    <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos... [Tu historia completa aquí]</p>
+    <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.<br><br>
+    Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica... [Tu historia sigue...]</p>
 </section>
 
 <section class="galeria-auto">
     <h2>Fotos de los Novios</h2>
-    <div class="slider">
-        <div class="slider-track">
-            <img src="images/boda 03.jpg" alt="Foto">
-            <img src="images/boda 04.jpg" alt="Foto">
-            <img src="images/boda 05.jpg" alt="Foto">
-            <img src="images/boda 06.jpg" alt="Foto">
-            <img src="images/boda 07.jpg" alt="Foto">
-            <img src="images/foto 08.jpg" alt="Foto">
-            <img src="images/foto 09.jpg" alt="Foto">
-            <img src="images/foto 10.jpg" alt="Foto">
-            <img src="images/foto 11.jpg" alt="Foto">
-            <img src="images/boda 03.jpg" alt="Foto">
-            <img src="images/boda 04.jpg" alt="Foto">
-            <img src="images/boda 05.jpg" alt="Foto">
-            <img src="images/boda 06.jpg" alt="Foto">
-            <img src="images/boda 07.jpg" alt="Foto">
-        </div>
-    </div> 
+    <div class="slider-track">
+        <img src="images/boda 03.jpg" alt="Foto">
+        <img src="images/boda 04.jpg" alt="Foto">
+        <img src="images/boda 05.jpg" alt="Foto">
+        <img src="images/boda 06.jpg" alt="Foto">
+        <img src="images/boda 07.jpg" alt="Foto">
+        <img src="images/foto 08.jpg" alt="Foto">
+        <img src="images/foto 09.jpg" alt="Foto">
+        <img src="images/boda 03.jpg" alt="Foto">
+        <img src="images/boda 04.jpg" alt="Foto">
+        <img src="images/boda 05.jpg" alt="Foto">
+        <img src="images/boda 06.jpg" alt="Foto">
+    </div>
 </section>
 
 <section class="timeline">
     <h2>Horario de la Boda</h2>
-    <ul>
+    <ul style="max-width: 500px; margin: 0 auto;">
         <li><span class="time">🕠 16:30</span> — Llegada de invitados</li>
         <li><span class="time">💍 17:00</span> — Ceremonia</li>
         <li><span class="time">🍸 17:45</span> — Cóctel y aperitivos</li>
         <li><span class="time">🍽️ 19:30</span> — Cena</li>
         <li><span class="time">🪩 22:00</span> — Fiesta y barra libre</li>
+        <li><span class="time">🌅 03:00</span> — After Party</li>
     </ul>
 </section>
 
-<section class="links">
+<section>
     <h2>Información para los invitados</h2>
-    <ul>
-        <li><strong>🚌 Autobús:</strong> Ida 15:30 (Sant Cugat), Vuelta 03:30.</li>
-        <li><strong>🎩 Dress Code:</strong> Formal elegante. Calzado cómodo para el baile.</li>
-        <li><strong>📍 Ubicación:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br><br>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.123456789!2d2.09!3d41.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49479383636f3%3A0xc6360c6729066601!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v123456789" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <ul style="list-style: none; padding: 0;">
+        <li><strong>🚌 Autobús:</strong> Ida: 15:30 (Estación Sant Cugat). Vuelta: 03:30 (Restaurante).</li>
+        <li><strong>🎩 Código de vestimenta:</strong> Formal elegante. ¡Traed calzado cómodo para bailar!</li>
+        <li><strong>🚸 Niños:</strong> Celebración solo para adultos (excepto niños de la familia).</li>
+        <li><strong>🌾 Arroz:</strong> La finca no permite tirar arroz ni confeti. 💐</li>
+        <li><strong>🅿️ Parking:</strong> Gratuito disponible dentro del recinto.</li>
+        <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Av. Corts Catalanes, s/n, Sant Cugat.<br><br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.281881685361!2d2.0838944!3d41.4764831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4969248888889%3A0x8888888888888888!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" height="400" allowfullscreen="" loading="lazy"></iframe>
         </li>
-        <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344.</li>
+        <li style="margin-top:20px;"><strong>🏨 Hoteles recomendados:</strong>
+            <ul>
+                <li><a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a></li>
+                <li><a href="#" target="_blank">Hotel Qgat (30% dto)</a></li>
+                <li><a href="https://acortar.link/gXhZs9" target="_blank">Hotel Ibis Molins</a></li>
+            </ul>
+        </li>
+        <li style="margin-top:20px;"><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344. Concepto: Boda [Nombre]. ¡Gracias! 💖</li>
     </ul>
+</section>
+
+<section class="weather">
+    <h2>El tiempo en Sant Cugat</h2>
+    <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" data-label_1="SANT CUGAT DEL VALLÈS" data-theme="tile_wood" >SANT CUGAT</a>
+</section>
+
+<section>
+    <h2>Sitios de Interés en Barcelona</h2>
+    <div class="site-grid">
+        <a href="https://www.sagradafamilia.org" class="site-card"><img src="images/sagrada.jpg" alt=""><p>Sagrada Familia</p></a>
+        <a href="https://www.tibidabo.cat" class="site-card"><img src="images/Tibidabo.jpg" alt=""><p>Tibidabo</p></a>
+        <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt=""><p>Parque Güell</p></a>
+        <a href="https://www.museupicasso.bcn.cat" class="site-card"><img src="images/picasso.jpg" alt=""><p>Museo Picasso</p></a>
+    </div>
 </section>
 
 <footer>
@@ -233,30 +245,20 @@
 </footer>
 
 <script>
+    // Cuenta atrás
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
-    const countdownElement = document.getElementById("countdown");
-
-    const updateCountdown = () => {
+    setInterval(() => {
         const now = new Date().getTime();
-        const distance = targetDate - now;
+        const dist = targetDate - now;
+        if (dist < 0) return;
+        document.getElementById("days").innerText = Math.floor(dist / 86400000).toString().padStart(2,'0');
+        document.getElementById("hours").innerText = Math.floor((dist % 86400000) / 3600000).toString().padStart(2,'0');
+        document.getElementById("minutes").innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2,'0');
+        document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2,'0');
+    }, 1000);
 
-        if (distance <= 0) {
-            countdownElement.innerHTML = `<div style="font-size: 2em; color: #967bb6;">¡Hoy es el gran día! 💍🎉</div>`;
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = String(days).padStart(2, '0');
-        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    };
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    // Widget Clima
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
 
 </body>
