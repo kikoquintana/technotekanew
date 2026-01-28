@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos a la Boda de Anna & KiKo</title>
+    <title>Boda de Anna & KiKo</title>
 
     <link rel="icon" href="images/novios.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
@@ -16,31 +16,54 @@
             padding: 0;
             color: #333;
             font-weight: bold;
-            /* IMAGEN DE FONDO LAVANDA */
             background-image: url('images/lavanda.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
         }
 
-    /* 1. Bajamos la opacidad del overlay para que el fondo se transparente más */
+        /* Cambios para que las flores se vean más */
         .page-overlay {
-            background-color: rgba(255, 255, 255, 0.4); /* Antes 0.85, ahora 0.4 */
+            background-color: rgba(255, 255, 255, 0.4); 
             min-height: 100vh;
             padding: 20px 0;
         }
 
-        /* 2. Le damos un fondo blanco sólido al contenedor del contenido para que el texto sea legible */
         .main-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            background-color: white; /* Fondo blanco para el texto */
-            border-radius: 20px;     /* Bordes redondeados elegantes */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+            background-color: white; 
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
         }
 
-        /* LOGO: Tamaño controlado */
+        /* Selector de Idioma */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-switch button {
+            background: #8a8abf;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Indie Flower', cursive;
+            font-weight: bold;
+        }
+
+        /* Lógica de visibilidad de idiomas */
+        .lang-ca { display: none; }
+        body.lang-ca-active .lang-ca { display: inline-block; }
+        body.lang-ca-active .lang-es { display: none; }
+
         #welcome-image {
             display: block;
             margin: 0 auto;
@@ -57,7 +80,6 @@
         h1 { font-size: 3.5em; margin: 20px 0; }
         h2 { font-size: 2.5em; margin-top: 40px; }
 
-        /* COLOR LAVANDA SOLICITADO #D3D3FF */
         .timeline, footer, .time-block {
             background-color: #D3D3FF !important;
         }
@@ -80,7 +102,6 @@
 
         .time-block span { display: block; font-size: 2em; margin-bottom: 5px; }
 
-        /* GALERÍA: Tamaño controlado */
         .galeria-auto {
             margin: 40px 0;
             background-color: rgba(255,255,255,0.5);
@@ -157,27 +178,51 @@
 
 <div class="page-overlay">
     <div class="main-container">
+        
+        <div class="lang-switch">
+            <button onclick="changeLang('es')">ESP</button>
+            <button onclick="changeLang('ca')">CAT</button>
+        </div>
+
         <header>
             <img src="images/new_logo.jpg" alt="Logo Anna & Kiko" id="welcome-image">
-            <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
-            <p style="text-align: center; font-size: 1.4em;">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+            <h1>
+                <span class="lang-es">¡Bienvenidos a la Boda de Anna & KiKo!</span>
+                <span class="lang-ca">Benvinguts al Casament de l'Anna i en KiKo!</span>
+            </h1>
+            <p style="text-align: center; font-size: 1.4em;">
+                <span class="lang-es">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</span>
+                <span class="lang-ca">🎉 Ens encantaria que ens acompanyéssiu en aquest dia tan especial 💖</span>
+            </p>
 
             <div id="countdown">
-                <div class="time-block"><span id="days">00</span>Días</div>
-                <div class="time-block"><span id="hours">00</span>Horas</div>
+                <div class="time-block"><span id="days">00</span><small class="lang-es">Días</small><small class="lang-ca">Dies</small></div>
+                <div class="time-block"><span id="hours">00</span><small class="lang-es">Horas</small><small class="lang-ca">Hores</small></div>
                 <div class="time-block"><span id="minutes">00</span>Min</div>
-                <div class="time-block"><span id="seconds">00</span>Seg</div>
+                <div class="time-block"><span id="seconds">00</span><span class="lang-es">Seg</span><span class="lang-ca">Seg</span></div>
             </div>
         </header>
 
         <section>
-            <h2>Nuestra Historia</h2>
-            <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.<br><br>
-            Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica.</p>
+            <h2>
+                <span class="lang-es">Nuestra Historia</span>
+                <span class="lang-ca">La nostra Història</span>
+            </h2>
+            <div class="lang-es">
+                <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.<br><br>
+                Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica.</p>
+            </div>
+            <div class="lang-ca">
+                <p>Ens vam conèixer l'1 de juny de 2019 al “Corretapes” de Castellbisbal. La Noelia, la germana d'en Kiko, se les va empescar per presentar-nos, després que ell mostrés interès per aquella noia que acabava de veure passar amb la seva millor amiga Albina. I allà on va posar l'ull, va posar la bala.<br><br>
+                Aquella nit va sorgir la màgia i la connexió entre tots dos, ens vam prometre tornar-nos a veure amb un jurament amb anell de regal pel mig. La primera cita va ser a l'Arc de Triomf de Barcelona on vam passar una tarda fantàstica.</p>
+            </div>
         </section>
 
         <section class="galeria-auto">
-            <h2>Fotos de los Novios</h2>
+            <h2>
+                <span class="lang-es">Fotos de los Novios</span>
+                <span class="lang-ca">Fotos dels Nuvis</span>
+            </h2>
             <div class="slider-track">
                 <img src="images/boda 03.jpg" alt="1">
                 <img src="images/boda 04.jpg" alt="2">
@@ -192,58 +237,79 @@
         </section>
 
         <section class="timeline">
-            <h2>Horario de la Boda</h2>
+            <h2>
+                <span class="lang-es">Horario de la Boda</span>
+                <span class="lang-ca">Horari del Casament</span>
+            </h2>
             <ul>
-                <li><span class="time">🕠 16:30</span> — Llegada de invitados</li>
-                <li><span class="time">💍 17:00</span> — Ceremonia</li>
-                <li><span class="time">🍸 17:45</span> — Cóctel y aperitivos</li>
-                <li><span class="time">🍽️ 19:30</span> — Cena</li>
-                <li><span class="time">🪩 22:00</span> — Fiesta y barra libre</li>
+                <li><span class="time">🕠 16:30</span> — <span class="lang-es">Llegada de invitados</span><span class="lang-ca">Arribada de convidats</span></li>
+                <li><span class="time">💍 17:00</span> — <span class="lang-es">Ceremonia</span><span class="lang-ca">Cerimònia</span></li>
+                <li><span class="time">🍸 17:45</span> — <span class="lang-es">Cóctel y aperitivos</span><span class="lang-ca">Còctel i aperitius</span></li>
+                <li><span class="time">🍽️ 19:30</span> — <span class="lang-es">Cena</span><span class="lang-ca">Sopar</span></li>
+                <li><span class="time">🪩 22:00</span> — <span class="lang-es">Fiesta y barra libre</span><span class="lang-ca">Festa i barra lliure</span></li>
                 <li><span class="time">🌅 03:00</span> — After Party</li>
             </ul>
         </section>
 
         <section>
-            <h2>Información para los invitados</h2>
+            <h2>
+                <span class="lang-es">Información para los invitados</span>
+                <span class="lang-ca">Informació per als convidats</span>
+            </h2>
             <ul class="info-list">
-                <li><strong>🚌 Horarios de autobús:</strong> Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</li>
-                <li><strong>🎩 Código de vestimenta:</strong> Formal elegante.</li>
-                <li><strong>🚸 Niños:</strong> Celebración solo para adultos (excepto familia directa).</li>
-                <li><strong>🌾 Arroz/Confeti:</strong> No está permitido en la finca.</li>
-                <li><strong>🅿️ Parking:</strong> Gratuito dentro del recinto.</li>
-                <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.435775432356!2d2.0833!3d41.4722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f8c7b8d8d9%3A0x6c6e7e7e7e7e7e7e!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                <li><strong>🚌 <span class="lang-es">Horarios de autobús:</span><span class="lang-ca">Horaris d'autobús:</span></strong> <span class="lang-es">Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</span><span class="lang-ca">Anada: 15:30 (Sant Cugat). Tornada: 03:30.</span></li>
+                <li><strong>🎩 <span class="lang-es">Código de vestimenta:</span><span class="lang-ca">Codi de vestimenta:</span></strong> <span class="lang-es">Formal elegante.</span><span class="lang-ca">Formal elegant.</span></li>
+                <li><strong>🚸 <span class="lang-es">Niños:</span><span class="lang-ca">Nens:</span></strong> <span class="lang-es">Celebración solo para adultos (excepto familia directa).</span><span class="lang-ca">Celebració només per a adults (excepte família directa).</span></li>
+                <li><strong>🌾 <span class="lang-es">Arroz/Confeti:</span><span class="lang-ca">Arròs/Confeti:</span></strong> <span class="lang-es">No está permitido en la finca.</span><span class="lang-ca">No està permès a la finca.</span></li>
+                <li><strong>🅿️ Parking:</strong> <span class="lang-es">Gratuito dentro del recinto.</span><span class="lang-ca">Gratuït dins del recinte.</span></li>
+                <li><strong>📍 <span class="lang-es">Cómo llegar:</span><span class="lang-ca">Com arribar-hi:</span></strong> Masia Casa Fuster, Sant Cugat del Vallès.<br>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.46736465453!2d2.0722301122934077!3d41.47253599059535!2m3!1f0!2f0!3f0!3m2!1i1024!2i1048!5e0!3m2!1ses!2ses!4v1715852000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
                 </li>
-                <li><strong>🏨 Hoteles:</strong> 
+                <li><strong>🏨 <span class="lang-es">Hoteles:</span><span class="lang-ca">Hotels:</span></strong> 
                     <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, 
                     <a href="#">Hotel Qgat</a>, 
                     <a href="https://acortar.link/gXhZs9">Hotel Ibis</a>.
                 </li>
-                <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344. Concepto: Boda [Nombre]</li>
+                <li><strong>🎁 <span class="lang-es">Regalo:</span><span class="lang-ca">Regal:</span></strong> IBAN: ESXX 1234 5678 9101 1122 3344. <span class="lang-es">Concepto: Boda [Nombre]</span><span class="lang-ca">Concepte: Casament [Nom]</span></li>
             </ul>
         </section>
 
         <section class="weather">
-            <h2>El tiempo en Sant Cugat</h2>
+            <h2>
+                <span class="lang-es">El tiempo en Sant Cugat</span>
+                <span class="lang-ca">El temps a Sant Cugat</span>
+            </h2>
             <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" data-label_1="SANT CUGAT DEL VALLÈS" data-theme="tile_wood">SANT CUGAT</a>
         </section>
 
         <section>
-            <h2>Sitios de Interés en Barcelona</h2>
+            <h2>
+                <span class="lang-es">Sitios de Interés en Barcelona</span>
+                <span class="lang-ca">Llocs d'Interès a Barcelona</span>
+            </h2>
             <div class="site-grid">
                 <a href="https://www.sagradafamilia.org" class="site-card"><img src="images/sagrada.jpg" alt="Sagrada Familia"><p>Sagrada Familia</p></a>
                 <a href="https://www.tibidabo.cat" class="site-card"><img src="images/Tibidabo.jpg" alt="Tibidabo"><p>Tibidabo</p></a>
-                <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt="Park Guell"><p>Parque Güell</p></a>
+                <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt="Park Guell"><p>Parc Güell</p></a>
             </div>
         </section>
 
         <footer>
-            <p>© 2026 Boda de Anna & Kiko. Todos los derechos reservados.</p>
+            <p>© 2026 <span class="lang-es">Boda de Anna & Kiko. Todos los derechos reservados.</span><span class="lang-ca">Casament de l'Anna i en Kiko. Tots els drets reservats.</span></p>
         </footer>
     </div>
 </div>
 
 <script>
+    // Función para cambiar idioma
+    function changeLang(lang) {
+        if (lang === 'ca') {
+            document.body.classList.add('lang-ca-active');
+        } else {
+            document.body.classList.remove('lang-ca-active');
+        }
+    }
+
     // Contador
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
     setInterval(() => {
@@ -262,6 +328,3 @@
 
 </body>
 </html>
-
-
-
