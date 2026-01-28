@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos a la Boda de Anna & KiKo</title>
+    <title>Boda de Anna & KiKo</title>
 
     <link rel="icon" href="images/novios.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Indie+Flower&display=swap" rel="stylesheet">
@@ -32,7 +32,6 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            /* Degradado radial para eliminar el corte blanco lateral */
             background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 65%, rgba(255,255,255,0) 100%);
         }
 
@@ -47,12 +46,10 @@
         body.lang-ca-active .lang-ca { display: inline-block; }
         body.lang-ca-active .lang-es { display: none; }
 
-        /* LOGO SIN CORTE */
+        /* LOGO */
         #welcome-image {
-            display: block;
-            margin: 0 auto;
-            max-width: 180px; 
-            height: auto;
+            display: block; margin: 0 auto;
+            max-width: 180px; height: auto;
             mix-blend-mode: multiply;
         }
 
@@ -66,7 +63,6 @@
         .time-block { color: #333; padding: 10px 15px; text-align: center; width: 85px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
         .time-block span { display: block; font-size: 2.2em; margin-bottom: 5px; }
 
-        /* GALERIA */
         .galeria-auto {
             margin: 40px 0; background-color: rgba(255,255,255,0.5);
             border-radius: 12px; overflow: hidden; padding: 20px 0;
@@ -79,14 +75,9 @@
         .timeline li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .timeline .time { font-weight: bold; color: #6a6ab0; margin-right: 10px; }
 
-        .info-list { list-style: none; padding: 0; }
-        .info-list li { margin-bottom: 15px; line-height: 1.6; }
-
-        /* MAPA */
         .map-wrapper { width: 100%; height: 350px; margin-top: 15px; border-radius: 12px; overflow: hidden; border: 2px solid #D3D3FF; }
         iframe { border: none; width: 100%; height: 100%; }
 
-        /* SITIOS INTERÉS */
         .site-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
         .site-card { width: 180px; background: #fff; border-radius: 10px; overflow: hidden; text-align: center; text-decoration: none; color: inherit; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .site-card img { width: 100%; height: 110px; object-fit: cover; }
@@ -98,7 +89,6 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
             .slider-track img { height: 180px; }
-            .time-block { width: 70px; font-size: 0.8em; }
         }
     </style>
 </head>
@@ -118,6 +108,8 @@
                 <span class="lang-es">¡Bienvenidos a nuestra Boda!</span>
                 <span class="lang-ca">Benvinguts al nostre Casament!</span>
             </h1>
+            <p style="text-align: center; font-size: 1.5em; color: #8a8abf;">Anna & KiKo</p>
+            
             <div id="countdown">
                 <div class="time-block"><span id="days">00</span><small class="lang-es">Días</small><small class="lang-ca">Dies</small></div>
                 <div class="time-block"><span id="hours">00</span><small class="lang-es">Horas</small><small class="lang-ca">Hores</small></div>
@@ -152,15 +144,12 @@
         </section>
 
         <section>
-            <h2><span class="lang-es">Ubicación</span><span class="lang-ca">Ubicació</span></h2>
-            <ul class="info-list">
-                <li><strong>🚌 Bus:</strong> <span class="lang-es">Ida 15:30. Vuelta 03:30.</span><span class="lang-ca">Anada 15:30. Tornada 03:30.</span></li>
-                <li><strong>📍 Masia Casa Fuster:</strong> Sant Cugat del Vallès.
-                    <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2988.847524021798!2d2.0838634766524185!3d41.48590699052957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f0b0b7e909%3A0x92653d9200495a92!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1716380000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </li>
-            </ul>
+            <h2><span class="lang-es">Información</span><span class="lang-ca">Informació</span></h2>
+            <p><strong>🚌 Bus:</strong> <span class="lang-es">Ida 15:30. Vuelta 03:30.</span><span class="lang-ca">Anada 15:30. Tornada 03:30.</span></p>
+            <p><strong>📍 Masia Casa Fuster:</strong> Sant Cugat del Vallès.</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.484252656363!2d2.062862315383563!3d41.47466507925501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49012a672322d%3A0x64cf2333f211d200!2sMasia%20Casa%20Fuster!5e0!3m2!1sen!2ses!4v1642686888888!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </section>
 
         <section class="weather">
@@ -182,13 +171,10 @@
 </div>
 
 <script>
-    // Cambio de idioma
     function changeLang(lang) {
         if (lang === 'ca') { document.body.classList.add('lang-ca-active'); }
         else { document.body.classList.remove('lang-ca-active'); }
     }
-
-    // Cuenta atrás
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -199,8 +185,6 @@
         document.getElementById("minutes").innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2,'0');
         document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2,'0');
     }, 1000);
-
-    // Cargar Widget del Tiempo
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
 </body>
