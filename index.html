@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -32,8 +32,8 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            /* Degradado radial para que el blanco se funda con las flores */
-            background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%);
+            /* Degradado radial para eliminar el corte blanco lateral */
+            background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 65%, rgba(255,255,255,0) 100%);
         }
 
         /* SELECTOR IDIOMA */
@@ -47,13 +47,13 @@
         body.lang-ca-active .lang-ca { display: inline-block; }
         body.lang-ca-active .lang-es { display: none; }
 
-        /* LOGO */
+        /* LOGO SIN CORTE */
         #welcome-image {
             display: block;
             margin: 0 auto;
             max-width: 180px; 
             height: auto;
-            mix-blend-mode: multiply; /* Elimina fondo blanco del logo */
+            mix-blend-mode: multiply;
         }
 
         h1, h2, h3 { font-family: 'Dancing Script', cursive; color: #8a8abf; text-align: center; }
@@ -66,7 +66,7 @@
         .time-block { color: #333; padding: 10px 15px; text-align: center; width: 85px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
         .time-block span { display: block; font-size: 2.2em; margin-bottom: 5px; }
 
-        /* GALERIA ANIMADA */
+        /* GALERIA */
         .galeria-auto {
             margin: 40px 0; background-color: rgba(255,255,255,0.5);
             border-radius: 12px; overflow: hidden; padding: 20px 0;
@@ -129,7 +129,7 @@
         <section>
             <h2><span class="lang-es">Nuestra Historia</span><span class="lang-ca">La nostra Història</span></h2>
             <p>
-                <span class="lang-es">Nos conocimos el 1 de junio de 2019. Esa noche surgió la magia y la conexión entre los dos. La primera cita fue en el Arco de Triunfo de Barcelona.</span>
+                <span class="lang-es">Nos conocimos el 1 de junio de 2019. Esa noche surgió la magia y la conexión. La primera cita fue en el Arco de Triunfo de Barcelona.</span>
                 <span class="lang-ca">Ens vam conèixer l'1 de juny de 2019. Aquella nit va sorgir la màgia i la connexió. La primera cita va ser a l'Arc de Triomf de Barcelona.</span>
             </p>
         </section>
@@ -152,16 +152,20 @@
         </section>
 
         <section>
-            <h2><span class="lang-es">Información</span><span class="lang-ca">Informació</span></h2>
+            <h2><span class="lang-es">Ubicación</span><span class="lang-ca">Ubicació</span></h2>
             <ul class="info-list">
                 <li><strong>🚌 Bus:</strong> <span class="lang-es">Ida 15:30. Vuelta 03:30.</span><span class="lang-ca">Anada 15:30. Tornada 03:30.</span></li>
-                <li><strong>📍 Ubicación:</strong> Masia Casa Fuster, Sant Cugat.
+                <li><strong>📍 Masia Casa Fuster:</strong> Sant Cugat del Vallès.
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.135756475659!2d2.083896076589345!3d41.47963389094056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498f0b03ba909%3A0x94653d6902095a92!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2988.847524021798!2d2.0838634766524185!3d41.48590699052957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f0b0b7e909%3A0x92653d9200495a92!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1716380000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </li>
-                <li><strong>🏨 Hoteles:</strong> Hotel Sant Cugat, Qgat, Ibis.</li>
             </ul>
+        </section>
+
+        <section class="weather">
+            <h2><span class="lang-es">El Tiempo</span><span class="lang-ca">El Temps</span></h2>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" data-label_1="SANT CUGAT" data-theme="tile_wood">SANT CUGAT</a>
         </section>
 
         <section>
@@ -178,10 +182,13 @@
 </div>
 
 <script>
+    // Cambio de idioma
     function changeLang(lang) {
         if (lang === 'ca') { document.body.classList.add('lang-ca-active'); }
         else { document.body.classList.remove('lang-ca-active'); }
     }
+
+    // Cuenta atrás
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -192,6 +199,9 @@
         document.getElementById("minutes").innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2,'0');
         document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2,'0');
     }, 1000);
+
+    // Cargar Widget del Tiempo
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
 </body>
 </html>
