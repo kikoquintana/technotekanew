@@ -16,15 +16,16 @@
             padding: 0;
             color: #333;
             font-weight: bold;
+            /* IMAGEN DE FONDO LAVANDA */
             background-image: url('images/lavanda.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
         }
 
-        /* Capa de transparencia: 0.5 para que las flores se vean mucho */
+        /* Capa blanca semitransparente para que el texto sea legible sobre las flores */
         .page-overlay {
-            background-color: rgba(255, 255, 255, 0.5); 
+            background-color: rgba(255, 255, 255, 0.85);
             min-height: 100vh;
             padding: 20px 0;
         }
@@ -35,28 +36,7 @@
             padding: 20px;
         }
 
-        /* Selector de Idioma */
-        .lang-switch {
-            text-align: right;
-            margin-bottom: 20px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-        }
-        .lang-btn {
-            background: #8a8abf;
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            cursor: pointer;
-            border-radius: 20px;
-            font-family: 'Indie Flower', sans-serif;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .lang-cat { display: none; }
-
+        /* LOGO: Tamaño controlado */
         #welcome-image {
             display: block;
             margin: 0 auto;
@@ -73,6 +53,7 @@
         h1 { font-size: 3.5em; margin: 20px 0; }
         h2 { font-size: 2.5em; margin-top: 40px; }
 
+        /* COLOR LAVANDA SOLICITADO #D3D3FF */
         .timeline, footer, .time-block {
             background-color: #D3D3FF !important;
         }
@@ -85,19 +66,20 @@
         }
 
         .time-block {
+            color: #333;
             padding: 10px 15px;
             border-radius: 10px;
             text-align: center;
-            width: 85px;
+            width: 80px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .time-block span { display: block; font-size: 2em; }
+        .time-block span { display: block; font-size: 2em; margin-bottom: 5px; }
 
-        /* Galería Controlada */
+        /* GALERÍA: Tamaño controlado */
         .galeria-auto {
             margin: 40px 0;
-            background-color: rgba(255,255,255,0.3);
+            background-color: rgba(255,255,255,0.5);
             border-radius: 12px;
             overflow: hidden;
             padding: 20px 0;
@@ -114,22 +96,46 @@
             width: auto;
             border-radius: 15px;
             margin: 0 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .timeline { padding: 30px; border-radius: 15px; margin: 40px 0; }
+        .timeline {
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
         .timeline ul { list-style: none; padding: 0; max-width: 500px; margin: 0 auto; }
         .timeline li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .timeline .time { font-weight: bold; color: #6a6ab0; margin-right: 10px; }
 
-        .info-grid { list-style: none; padding: 0; }
-        .info-grid li { margin-bottom: 20px; background: rgba(255,255,255,0.4); padding: 15px; border-radius: 10px; }
+        .info-list { list-style: none; padding: 0; }
+        .info-list li { margin-bottom: 15px; line-height: 1.6; }
 
-        .site-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-        .site-card { width: 160px; background: white; border-radius: 10px; overflow: hidden; text-align: center; text-decoration: none; color: inherit; font-size: 0.8em; }
-        .site-card img { width: 100%; height: 100px; object-fit: cover; }
+        .site-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .site-card {
+            width: 180px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .site-card img { width: 100%; height: 110px; object-fit: cover; }
 
         footer { text-align: center; padding: 25px; margin-top: 50px; border-radius: 15px; }
-        iframe { border-radius: 12px; border: none; width: 100%; height: 350px; margin-top: 15px; }
+
+        iframe { border-radius: 12px; border: none; width: 100%; margin-top: 15px; height: 350px; }
 
         @keyframes scrollSlider {
             0% { transform: translateX(0); }
@@ -138,7 +144,8 @@
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
-            .time-block { width: 65px; font-size: 0.8em; }
+            .slider-track img { height: 180px; }
+            .time-block { width: 65px; font-size: 0.9em; }
         }
     </style>
 </head>
@@ -146,87 +153,109 @@
 
 <div class="page-overlay">
     <div class="main-container">
-        
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLang('es')">ES</button>
-            <button class="lang-btn" onclick="setLang('cat')">CAT</button>
-        </div>
-
         <header>
-            <img src="images/new_logo.jpg" alt="Logo" id="welcome-image">
-            <h1 class="lang-es">¡Bienvenidos a nuestra Boda!</h1>
-            <h1 class="lang-cat">Benvinguts a la nostra Boda!</h1>
-            
+            <img src="images/new_logo.jpg" alt="Logo Anna & Kiko" id="welcome-image">
+            <h1>¡Bienvenidos a la Boda de Anna & KiKo!</h1>
+            <p style="text-align: center; font-size: 1.4em;">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+
             <div id="countdown">
-                <div class="time-block"><span id="days">00</span><p class="lang-es">Días</p><p class="lang-cat">Dies</p></div>
-                <div class="time-block"><span id="hours">00</span><p class="lang-es">Horas</p><p class="lang-cat">Hores</p></div>
-                <div class="time-block"><span id="minutes">00</span><p>Min</p></div>
-                <div class="time-block"><span id="seconds">00</span><p class="lang-es">Seg</p><p class="lang-cat">Seg</p></div>
+                <div class="time-block"><span id="days">00</span>Días</div>
+                <div class="time-block"><span id="hours">00</span>Horas</div>
+                <div class="time-block"><span id="minutes">00</span>Min</div>
+                <div class="time-block"><span id="seconds">00</span>Seg</div>
             </div>
         </header>
 
         <section>
-            <h2 class="lang-es">Nuestra Historia</h2>
-            <h2 class="lang-cat">La nostra Història</h2>
-            <p class="lang-es">Nos conocimos el 1 de junio de 2019 en el “Corretapes”... [Historia completa aquí]</p>
-            <p class="lang-cat">Ens vam conèixer l'1 de juny de 2019 al “Corretapes”... [Història completa aquí]</p>
+            <h2>Nuestra Historia</h2>
+            <p>Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos, después de que mostrara su interés por aquella chica que acababa de ver pasar junto a su mejor amiga Albina. Y donde puso el ojo puso la bala.<br><br>
+            Esa noche surgió la magia y la conexión entre los dos, nos prometimos volver a vernos con un juramento con anillo de regalo de por medio. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica.</p>
         </section>
 
         <section class="galeria-auto">
-            <h2 class="lang-es">Momentos Especiales</h2>
-            <h2 class="lang-cat">Moments Especials</h2>
+            <h2>Fotos de los Novios</h2>
             <div class="slider-track">
-                <img src="images/boda 03.jpg"><img src="images/boda 04.jpg"><img src="images/boda 05.jpg"><img src="images/boda 06.jpg">
-                <img src="images/boda 03.jpg"><img src="images/boda 04.jpg"><img src="images/boda 05.jpg"><img src="images/boda 06.jpg">
+                <img src="images/boda 03.jpg" alt="1">
+                <img src="images/boda 04.jpg" alt="2">
+                <img src="images/boda 05.jpg" alt="3">
+                <img src="images/boda 06.jpg" alt="4">
+                <img src="images/boda 07.jpg" alt="5">
+                <img src="images/foto 08.jpg" alt="6">
+                <img src="images/boda 03.jpg" alt="1">
+                <img src="images/boda 04.jpg" alt="2">
+                <img src="images/boda 05.jpg" alt="3">
             </div>
         </section>
 
         <section class="timeline">
-            <h2 class="lang-es">Horario</h2><h2 class="lang-cat">Horari</h2>
+            <h2>Horario de la Boda</h2>
             <ul>
-                <li><span class="time">🕠 16:30</span> — <span class="lang-es">Llegada</span><span class="lang-cat">Arribada</span></li>
-                <li><span class="time">💍 17:00</span> — <span class="lang-es">Ceremonia</span><span class="lang-cat">Cerimònia</span></li>
-                <li><span class="time">🍸 17:45</span> — <span class="lang-es">Cóctel</span><span class="lang-cat">Còctel</span></li>
-                <li><span class="time">🍽️ 19:30</span> — <span class="lang-es">Cena</span><span class="lang-cat">Sopar</span></li>
-                <li><span class="time">🪩 22:00</span> — <span class="lang-es">Fiesta</span><span class="lang-cat">Festa</span></li>
+                <li><span class="time">🕠 16:30</span> — Llegada de invitados</li>
+                <li><span class="time">💍 17:00</span> — Ceremonia</li>
+                <li><span class="time">🍸 17:45</span> — Cóctel y aperitivos</li>
+                <li><span class="time">🍽️ 19:30</span> — Cena</li>
+                <li><span class="time">🪩 22:00</span> — Fiesta y barra libre</li>
+                <li><span class="time">🌅 03:00</span> — After Party</li>
             </ul>
         </section>
 
         <section>
-            <h2 class="lang-es">Información para los Invitados</h2>
-            <h2 class="lang-cat">Informació per als Convidats</h2>
-            <ul class="info-grid">
-                <li><strong>🚌 <span class="lang-es">Autobús:</span><span class="lang-cat">Autobús:</span></strong> <span class="lang-es">Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</span><span class="lang-cat">Anada: 15:30 (Sant Cugat). Tornada: 03:30.</span></li>
-                <li><strong>🚸 <span class="lang-es">Niños:</span><span class="lang-cat">Nens:</span></strong> <span class="lang-es">Solo adultos (excepto familia).</span><span class="lang-cat">Només adults (excepte família).</span></li>
-                <li><strong>🌾 <span class="lang-es">Arroz:</span><span class="lang-cat">Arròs:</span></strong> <span class="lang-es">No se permite tirar arroz o confeti.</span><span class="lang-cat">No es permet llançar arròs o confeti.</span></li>
-                <li><strong>🅿️ <span class="lang-es">Parking:</span><span class="lang-cat">Pàrquing:</span></strong> <span class="lang-es">Gratis dentro del recinto.</span><span class="lang-cat">Gratis dins del recinte.</span></li>
-                <li><strong>🏨 <span class="lang-es">Hoteles:</span><span class="lang-cat">Hotels:</span></strong> Sant Cugat, Qgat, Ibis.</li>
-                <li><strong>🎁 <span class="lang-es">Regalo:</span><span class="lang-cat">Regal:</span></strong> IBAN: ESXX 1234 5678 9101 1122 3344.</li>
-                <li><strong>📍 <span class="lang-es">Mapa:</span><span class="lang-cat">Mapa:</span></strong> Masia Casa Fuster.<br><iframe src="http://googleusercontent.com/maps.google.com/mapa"></iframe></li>
+            <h2>Información para los invitados</h2>
+            <ul class="info-list">
+                <li><strong>🚌 Horarios de autobús:</strong> Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</li>
+                <li><strong>🎩 Código de vestimenta:</strong> Formal elegante.</li>
+                <li><strong>🚸 Niños:</strong> Celebración solo para adultos (excepto familia directa).</li>
+                <li><strong>🌾 Arroz/Confeti:</strong> No está permitido en la finca.</li>
+                <li><strong>🅿️ Parking:</strong> Gratuito dentro del recinto.</li>
+                <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.435775432356!2d2.0833!3d41.4722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f8c7b8d8d9%3A0x6c6e7e7e7e7e7e7e!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                </li>
+                <li><strong>🏨 Hoteles:</strong> 
+                    <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, 
+                    <a href="#">Hotel Qgat</a>, 
+                    <a href="https://acortar.link/gXhZs9">Hotel Ibis</a>.
+                </li>
+                <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344. Concepto: Boda [Nombre]</li>
             </ul>
         </section>
 
+        <section class="weather">
+            <h2>El tiempo en Sant Cugat</h2>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/41d472d09/sant-cugat-del-valles/" data-label_1="SANT CUGAT DEL VALLÈS" data-theme="tile_wood">SANT CUGAT</a>
+        </section>
+
         <section>
-            <h2 class="lang-es">Sitios de Interés</h2><h2 class="lang-cat">Llocs d'Interès</h2>
+            <h2>Sitios de Interés en Barcelona</h2>
             <div class="site-grid">
-                <a href="#" class="site-card"><img src="images/sagrada.jpg"><p>Sagrada Familia</p></a>
-                <a href="#" class="site-card"><img src="images/Tibidabo.jpg"><p>Tibidabo</p></a>
-                <a href="#" class="site-card"><img src="images/well.jpg"><p>Park Güell</p></a>
+                <a href="https://www.sagradafamilia.org" class="site-card"><img src="images/sagrada.jpg" alt="Sagrada Familia"><p>Sagrada Familia</p></a>
+                <a href="https://www.tibidabo.cat" class="site-card"><img src="images/Tibidabo.jpg" alt="Tibidabo"><p>Tibidabo</p></a>
+                <a href="https://www.parkguell.cat" class="site-card"><img src="images/well.jpg" alt="Park Guell"><p>Parque Güell</p></a>
             </div>
         </section>
 
-        <footer><p>© 2026 Boda de Anna & Kiko</p></footer>
+        <footer>
+            <p>© 2026 Boda de Anna & Kiko. Todos los derechos reservados.</p>
+        </footer>
     </div>
 </div>
 
 <script>
-    function setLang(lang) {
-        const es = document.querySelectorAll('.lang-es');
-        const cat = document.querySelectorAll('.lang-cat');
-        es.forEach(e => e.style.display = (lang === 'es' ? 'block' : 'none'));
-        cat.forEach(e => e.style.display = (lang === 'cat' ? 'block' : 'none'));
-    }
-    // Contador... (mismo script de antes)
+    // Contador
+    const targetDate = new Date("2026-05-01T17:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const dist = targetDate - now;
+        if (dist < 0) return;
+        document.getElementById("days").innerText = Math.floor(dist / 86400000).toString().padStart(2,'0');
+        document.getElementById("hours").innerText = Math.floor((dist % 86400000) / 3600000).toString().padStart(2,'0');
+        document.getElementById("minutes").innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2,'0');
+        document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2,'0');
+    }, 1000);
+
+    // Clima
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
+
 </body>
 </html>
+
