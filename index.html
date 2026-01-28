@@ -22,9 +22,9 @@
             background-position: center;
         }
 
-        /* AJUSTE DE VISIBILIDAD: Bajamos la opacidad de 0.85 a 0.6 para que se vean más las flores */
+        /* AJUSTE VISIBILIDAD FLORES: 0.5 permite ver mucho más el fondo */
         .page-overlay {
-            background-color: rgba(255, 255, 255, 0.6); 
+            background-color: rgba(255, 255, 255, 0.5); 
             min-height: 100vh;
             padding: 20px 0;
         }
@@ -39,21 +39,24 @@
         .lang-switch {
             text-align: right;
             margin-bottom: 20px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
         }
         .lang-btn {
             background: #8a8abf;
             color: white;
             border: none;
-            padding: 5px 15px;
+            padding: 8px 18px;
             cursor: pointer;
             border-radius: 20px;
             font-family: 'Indie Flower', sans-serif;
-            margin-left: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        .lang-btn:hover { background: #6a6ab0; }
 
-        /* Lógica para ocultar/mostrar idiomas */
-        .lang-cat { display: none; } /* Por defecto ocultamos el catalán */
+        /* Ocultar catalán por defecto */
+        .lang-cat { display: none; }
 
         #welcome-image {
             display: block;
@@ -69,7 +72,7 @@
         }
 
         h1 { font-size: 3.5em; margin: 20px 0; }
-        h2 { font-size: 2.5em; }
+        h2 { font-size: 2.5em; margin-top: 40px; }
 
         .timeline, footer, .time-block {
             background-color: #D3D3FF !important;
@@ -86,7 +89,7 @@
             padding: 10px 15px;
             border-radius: 10px;
             text-align: center;
-            width: 80px;
+            width: 85px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -118,7 +121,12 @@
         .timeline li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .timeline .time { font-weight: bold; color: #6a6ab0; margin-right: 10px; }
 
+        .info-list { list-style: none; padding: 0; }
+        .info-list li { margin-bottom: 15px; }
+
         footer { text-align: center; padding: 25px; margin-top: 50px; border-radius: 15px; }
+
+        iframe { border-radius: 12px; border: none; width: 100%; height: 350px; margin-top: 15px; }
 
         @keyframes scrollSlider {
             0% { transform: translateX(0); }
@@ -127,7 +135,8 @@
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
-            .time-block { width: 65px; font-size: 0.9em; }
+            .slider-track img { height: 180px; }
+            .time-block { width: 65px; font-size: 0.8em; }
         }
     </style>
 </head>
@@ -137,18 +146,17 @@
     <div class="main-container">
         
         <div class="lang-switch">
-            <button class="lang-btn" onclick="setLang('es')">ES</button>
-            <button class="lang-btn" onclick="setLang('cat')">CAT</button>
+            <button class="lang-btn" onclick="setLang('es')">Español</button>
+            <button class="lang-btn" onclick="setLang('cat')">Català</button>
         </div>
 
         <header>
             <img src="images/new_logo.jpg" alt="Logo" id="welcome-image">
-            
             <h1 class="lang-es">¡Bienvenidos a nuestra Boda!</h1>
             <h1 class="lang-cat">Benvinguts a la nostra Boda!</h1>
-
-            <p class="lang-es" style="text-align: center; font-size: 1.4em;">🎉 Nos encantaría que nos acompañaras... 💖</p>
-            <p class="lang-cat" style="text-align: center; font-size: 1.4em;">🎉 Ens encantaria que ens acompanyessis... 💖</p>
+            
+            <p class="lang-es" style="text-align: center; font-size: 1.4em;">🎉 Nos encantaría que nos acompañaras en este día tan especial 💖</p>
+            <p class="lang-cat" style="text-align: center; font-size: 1.4em;">🎉 Ens encantaria que ens acompanyessis en aquest dia tan especial 💖</p>
 
             <div id="countdown">
                 <div class="time-block"><span id="days">00</span><p class="lang-es">Días</p><p class="lang-cat">Dies</p></div>
@@ -161,19 +169,17 @@
         <section>
             <h2 class="lang-es">Nuestra Historia</h2>
             <h2 class="lang-cat">La nostra Història</h2>
-            
-            <p class="lang-es">Nos conocimos el 1 de junio de 2019...</p>
-            <p class="lang-cat">Ens vam conèixer l'1 de juny de 2019...</p>
+            <p class="lang-es">Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal... [Tu historia completa en Castellano]</p>
+            <p class="lang-cat">Ens vam conèixer l'1 de juny de 2019 al “Corretapes” de Castellbisbal... [La teva història completa en Català]</p>
         </section>
 
         <section class="galeria-auto">
             <h2 class="lang-es">Fotos de los Novios</h2>
             <h2 class="lang-cat">Fotos dels Nuvis</h2>
             <div class="slider-track">
-                <img src="images/boda 03.jpg">
-                <img src="images/boda 04.jpg">
-                <img src="images/boda 03.jpg">
-                <img src="images/boda 04.jpg">
+                <img src="images/boda 03.jpg"><img src="images/boda 04.jpg"><img src="images/boda 05.jpg">
+                <img src="images/boda 06.jpg"><img src="images/boda 07.jpg">
+                <img src="images/boda 03.jpg"><img src="images/boda 04.jpg">
             </div>
         </section>
 
@@ -181,32 +187,53 @@
             <h2 class="lang-es">Horario</h2>
             <h2 class="lang-cat">Horari</h2>
             <ul>
-                <li><span class="time">🕠 16:30</span> — <span class="lang-es">Llegada</span><span class="lang-cat">Arribada</span></li>
+                <li><span class="time">🕠 16:30</span> — <span class="lang-es">Llegada de invitados</span><span class="lang-cat">Arribada de convidats</span></li>
                 <li><span class="time">💍 17:00</span> — <span class="lang-es">Ceremonia</span><span class="lang-cat">Cerimònia</span></li>
+                <li><span class="time">🍸 17:45</span> — <span class="lang-es">Cóctel</span><span class="lang-cat">Còctel</span></li>
+                <li><span class="time">🍽️ 19:30</span> — <span class="lang-es">Cena</span><span class="lang-cat">Sopar</span></li>
+                <li><span class="time">🪩 22:00</span> — <span class="lang-es">Fiesta</span><span class="lang-cat">Festa</span></li>
             </ul>
         </section>
 
-        <footer class="lang-es">© 2026 Boda de Anna & Kiko.</footer>
-        <footer class="lang-cat">© 2026 Boda de l'Anna & el Kiko.</footer>
+        <section>
+            <h2 class="lang-es">Información Útil</h2>
+            <h2 class="lang-cat">Informació Útil</h2>
+            <ul class="info-list">
+                <li><strong>🚌 Bus:</strong> 
+                    <span class="lang-es">Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</span>
+                    <span class="lang-cat">Anada: 15:30 (Sant Cugat). Tornada: 03:30.</span>
+                </li>
+                <li><strong>🚸 <span class="lang-es">Niños:</span><span class="lang-cat">Nens:</span></strong> 
+                    <span class="lang-es">Solo adultos (excepto familia directa).</span>
+                    <span class="lang-cat">Només adults (excepte família directa).</span>
+                </li>
+                <li><strong>📍 <span class="lang-es">Ubicación:</span><span class="lang-cat">Ubicació:</span></strong> Masia Casa Fuster.<br>
+                    <iframe src="http://googleusercontent.com/maps.google.com/4"></iframe>
+                </li>
+                <li><strong>🏨 <span class="lang-es">Hoteles:</span><span class="lang-cat">Hotels:</span></strong> Sant Cugat, Qgat, Ibis.</li>
+                <li><strong>🎁 <span class="lang-es">Regalo:</span><span class="lang-cat">Regal:</span></strong> IBAN: ESXX 1234 5678 9101 1122 3344.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2026 Boda de Anna & Kiko</p>
+        </footer>
     </div>
 </div>
 
 <script>
-    // FUNCIÓN PARA CAMBIAR IDIOMA
     function setLang(lang) {
-        const esElements = document.querySelectorAll('.lang-es');
-        const catElements = document.querySelectorAll('.lang-cat');
-        
+        const es = document.querySelectorAll('.lang-es');
+        const cat = document.querySelectorAll('.lang-cat');
         if(lang === 'cat') {
-            esElements.forEach(el => el.style.display = 'none');
-            catElements.forEach(el => el.style.display = 'block');
+            es.forEach(e => e.style.display = 'none');
+            cat.forEach(e => e.style.display = 'block');
         } else {
-            esElements.forEach(el => el.style.display = 'block');
-            catElements.forEach(el => el.style.display = 'none');
+            es.forEach(e => e.style.display = 'block');
+            cat.forEach(e => e.style.display = 'none');
         }
     }
 
-    // Contador
     const targetDate = new Date("2026-05-01T17:00:00").getTime();
     setInterval(() => {
         const now = new Date().getTime();
