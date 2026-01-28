@@ -28,23 +28,22 @@
             padding: 20px 0;
         }
 
-         .main-container {
+        .main-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            /* Cambiamos el blanco sólido por un difuminado suave */
+            /* Degradado para que no haya corte con las flores */
             background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0) 100%);
-            border-radius: 0; /* Quitamos las esquinas redondeadas que marcan el corte */
-            box-shadow: none; /* Quitamos la sombra que hace que parezca una pegatina */
-        }}
+            border-radius: 0; 
+            box-shadow: none; 
+        }
 
-        /* AJUSTE LOGO PARA QUITAR EL CORTE BLANCO */
         #welcome-image {
             display: block;
             margin: 0 auto;
-            max-width: 150px; 
+            max-width: 100px; /* Tamaño reducido para que no se vea grande */
             height: auto;
-            mix-blend-mode: multiply; /* Esto elimina el fondo blanco de la imagen del logo */
+            mix-blend-mode: multiply; /* Quita el fondo blanco del logo */
         }
 
         h1, h2, h3 {
@@ -136,7 +135,6 @@
 
         footer { text-align: center; padding: 25px; margin-top: 50px; border-radius: 15px; }
 
-        /* AJUSTE MAPA */
         .map-wrapper {
             width: 100%;
             height: 350px;
@@ -219,12 +217,12 @@
                 <li><strong>🅿️ Parking:</strong> Gratuito dentro del recinto.</li>
                 <li><strong>📍 Cómo llegar:</strong> Masia Casa Fuster, Sant Cugat del Vallès.<br>
                    <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.10376170624!2d2.0729777765582735!3d41.47981509088654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4916ca11855ed%3A0x296791d37704e67e!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.13251214066!2d2.0833299!3d41.4795368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496ca99008987%3A0x6a96e94a86f9f30b!2sMasia%20Casa%20Fuster!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </li>
-                <li><strong>🏨 Hoteles:</strong> 
-                    <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, 
-                    <a href="#">Hotel Qgat</a>, 
+                <li><strong>🏨 Hoteles:</strong> <br>
+                    <a href="https://l1nk.dev/6XbTV" target="_blank">Hotel Sant Cugat</a>, <br>
+                    <a href="#">Hotel Qgat</a>, <br>
                     <a href="https://acortar.link/gXhZs9">Hotel Ibis</a>.
                 </li>
                 <li><strong>🎁 Regalo:</strong> IBAN: ESXX 1234 5678 9101 1122 3344. Concepto: Boda [Nombre]</li>
@@ -268,6 +266,3 @@
 
 </body>
 </html>
-
-
-
