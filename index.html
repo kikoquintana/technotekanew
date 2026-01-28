@@ -32,13 +32,14 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            /* DEGRADADO RADIAL: Evita el corte visual con el fondo */
-            background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0) 100%);
+            /* El degradado radial elimina el corte feo en los bordes */
+            background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
         }
 
-        .lang-switch { text-align: right; margin-bottom: 10px; }
+        /* SELECTOR IDIOMA */
+        .lang-switch { text-align: right; margin-bottom: 20px; }
         .lang-switch button {
-            background: #8a8abf; color: white; border: none; padding: 5px 15px;
+            background: #8a8abf; color: white; border: none; padding: 8px 18px;
             border-radius: 20px; cursor: pointer; font-family: 'Indie Flower', cursive; font-weight: bold;
         }
 
@@ -46,22 +47,23 @@
         body.lang-ca-active .lang-ca { display: inline-block; }
         body.lang-ca-active .lang-es { display: none; }
 
+        /* LOGO SIN CORTE */
         #welcome-image {
             display: block; margin: 0 auto;
-            max-width: 180px; /* Tamaño ajustado */
+            max-width: 180px; 
             height: auto;
             mix-blend-mode: multiply;
         }
 
         h1, h2, h3 { font-family: 'Dancing Script', cursive; color: #8a8abf; text-align: center; }
         h1 { font-size: 3.5em; margin: 20px 0; }
-        h2 { font-size: 2.5em; margin-top: 40px; }
+        h2 { font-size: 2.5em; margin-top: 40px; border-bottom: 2px solid #D3D3FF; display: inline-block; width: 100%; }
 
         .timeline, footer, .time-block { background-color: #D3D3FF !important; border-radius: 15px; }
 
         #countdown { display: flex; justify-content: center; gap: 10px; margin: 30px 0; }
         .time-block { color: #333; padding: 10px 15px; text-align: center; width: 85px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
-        .time-block span { display: block; font-size: 2em; margin-bottom: 5px; }
+        .time-block span { display: block; font-size: 2.2em; margin-bottom: 5px; }
 
         .galeria-auto {
             margin: 40px 0; background-color: rgba(255,255,255,0.5);
@@ -75,10 +77,10 @@
         .timeline li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .timeline .time { font-weight: bold; color: #6a6ab0; margin-right: 10px; }
 
-        .info-list { list-style: none; padding: 0; }
-        .info-list li { margin-bottom: 15px; line-height: 1.6; }
+        .info-list { list-style: none; padding: 0; text-align: left; }
+        .info-list li { margin-bottom: 20px; line-height: 1.6; }
 
-        .map-wrapper { width: 100%; height: 350px; margin-top: 15px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .map-wrapper { width: 100%; height: 400px; margin-top: 15px; border-radius: 15px; overflow: hidden; border: 3px solid #D3D3FF; }
         iframe { border: none; width: 100%; height: 100%; }
 
         .site-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
@@ -102,8 +104,8 @@
     <div class="main-container">
         
         <div class="lang-switch">
-            <button onclick="changeLang('es')">ESP</button>
-            <button onclick="changeLang('ca')">CAT</button>
+            <button onclick="changeLang('es')">ES</button>
+            <button onclick="changeLang('ca')">CA</button>
         </div>
 
         <header>
@@ -123,13 +125,12 @@
         <section>
             <h2><span class="lang-es">Nuestra Historia</span><span class="lang-ca">La nostra Història</span></h2>
             <p>
-                <span class="lang-es">Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos. Esa noche surgió la magia y la conexión entre los dos. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona.</span>
-                <span class="lang-ca">Ens vam conèixer l'1 de juny de 2019 al “Corretapes” de Castellbisbal. La Noelia, germana del Kiko, es va empescar la manera de presentar-nos. Aquella nit va sorgir la màgia i la connexió. La primera cita va ser a l'Arc de Triomf de Barcelona.</span>
+                <span class="lang-es">Nos conocimos el 1 de junio de 2019 en el “Corretapes” de Castellbisbal. Noelia, la hermana de Kiko, se las ingenió para presentarnos. Esa noche surgió la magia y la conexión entre los dos. La primera cita tuvo lugar en el Arco de Triunfo de Barcelona donde pasamos una tarde fantástica.</span>
+                <span class="lang-ca">Ens vam conèixer l'1 de juny de 2019 al “Corretapes” de Castellbisbal. La Noelia, germana del Kiko, es va empescar la manera de presentar-nos. Aquella nit va sorgir la màgia i la connexió. La primera cita va ser a l'Arc de Triomf de Barcelona on vam passar una tarda fantàstica.</span>
             </p>
         </section>
 
         <section class="galeria-auto">
-            <h2><span class="lang-es">Fotos de los Novios</span><span class="lang-ca">Fotos dels Nuvis</span></h2>
             <div class="slider-track">
                 <img src="images/boda 03.jpg" alt="1">
                 <img src="images/boda 04.jpg" alt="2">
@@ -148,17 +149,18 @@
             <ul>
                 <li><span class="time">🕠 16:30</span> — <span class="lang-es">Llegada de invitados</span><span class="lang-ca">Arribada de convidats</span></li>
                 <li><span class="time">💍 17:00</span> — <span class="lang-es">Ceremonia</span><span class="lang-ca">Cerimònia</span></li>
-                <li><span class="time">🍸 17:45</span> — <span class="lang-es">Cóctel</span><span class="lang-ca">Còctel</span></li>
+                <li><span class="time">🍸 17:45</span> — <span class="lang-es">Cóctel y aperitivos</span><span class="lang-ca">Còctel i aperitius</span></li>
                 <li><span class="time">🍽️ 19:30</span> — <span class="lang-es">Cena</span><span class="lang-ca">Sopar</span></li>
-                <li><span class="time">🪩 22:00</span> — <span class="lang-es">Fiesta y Barra Libre</span><span class="lang-ca">Festa i Barra Lliure</span></li>
+                <li><span class="time">🪩 22:00</span> — <span class="lang-es">Fiesta y barra libre</span><span class="lang-ca">Festa i barra lliure</span></li>
+                <li><span class="time">🌅 03:00</span> — <span class="lang-es">After Party</span><span class="lang-ca">After Party</span></li>
             </ul>
         </section>
 
         <section>
-            <h2><span class="lang-es">Información</span><span class="lang-ca">Informació</span></h2>
+            <h2><span class="lang-es">Información para Invitados</span><span class="lang-ca">Informació per a Convidats</span></h2>
             <ul class="info-list">
-                <li><strong>🚌 <span class="lang-es">Autobús:</span><span class="lang-ca">Autobús:</span></strong> <span class="lang-es">Ida 15:30 (Sant Cugat). Vuelta 03:30.</span><span class="lang-ca">Anada 15:30 (Sant Cugat). Tornada 03:30.</span></li>
-                <li><strong>🎩 <span class="lang-es">Vestimenta:</span><span class="lang-ca">Vestimenta:</span></strong> <span class="lang-es">Formal elegante.</span><span class="lang-ca">Formal elegant.</span></li>
-                <li><strong>📍 <span class="lang-es">Ubicación:</span><span class="lang-ca">Ubicació:</span></strong> Masia Casa Fuster, Sant Cugat.
-                    <div class="map-wrapper">
-                        <iframe src="
+                <li><strong>🚌 <span class="lang-es">Autobús:</span><span class="lang-ca">Autobús:</span></strong> <span class="lang-es">Ida: 15:30 (Sant Cugat). Vuelta: 03:30.</span><span class="lang-ca">Anada: 15:30 (Sant Cugat). Tornada: 03:30.</span></li>
+                <li><strong>🎩 <span class="lang-es">Código de Vestimenta:</span><span class="lang-ca">Codi de Vestimenta:</span></strong> <span class="lang-es">Formal elegante.</span><span class="lang-ca">Formal elegant.</span></li>
+                <li><strong>🚸 <span class="lang-es">Niños:</span><span class="lang-ca">Nens:</span></strong> <span class="lang-es">Celebración solo para adultos (excepto familia directa).</span><span class="lang-ca">Celebració només per a adults (excepte família directa).</span></li>
+                <li><strong>🌾 <span class="lang-es">Arroz/Confeti:</span><span class="lang-ca">Arròs/Confeti:</span></strong> <span class="lang-es">No está permitido en la finca.</span><span class="lang-ca">No està permès a la finca.</span></li>
+                <li><strong>🏨 <span class="lang-es">Hot
