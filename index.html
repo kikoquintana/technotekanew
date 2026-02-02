@@ -67,35 +67,37 @@
 
         .timeline, footer, .time-block { background-color: #D3D3FF !important; border-radius: 15px; }
 
-       /* CUENTA ATRÁS RESPONSIVA */
+      /* CUENTA ATRÁS: GRANDE PERO AJUSTADA */
         #countdown { 
             display: flex; 
             justify-content: center; 
-            gap: 5px; /* Reducimos el espacio entre bloques */
+            gap: 8px; /* Espacio equilibrado */
             margin: 30px 0; 
-            flex-wrap: nowrap; /* Forzamos a que no salten de línea */
+            flex-wrap: nowrap; /* Mantiene la línea única */
         }
         
         .time-block { 
             background-color: #D3D3FF;
             color: #333; 
-            padding: 10px 2px; /* Menos relleno para ganar espacio */
+            padding: 15px 2px; 
             text-align: center; 
-            width: 22%; /* Usamos porcentaje para que se adapten al ancho */
-            max-width: 85px;
+            flex: 1; /* Hace que los 4 bloques se repartan el ancho igualitariamente */
+            max-width: 90px; /* Evita que en PC se estiren demasiado */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-            border-radius: 12px; 
+            border-radius: 15px; 
         }
         
         .time-block span { 
             display: block; 
-            font-size: 2em; /* Bajamos de 3em a 2em para que quepa en una línea */
+            font-size: 2.5rem; /* Tamaño grande y legible */
             line-height: 1;
             margin-bottom: 5px;
         }
         
+        /* Ajuste para que los textos (Días, Horas...) no se amontonen */
         .time-block small, .time-block {
-            font-size: 0.8rem; /* Letra de "Días", "Min", etc, un poco más pequeña */
+            font-size: 0.9rem; 
+            text-transform: uppercase;
         }
 
         /* GALERÍA INFINITA */
@@ -398,6 +400,7 @@
 </script>
 </body>
 </html>
+
 
 
 
