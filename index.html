@@ -67,27 +67,35 @@
 
         .timeline, footer, .time-block { background-color: #D3D3FF !important; border-radius: 15px; }
 
-        /* CUENTA ATRÁS RESPONSIVA Y GRANDE */
+       /* CUENTA ATRÁS RESPONSIVA */
         #countdown { 
             display: flex; 
             justify-content: center; 
-            gap: 10px; 
+            gap: 5px; /* Reducimos el espacio entre bloques */
             margin: 30px 0; 
-            flex-wrap: wrap; 
+            flex-wrap: nowrap; /* Forzamos a que no salten de línea */
         }
+        
         .time-block { 
+            background-color: #D3D3FF;
             color: #333; 
-            padding: 15px 5px; 
+            padding: 10px 2px; /* Menos relleno para ganar espacio */
             text-align: center; 
-            width: 90px; /* Un poco más ancho para que quepa el número grande */
+            width: 22%; /* Usamos porcentaje para que se adapten al ancho */
+            max-width: 85px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-            border-radius: 15px; /* Para que mantenga la estética */
+            border-radius: 12px; 
         }
+        
         .time-block span { 
             display: block; 
-            font-size: 3em; /* Aquí es donde subimos el tamaño de 1.8 a 3 */
+            font-size: 2em; /* Bajamos de 3em a 2em para que quepa en una línea */
             line-height: 1;
             margin-bottom: 5px;
+        }
+        
+        .time-block small, .time-block {
+            font-size: 0.8rem; /* Letra de "Días", "Min", etc, un poco más pequeña */
         }
 
         /* GALERÍA INFINITA */
@@ -280,7 +288,7 @@
             <strong>🎁 <span class="lang-es">Regalo:</span><span class="lang-ca">Regal:</span></strong>
             <br>
             <span class="lang-es">El mejor regalo es que acudáis, pero si nos quéreis dar un detalle siempre será bienvenido.</span>
-            <span class="lang-ca">El millor regal és que acudiu, però si ens voleu donar un detall sempre serà benvingut.</span>
+            <span class="lang-ca">El millor regal és que acudiu, però si ens voleu fer un detall sempre serà benvingut.</span>
             <br>
             <span class="lang-es">IBAN: ES98 1465 0120 3817 6243 1372.</span>
             <span class="lang-ca">IBAN: ES98 1465 0120 3817 6243 1372.</span>
@@ -390,6 +398,7 @@
 </script>
 </body>
 </html>
+
 
 
 
