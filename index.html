@@ -40,39 +40,40 @@
             border-radius: 20px;
         }
 
-       /* BOTONES DE IDIOMA AMARILLOS */
-        .lang-switch { 
-            text-align: right; 
-            margin-bottom: 20px; 
-            display: flex; 
-            justify-content: flex-end; 
-            gap: 10px; 
+       /* CONTENEDOR DE IDIOMA */
+        .lang-switch-container {
+            display: flex;
+            flex-direction: column; /* Pone los botones arriba y el texto abajo */
+            align-items: flex-end; /* Lo pega todo a la derecha */
+            margin-bottom: 20px;
+            gap: 5px;
         }
 
-        .lang-switch button {
-            background-color: #FFD700; /* Color Amarillo Oro */
-            color: #333; /* Texto oscuro para que se lea bien */
-            border: 2px solid #8a8abf; /* Borde lavanda para que combine */
-            padding: 6px 15px;
-            border-radius: 10px;
+        .lang-buttons {
+            display: flex;
+            gap: 10px; /* Espacio entre CAS y CAT */
+        }
+
+        .lang-buttons button {
+            background-color: #FFD700; 
+            color: #333; 
+            border: 2px solid #8a8abf; 
+            padding: 5px 12px;
+            border-radius: 8px;
             cursor: pointer;
             font-family: 'Indie Flower', cursive;
             font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-        .lang-switch button:hover {
-            background-color: #ffed85; /* Un amarillo más claro al pasar el ratón */
-            transform: scale(1.05);
+        .lang-label {
+            font-size: 0.8rem;
+            color: #6a6ab0;
+            font-weight: bold;
+            margin-right: 5px; /* Un pequeño ajuste para que no quede pegado al borde */
         }
 
         /* CONTROL DE IDIOMAS (Imprescindible para que funcione) */
-        .lang-ca { display: none; }
-        body.lang-ca-active .lang-ca { display: inline-block; }
-        body.lang-ca-active .lang-es { display: none; }
-
-        /* CONTROL DE IDIOMAS */
         .lang-ca { display: none; }
         body.lang-ca-active .lang-ca { display: inline-block; }
         body.lang-ca-active .lang-es { display: none; }
@@ -215,10 +216,16 @@
 <div class="page-overlay">
     <div class="main-container">
         
-      <div class="lang-switch">
-        <button onclick="changeLang('es')">CAS</button>
-        <button onclick="changeLang('ca')">CAT</button>
-    </div>
+         <div class="lang-switch-container">
+            <div class="lang-buttons">
+                <button onclick="changeLang('es')">CAS</button>
+                <button onclick="changeLang('ca')">CAT</button>
+            </div>
+            <span class="lang-label">
+                <span class="lang-es">Idioma</span>
+                <span class="lang-ca">Idioma</span>
+            </span>
+        </div>
 
         <header>
             <img src="images/new_logo.jpg" alt="Logo" id="welcome-image">
@@ -426,6 +433,7 @@
 </script>
 </body>
 </html>
+
 
 
 
