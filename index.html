@@ -46,6 +46,7 @@
             margin-bottom: 20px; 
             display: flex; 
             justify-content: flex-end; 
+            align-items: center; /* AÑADE ESTA LÍNEA */
             gap: 12px; 
         }
         .lang-switch button {
@@ -206,7 +207,11 @@
 <div class="page-overlay">
     <div class="main-container">
         
-  <div class="lang-switch">
+      <div class="lang-switch">
+        <span style="font-size: 0.9rem; color: #6a6ab0; margin-right: 5px; align-self: center; font-weight: bold;">
+            <span class="lang-es">Selecciona idioma:</span>
+            <span class="lang-ca">Selecciona idioma:</span>
+        </span>
         <button onclick="changeLang('es')" class="btn-es"></button>
         <button onclick="changeLang('ca')" class="btn-ca"></button>
     </div>
@@ -341,7 +346,6 @@
             <div class="map-wrapper" style="width: 100%; height: 350px; border-radius: 15px; overflow: hidden; border: 2px solid #D3D3FF;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.2811451000633!2d2.088656676575121!3d41.476483190479155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496f1b03be909%3A0x24653d9900095a92!2sCasa%20Fuster%20Masia!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-         </div>
     </section>
 
      <section class="weather" style="margin: 40px auto; padding: 0 10px; max-width: 500px;">
@@ -417,6 +421,7 @@
 </script>
 </body>
 </html>
+
 
 
 
