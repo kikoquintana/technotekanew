@@ -40,35 +40,43 @@
             border-radius: 20px;
         }
 
-      /* SELECTOR DE IDIOMA CENTRADO */
-        .lang-switch-container {
+      /* BOTONES LAVANDA FUERTE A LA IZQUIERDA */
+        .lang-switch { 
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* Empuja los botones a la derecha */
-            margin: 0 auto 20px auto;
-            gap: 5px;
+            justify-content: flex-start; 
+            width: 100%;
+            margin-bottom: 10px; 
         }
 
-        .lang-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .lang-buttons button {
-            background-color: #FFD700; 
-            color: #333; 
-            border: 2px solid #8a8abf; 
-            padding: 10px 15px;
-            border-radius: 10px;
+        .lang-switch button {
+            background-color: #8a8abf; /* Lavanda más fuerte */
+            color: white; /* Letras blancas para que resalten */
+            border: 2px solid #6a6ab0; /* Borde un tono más oscuro */
+            padding: 10px 25px;
+            font-size: 1.3rem;
+            border-radius: 12px;
             cursor: pointer;
             font-family: 'Indie Flower', cursive;
             font-weight: bold;
+            margin-right: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Un poco de sombra para que luzcan más */
+            transition: 0.3s;
         }
 
-        .lang-label {
-            font-size: 0.9rem;
-            color: #6a6ab0;
+        .lang-switch button:hover {
+            background-color: #6a6ab0; /* Se oscurece un poco al pasar el ratón */
+        }
+
+        /* PALABRA IDIOMA CENTRADA */
+        .idioma-central {
+            text-align: center;
+            width: 100%;
+            font-size: 1.1rem;
+            color: #6a6ab0; /* Color del texto a juego */
             font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+            clear: both;
         }
 
         /* CONTROL DE IDIOMAS (Imprescindible para que funcione) */
@@ -428,6 +436,7 @@
 </script>
 </body>
 </html>
+
 
 
 
