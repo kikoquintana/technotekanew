@@ -42,16 +42,17 @@
 
       /* BOTONES LAVANDA FUERTE A LA IZQUIERDA */
         .lang-switch { 
-            display: flex;
-            justify-content: flex-start; 
+            display: block !important;
+            text-align: left !important;
             width: 100%;
-            margin-bottom: 10px; 
+            margin-bottom: 5px;
+            clear: both;
         }
 
         .lang-switch button {
-            background-color: #8a8abf; /* Lavanda más fuerte */
-            color: white; /* Letras blancas para que resalten */
-            border: 2px solid #6a6ab0; /* Borde un tono más oscuro */
+            background-color: #8a8abf !important;
+            color: white !important;
+            border: 2px solid #6a6ab0 !important;
             padding: 10px 25px;
             font-size: 1.3rem;
             border-radius: 12px;
@@ -59,23 +60,17 @@
             font-family: 'Indie Flower', cursive;
             font-weight: bold;
             margin-right: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Un poco de sombra para que luzcan más */
-            transition: 0.3s;
-        }
-
-        .lang-switch button:hover {
-            background-color: #6a6ab0; /* Se oscurece un poco al pasar el ratón */
         }
 
         /* PALABRA IDIOMA CENTRADA */
         .idioma-central {
-            text-align: center;
-            width: 100%;
+            text-align: center !important;
+            width: 100% !important;
             font-size: 1.1rem;
-            color: #6a6ab0; /* Color del texto a juego */
+            color: #6a6ab0;
             font-weight: bold;
-            margin-bottom: 20px;
-            display: block;
+            margin-bottom: 25px;
+            display: block !important;
             clear: both;
         }
 
@@ -436,6 +431,7 @@
 </script>
 </body>
 </html>
+
 
 
 
