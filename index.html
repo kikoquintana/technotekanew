@@ -40,37 +40,35 @@
             border-radius: 20px;
         }
 
-       /* CONTENEDOR DE IDIOMA */
+      /* SELECTOR DE IDIOMA CENTRADO */
         .lang-switch-container {
             display: flex;
-            flex-direction: column; /* Pone los botones arriba y el texto abajo */
-            align-items: flex-end; /* Lo pega todo a la derecha */
-            margin-bottom: 20px;
+            flex-direction: column;
+            align-items: center; /* Centra botones y palabra */
+            margin: 0 auto 20px auto;
             gap: 5px;
         }
 
         .lang-buttons {
             display: flex;
-            gap: 10px; /* Espacio entre CAS y CAT */
+            gap: 10px;
         }
 
         .lang-buttons button {
             background-color: #FFD700; 
             color: #333; 
             border: 2px solid #8a8abf; 
-            padding: 5px 12px;
-            border-radius: 8px;
+            padding: 5px 15px;
+            border-radius: 10px;
             cursor: pointer;
             font-family: 'Indie Flower', cursive;
             font-weight: bold;
-            transition: 0.3s;
         }
 
         .lang-label {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #6a6ab0;
             font-weight: bold;
-            margin-right: 5px; /* Un pequeño ajuste para que no quede pegado al borde */
         }
 
         /* CONTROL DE IDIOMAS (Imprescindible para que funcione) */
@@ -216,15 +214,12 @@
 <div class="page-overlay">
     <div class="main-container">
         
-         <div class="lang-switch-container">
+            <div class="lang-switch-container">
             <div class="lang-buttons">
                 <button onclick="changeLang('es')">CAS</button>
                 <button onclick="changeLang('ca')">CAT</button>
             </div>
-            <span class="lang-label">
-                <span class="lang-es">Idioma</span>
-                <span class="lang-ca">Idioma</span>
-            </span>
+            <div class="lang-label">Idioma</div>
         </div>
 
         <header>
@@ -433,6 +428,7 @@
 </script>
 </body>
 </html>
+
 
 
 
