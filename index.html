@@ -40,29 +40,37 @@
             border-radius: 20px;
         }
 
-        /* SELECTOR IDIOMA CON BANDERAS */
+       /* BOTONES DE IDIOMA AMARILLOS */
         .lang-switch { 
             text-align: right; 
             margin-bottom: 20px; 
             display: flex; 
             justify-content: flex-end; 
-            align-items: center; /* AÑADE ESTA LÍNEA */
-            gap: 12px; 
+            gap: 10px; 
         }
+
         .lang-switch button {
-            width: 45px; 
-            height: 30px; 
-            border: 2px solid #fff;
-            border-radius: 4px;
+            background-color: #FFD700; /* Color Amarillo Oro */
+            color: #333; /* Texto oscuro para que se lea bien */
+            border: 2px solid #8a8abf; /* Borde lavanda para que combine */
+            padding: 6px 15px;
+            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.2s;
+            font-family: 'Indie Flower', cursive;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        .btn-es { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png'); }
-        .btn-ca { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/1200px-Flag_of_Catalonia.svg.png'); }
-        .lang-switch button:hover { transform: scale(1.1); }
+
+        .lang-switch button:hover {
+            background-color: #ffed85; /* Un amarillo más claro al pasar el ratón */
+            transform: scale(1.05);
+        }
+
+        /* CONTROL DE IDIOMAS (Imprescindible para que funcione) */
+        .lang-ca { display: none; }
+        body.lang-ca-active .lang-ca { display: inline-block; }
+        body.lang-ca-active .lang-es { display: none; }
 
         /* CONTROL DE IDIOMAS */
         .lang-ca { display: none; }
@@ -208,12 +216,8 @@
     <div class="main-container">
         
       <div class="lang-switch">
-        <span style="font-size: 0.9rem; color: #6a6ab0; margin-right: 5px; align-self: center; font-weight: bold;">
-            <span class="lang-es">Selecciona idioma:</span>
-            <span class="lang-ca">Selecciona idioma:</span>
-        </span>
-        <button onclick="changeLang('es')" class="btn-es"></button>
-        <button onclick="changeLang('ca')" class="btn-ca"></button>
+        <button onclick="changeLang('es')">CAS</button>
+        <button onclick="changeLang('ca')">CAT</button>
     </div>
 
         <header>
@@ -422,6 +426,7 @@
 </script>
 </body>
 </html>
+
 
 
 
