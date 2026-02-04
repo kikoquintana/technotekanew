@@ -40,38 +40,37 @@
             border-radius: 20px;
         }
 
-      /* BOTONES LAVANDA FUERTE A LA IZQUIERDA */
-        .lang-switch { 
-            display: block !important;
-            text-align: left !important;
-            width: 100%;
-            margin-bottom: 5px;
-            clear: both;
+      /* SELECTOR DE IDIOMA CENTRADO LAVANDA */
+        .lang-switch-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra botones y palabra */
+            margin: 0 auto 20px auto;
+            gap: 5px;
         }
 
-        .lang-switch button {
-            background-color: #8a8abf !important;
-            color: white !important;
-            border: 2px solid #6a6ab0 !important;
-            padding: 10px 25px;
-            font-size: 1.3rem;
+        .lang-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .lang-buttons button {
+            background-color: #8a8abf; /* Lavanda fuerte */
+            color: white; /* Texto en blanco para que destaque */
+            border: 2px solid #6a6ab0; 
+            padding: 10px 25px; /* Tamaño grande */
+            font-size: 1.3rem; /* Letra grande */
             border-radius: 12px;
             cursor: pointer;
             font-family: 'Indie Flower', cursive;
             font-weight: bold;
-            margin-right: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* PALABRA IDIOMA CENTRADA */
-        .idioma-central {
-            text-align: center !important;
-            width: 100% !important;
-            font-size: 1.1rem;
+        .lang-label {
+            font-size: 1rem;
             color: #6a6ab0;
             font-weight: bold;
-            margin-bottom: 25px;
-            display: block !important;
-            clear: both;
         }
 
         /* CONTROL DE IDIOMAS (Imprescindible para que funcione) */
@@ -431,6 +430,7 @@
 </script>
 </body>
 </html>
+
 
 
 
