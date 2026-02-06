@@ -129,30 +129,33 @@
 
         /* GALERÍA INFINITA */
         .galeria-auto {
-          margin: 30px 0;
-          background-color: rgba(255,255,255,0.5);
-          border-radius: 12px;
-          overflow: hidden;
-          padding: 15px 0;
-        }
-        
-        .slider-track {
-          display: flex;
-          width: fit-content;
-          animation: scrollSlider 60s linear infinite;
-        }
-        
-        .slider-track img {
-          height: 200px;
-          width: auto;
-          border-radius: 12px;
-          margin: 0 10px;
-        }
-        
-        @keyframes scrollSlider {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
+         margin: 30px 0;
+         background-color: rgba(255,255,255,0.5);
+         border-radius: 12px;
+         overflow: hidden;
+         padding: 15px 0;
+       }
+       
+       .slider-track {
+         display: flex;
+         width: max-content;
+         gap: 20px;
+         animation: scrollSlider 70s linear infinite;
+         will-change: transform;
+       }
+       
+       .slider-track img {
+         height: 200px;
+         width: auto;
+         border-radius: 12px;
+         flex: 0 0 auto;
+       }
+       
+       @keyframes scrollSlider {
+         0% { transform: translateX(0); }
+         100% { transform: translateX(-50%); }
+       }
+
 
 
         /* HORARIO */
@@ -290,15 +293,22 @@
             </p>
         </section>
 
-        <section class="galeria-auto">
-            <div class="slider-track">
-                <img src="images/boda 03.jpg" alt="1"><img src="images/boda 04.jpg" alt="2"><img src="images/boda 05.jpg" alt="3">
-                <img src="images/boda 06.jpg" alt="4"><img src="images/boda 07.jpg" alt="5"><img src="images/foto 08.jpg" alt="6">
-                <img src="images/foto 10.jpg" alt="2"><img src="images/foto 11.jpg" alt="3"><img src="images/Boda 12.jpg" alt="3">
-                <img src="images/Boda 13.jpg" alt="3"><img src="images/Boda 14.jpg" alt="3"><img src="images/foto 10.jpg" alt="3">
-                <img src="images/foto 11.jpg" alt="3"><img src="images/Boda 12.jpg" alt="3"><img src="images/boda 03.jpg" alt="1">
-            </div>
-        </section>
+       <section class="galeria-auto">
+  <div class="slider-track" id="sliderTrack">
+    <img src="images/boda 03.jpg" alt="">
+    <img src="images/boda 04.jpg" alt="">
+    <img src="images/boda 05.jpg" alt="">
+    <img src="images/boda 06.jpg" alt="">
+    <img src="images/boda 07.jpg" alt="">
+    <img src="images/foto 08.jpg" alt="">
+    <img src="images/foto 10.jpg" alt="">
+    <img src="images/foto 11.jpg" alt="">
+    <img src="images/Boda 12.jpg" alt="">
+    <img src="images/Boda 13.jpg" alt="">
+    <img src="images/Boda 14.jpg" alt="">
+  </div>
+</section>
+
 
         <section class="timeline">
             <h2><span class="lang-es">Horario</span><span class="lang-ca">Horari</span></h2>
@@ -453,6 +463,7 @@
 </script>
 </body>
 </html>
+
 
 
 
