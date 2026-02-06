@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -129,11 +129,31 @@
 
         /* GALERÍA INFINITA */
         .galeria-auto {
-            margin: 30px 0; background-color: rgba(255,255,255,0.5);
-            border-radius: 12px; overflow: hidden; padding: 15px 0;
+          margin: 30px 0;
+          background-color: rgba(255,255,255,0.5);
+          border-radius: 12px;
+          overflow: hidden;
+          padding: 15px 0;
         }
-        .slider-track { display: flex; width: max-content; animation: scrollSlider 40s linear infinite; }
-        .slider-track img { height: 200px; width: auto; border-radius: 12px; margin: 0 10px; }
+        
+        .slider-track {
+          display: flex;
+          width: fit-content;
+          animation: scrollSlider 60s linear infinite;
+        }
+        
+        .slider-track img {
+          height: 200px;
+          width: auto;
+          border-radius: 12px;
+          margin: 0 10px;
+        }
+        
+        @keyframes scrollSlider {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
 
         /* HORARIO */
         .timeline { padding: 20px; margin: 30px 0; }
@@ -439,6 +459,7 @@
 </script>
 </body>
 </html>
+
 
 
 
