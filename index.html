@@ -129,32 +129,32 @@
 
         /* GALERÍA INFINITA */
         .galeria-auto {
-         margin: 30px 0;
-         background-color: rgba(255,255,255,0.5);
-         border-radius: 12px;
-         overflow: hidden;
-         padding: 15px 0;
-       }
-       
-       .slider-track {
-         display: flex;
-         width: max-content;
-         gap: 20px;
-         animation: scrollSlider 70s linear infinite;
-         will-change: transform;
-       }
-       
-       .slider-track img {
-         height: 200px;
-         width: auto;
-         border-radius: 12px;
-         flex: 0 0 auto;
-       }
-       
-       @keyframes scrollSlider {
-         0% { transform: translateX(0); }
-         100% { transform: translateX(-50%); }
-       }
+            margin: 30px 0;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 15px 0;
+        }
+        
+        .slider-track {
+            display: flex;
+            width: max-content;
+            gap: 20px;
+            /* 40s es una buena velocidad, 'linear' para que no de tirones */
+            animation: scrollSlider 40s linear infinite; 
+        }
+        
+        .slider-track img {
+            height: 200px;
+            width: auto;
+            border-radius: 12px;
+            flex: 0 0 auto;
+        }
+        
+        @keyframes scrollSlider {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Se mueve hasta la mitad exacta */
+        }
 
 
 
@@ -294,19 +294,30 @@
         </section>
 
        <section class="galeria-auto">
-  <div class="slider-track" id="sliderTrack">
-    <img src="images/boda 03.jpg" alt="">
-    <img src="images/boda 04.jpg" alt="">
-    <img src="images/boda 05.jpg" alt="">
-    <img src="images/boda 06.jpg" alt="">
-    <img src="images/boda 07.jpg" alt="">
-    <img src="images/foto 08.jpg" alt="">
-    <img src="images/foto 10.jpg" alt="">
-    <img src="images/foto 11.jpg" alt="">
-    <img src="images/Boda 12.jpg" alt="">
-    <img src="images/Boda 13.jpg" alt="">
-  </div>
-</section>
+           <div class="slider-track" id="sliderTrack">
+             <img src="images/boda 03.jpg" alt="">
+             <img src="images/boda 04.jpg" alt="">
+             <img src="images/boda 05.jpg" alt="">
+             <img src="images/boda 06.jpg" alt="">
+             <img src="images/boda 07.jpg" alt="">
+             <img src="images/foto 08.jpg" alt="">
+             <img src="images/foto 10.jpg" alt="">
+             <img src="images/foto 11.jpg" alt="">
+             <img src="images/Boda 12.jpg" alt="">
+             <img src="images/Boda 13.jpg" alt="">
+         
+             <img src="images/boda 03.jpg" alt="">
+             <img src="images/boda 04.jpg" alt="">
+             <img src="images/boda 05.jpg" alt="">
+             <img src="images/boda 06.jpg" alt="">
+             <img src="images/boda 07.jpg" alt="">
+             <img src="images/foto 08.jpg" alt="">
+             <img src="images/foto 10.jpg" alt="">
+             <img src="images/foto 11.jpg" alt="">
+             <img src="images/Boda 12.jpg" alt="">
+             <img src="images/Boda 13.jpg" alt="">
+           </div>
+         </section>
 
 
         <section class="timeline">
@@ -462,6 +473,7 @@
 </script>
 </body>
 </html>
+
 
 
 
